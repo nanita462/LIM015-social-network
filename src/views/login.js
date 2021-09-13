@@ -8,9 +8,19 @@
 // };
 
 
+// const logIn = (elem) => {
+//   const goLogIn = elem.querySelector('#idLogin');
+//   goLogIn.addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     // const logInPassword = elem.querySelector('#idPassword').value;
+//     // const logInEmail = elem.querySelector('#idEmail').value;
+//     // const elemDiv = elem.querySelector('.msgErrorLogin');
+//   })
+// };
+
 //export default () => {
-export const login = () => {
-    const viewLogin = `
+const loginView = () => {
+  const view = `
     <section>
     <form class="formLogin" id="idLogin">
       <img src="img/arbol_ecologico.png" alt="EcoPunto">
@@ -50,5 +60,19 @@ export const login = () => {
       </section>
 
     </form>
-  </section>`
+  </section>`;
+
+
+  const mainLogin = document.getElementById('mainContainer');
+  mainLogin.innerHTML = '';
+  mainLogin.innerHTML = view;
+
+  //logIn(mainLogin);
+  //signInWithGoogle(articleElem);
+
+  return mainLogin;
+};
+
+export {
+  loginView
 };
