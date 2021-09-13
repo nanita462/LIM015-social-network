@@ -8,7 +8,7 @@ myFunction();
 import {
     //prueba
     login
-} from './components/login.js';
+} from './views/login.js';
 
 //myFunction2()
 document.querySelector("#mainContainer").innerHTML = login;
