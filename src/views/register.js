@@ -1,7 +1,7 @@
 /* eslint-disable */
 
-export const register = () => {
-    const viewRegister = `
+export const registerView = () => {
+  const view = `
     <section>
     <form class="formRegister" id="idRegister">
       <img src="img/arbol_ecologico.png" alt="EcoPunto">
@@ -42,5 +42,16 @@ export const register = () => {
       </section>
 
     </form>
-  </section>`
+  </section>`;
+
+  const mainRegister = document.getElementById('mainContainer');
+  mainRegister.innerHTML = '';
+  mainRegister.innerHTML = view;
+
+  //logIn(mainLogin);
+  //signInWithGoogle(articleElem);
+
+  return mainRegister;
+
+
 };
