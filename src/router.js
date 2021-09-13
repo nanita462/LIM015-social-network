@@ -5,19 +5,23 @@ const changeMenu = (rute) => {
 
     const container = document.querySelector('#mainContainer');
     container.innerHTML = '';
-    container.appendChild(components.login());
+    //container.appendChild(components.login());
 
+    switch (rute) {
 
-    // switch (rute) {
+        case '#/':
+            //components.login.loginView();
+            container.appendChild(components.login());
+            break;
 
-    //     case '#/login':
-    //         container.appendChild(components.login());
-    //         break;
+        case '#/register':
+            //components.register.registerView();
+            container.appendChild(components.register());
+            break;
 
-    //     default:
-    //         console.log("No tengo nada");
-    //         break;
-    // }
+        default:
+            return components.error404();
+    }
 };
 
 
