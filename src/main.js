@@ -1,16 +1,19 @@
-/* eslint-disable */
+
 
 
 import {
     changeMenu
 } from './router.js';
 
+
 const init = () => {
     if (window.location.hash === '') {
         window.location.hash = '#/';
+
     }
     changeMenu(window.location.hash);
     window.addEventListener('hashchange', () => changeMenu(window.location.hash));
+    
 };
 
 window.addEventListener('load', init);
