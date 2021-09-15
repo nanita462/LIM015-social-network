@@ -2,9 +2,13 @@
 
 export const registerView = () => {
   const view = `
-    <section>
-    <form class="formRegister" id="idRegister">
-      <img src="img/arbol_ecologico.png" alt="EcoPunto">
+  <section class= "secViewDesktop">
+  <section class= "secCover">
+  <img class="imgCoverRegister" src="img/mundoverde.png" alt="MundoVerde">
+  </section>
+    <section class= "secLogin">
+    <form class="formLogin" id="idRegister">
+      <img class="imgLogin" src="img/arbol_ecologico.png" alt="EcoPunto">
       <h1 class="tittle">EcoPunto</h1>
       <h2 class="text">¡Vamos, crea tu cuenta green!</h2>
 
@@ -22,27 +26,33 @@ export const registerView = () => {
       <!-- Mensaje de error -->
       <section class="msgErrorRegister"></section>
 
-      <h2 class="text">O bien registra con...</h2>
+      <h2 class="textOne">O bien registra con...</h2>
 
+      <section class="secIcons">
       <section class="secIconGoogle">
-        <a class="iconGoogle" href="#" alt="Google">
-          <i class="iconify" data-icon="flat-color-icons:google" id="buttonGoogleRegister"></i>
-        </a>
+      <a class="iconGoogle" href="" alt="Google">
+      <img class= "icon" src="./img/google.png" alt="Google">
+      </a>
       </section>
 
       <section class="secIconFb">
-        <a class="iconFb" href="#" alt="Facebook">
-          <i class="iconify" data-icon="logos:facebook" id="buttonFbRegister"></i>
-        </a>
+      <a class="iconFb" href="#" alt="Facebook">
+      <img class= "icon" src="./img/facebook.png" alt="facebook">
+      </a>
+      </section>
       </section>
 
       <section class="secLinkRegister">
-        <h2 class="text">¿Ya tienes una cuenta?</h2>
-        <h2 class="text"><a href='#'>Inicia sesión aquí</a></h2>
+        <h2 class="textOne">¿Ya tienes una cuenta?</h2>
+        <h2 class="textTwo" id= "textRegisterHere"><a href='#'>Inicia sesión aquí</a></h2>
       </section>
 
     </form>
-  </section>`;
+  </section>
+  
+  
+  </section>
+  `;
 
   const mainRegister = document.getElementById('mainContainer');
   mainRegister.innerHTML = '';

@@ -1,7 +1,259 @@
-* {
+body{
+    background-color: #FFFAB1;
     font-family: 'Roboto', sans-serif;
- }
+    margin: 0px;
+    padding: 0px;
 
- h1{
-     color : red;
- }
+}
+
+.secViewDesktop{
+    display: grid;
+    grid-template-columns: 0px 2fr;
+    width: 100%;
+    *height: 100vh;
+    padding-top: 18px;
+  
+}
+
+.secViewDesktop.hidden {
+    display: none;
+  }
+  
+.secViewDesktop .secCover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: right;
+  }
+  
+.secViewDesktop .secCover > img {
+    display: none;
+  }
+  
+  
+.imgCover{
+    width: 100%;
+    height: 600px; 
+    position: relative;
+    *padding-top: 100px;
+    *padding-left: 100px;
+}
+
+.imgCoverRegister{
+    width: 100%;
+    height: 400px; 
+    position: relative;
+}
+
+.secLogin{
+    width: 100%;
+    *height: 100%;
+    display: grid;
+    text-align: center;
+    background-color: #FFFAB1;
+    grid-template-columns: auto;
+    justify-content: center;
+    
+    
+    
+}
+
+
+
+.imgLogin{
+    width: 155px;
+    height: 160px;
+    padding-top: 30px;
+
+}
+
+.tittle{
+ font-size: 35px;
+ margin-top: 0px;
+ font-family: 'Ribeye', cursive;
+ margin-bottom: 5px;
+
+}
+
+.text{
+   font-size: 22px; 
+   margin-top: 0px;
+   
+}
+
+.secEmail{
+    padding-bottom: 10px;
+    
+}
+.inputEmail{
+    background-color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    *box-shadow: 5px;
+    height: 40px;
+    width: 290px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.secPassword{
+    padding-bottom: 20px;
+    
+}
+.inputPassword{
+    background-color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    *box-shadow: 5px;
+    height: 40px;
+    width: 290px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+::placeholder{
+    font-size: 18px;
+    color: #727074;
+    text-align: center;
+    
+
+    
+
+}
+.inputSubmit{
+    padding-bottom: 10px;
+    color: #ffffff;
+    background: #55A603;
+    border-color: #55A603;
+    border-radius: 20px;
+    border: none;
+    width: 140px;
+    height: 40px;
+    cursor: pointer;
+    vertical-align: bottom;
+    padding-top: 7px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.textOne{
+    font-size: 18px; 
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #000000;
+    font-weight: bold;
+    cursor: pointer;
+    
+}
+
+.textTwo{
+    font-size: 18px; 
+    margin-top: 0px;
+    margin-bottom: 0px;
+    
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration:none;
+
+}
+.textTwo a:hover {
+    color: black;
+}
+
+.secIcons{
+display: flex;
+flex-direction: row;
+justify-content: center;
+margin-top: 5px;
+}
+
+.icon{
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    
+}
+
+.secError{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    text-align: center;
+    background-color: #834813;
+    grid-template-columns: auto;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.hError{
+    font-family: 'Ribeye', cursive;
+    font-size: 50px; 
+    color: #ffffff;
+    padding-top: 20px;
+}
+
+
+.pError{
+    font-size: 25px; 
+    padding-bottom: 5px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-weight: bold;
+    color: #ffffff;
+
+}
+
+.secImgError{
+    padding: 20px;
+}
+
+.imgError{
+
+    width: 200px;
+    height: 200px;
+    
+}
+
+.secInputError{
+    padding-top: 20px;
+
+}
+
+
+
+.inputError{
+    padding-bottom: 10px;
+    color: #ffffff;
+    background: #55A603;
+    border-color: #55A603;
+    border-radius: 20px;
+    border: none;
+    width: 140px;
+    height: 40px;
+    cursor: pointer;
+    vertical-align: bottom;
+    padding-top: 7px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    justify-content: center;
+}
+
+
+ 
+
+
+
+
+@media screen and (min-width: 1024px) {
+    .secViewDesktop {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .secViewDesktop .secCover > img{
+      display: block;
+    }
+}
