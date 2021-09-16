@@ -1,23 +1,37 @@
-/* eslint-disable */
 import components from './views/components.js';
 
 const changeMenu = (rute) => {
 
-    const container = document.querySelector('#mainContainer');
-    container.innerHTML = '';
-    //container.appendChild(components.login());
+    // const mainContainer = document.querySelector('#mainContainer');
+    // mainContainer.innerHTML = '';
+    //const root = document.querySelector('#root');
+    const root = document.querySelector('#root');
+    //root.innerHTML = '';
 
     switch (rute) {
-
+        //case '':
+        // //mainContainer.appendChild(components.login());
+        //root.appendChild(components.login());
+        // break;
+        case '':
+        case '#':
         case '#/':
             //components.login.loginView();
-            container.appendChild(components.login());
+            //mainContainer.appendChild(components.login());
+            return root.appendChild(components.login());
             break;
 
         case '#/register':
             //components.register.registerView();
-            container.appendChild(components.register());
+            // mainContainer.appendChild(components.register());
+            return root.appendChild(components.register());
             break;
+
+        case '#/home':
+            //components.register.homeView();
+            // mainContainer.appendChild(components.home());
+            return root.appendChild(components.home());
+            // break;
 
         default:
             return components.error404();
@@ -28,3 +42,5 @@ const changeMenu = (rute) => {
 export {
     changeMenu
 };
+
+//export const changeView = (rute) => changeMenu(rute);
