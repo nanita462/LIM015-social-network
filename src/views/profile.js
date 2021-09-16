@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 const perfilView = ((userData) => {
   //document.createElement('section');
   //perfilView.className += "containerPro";
