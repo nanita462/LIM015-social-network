@@ -1,23 +1,12 @@
+// import {
+//   singInWEP,
+//   signInWithGoogle,
+//   signInWithFb,
+// } from "firebase/auth.js";
 
 
-// export const myFunction2 = () => {
-//     // aqui tu codigo
-//     console.log('Hola mundo!');
-// };
 
-
-// const logIn = (elem) => {
-//   const goLogIn = elem.querySelector('#idLogin');
-//   goLogIn.addEventListener('submit', (e) => {
-//     e.preventDefault();
-//     // const logInPassword = elem.querySelector('#idPassword').value;
-//     // const logInEmail = elem.querySelector('#idEmail').value;
-//     // const elemDiv = elem.querySelector('.msgErrorLogin');
-//   })
-// };
-
-//export default () => {
- export const loginView = () => {
+export const loginView = () => {
   const view = `
   <section class= "secViewDesktop">
   <section class= "secCover">
@@ -74,17 +63,61 @@
   </section>
   </section>
   `;
+  const mainLogin = document.getElementById('mainContainer');
+  mainLogin.innerHTML = '';
+  mainLogin.innerHTML = view;
+  return mainLogin;
 
-
-  const mainContainer = document.getElementById('"mainContainer');
-  mainContainer.innerHTML = '';
-  mainContainer.innerHTML = view;
-
-  //logIn(mainLogin);
-  //signInWithGoogle(articleElem);
-
-  return mainContainer;
+  // const root = document.getElementById('root');
+  // root.innerHTML = '';
+  // root.innerHTML = view;
+  // return root;
 };
 
 
 
+// export const eventLogin = () => {
+//   // const goLogIn = element.querySelector('form');
+//   // goLogIn.addEventListener('submit', (e) => {
+//   const btnLogin = document.querySelector('#idSubmit');
+//   btnLogin.addEventListener('submit', (e) => {
+
+//     const logInEmail = element.querySelector('#idEmail').value;
+//     const logInPassword = element.querySelector('#idPassword').value;
+//     const elemDiv = element.querySelector('.msgErrorLogin');
+
+//     singInWEP(logInEmail, logInPassword).catch(error => console.log(error.message));
+//   })
+// }
+
+
+// export const eventLogin = (element) => {
+//   // const goLogIn = element.querySelector('form');
+//   // goLogIn.addEventListener('submit', (e) => {
+//   const btnLogin = element.querySelector('#idSubmit');
+//   btnLogin.addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     const logInPassword = element.querySelector('#idPassword').value;
+//     const logInEmail = element.querySelector('#idEmail').value;
+//     const elemDiv = element.querySelector('.msgErrorLogin');
+
+//     logInAuth(logInEmail, logInPassword)
+//       .then((userCredential) => {
+//         const user = userCredential.user;
+//         if (user.emailVerified) {
+//           window.location.hash = '#/register';
+//         } else {
+//           elemDiv.textContent = '⚠️ Please verify your email and try again.';
+//         }
+//       })
+//       .catch((error) => {
+//         if (error.code === 'auth/wrong-password') {
+//           elemDiv.textContent = '⚠️ Your password is wrong. Try again.';
+//         } else if (error.code === 'auth/user-not-found') {
+//           elemDiv.textContent = '⚠️ The email you entered does not match to any account. Try again.';
+//         } else {
+//           elemDiv.textContent = '⚠️ An error occurred. Please try again.';
+//         }
+//       });
+//   });
+// };

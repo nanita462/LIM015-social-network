@@ -1,4 +1,19 @@
-/* eslint-disable */
+// import {
+//   createUserWEP,
+//   signOut,
+//   //getUser,
+// } from "./firebase/auth.js";
+
+
+
+// export const abc = () => {
+//   const idNameRegister = element.querySelector('#idNameRegister').value;
+//   const idEmailRegister = element.querySelector('#idEmailRegister').value;
+//   alert("email:" + idNameRegister + "pass: " + idEmailRegister)
+// }
+
+
+
 
 export const registerView = () => {
   const view =`
@@ -70,11 +85,97 @@ export const registerView = () => {
   mainContainer.innerHTML = '';
   mainContainer.innerHTML = view;
 
-  //logIn(mainLogin);
-  //signInWithGoogle(articleElem);
+  //eventRegister(mainRegister)
+  return mainRegister;
 
-  return mainContainer;
-  };
+  // const root = document.getElementById('root');
+  // root.innerHTML = '';
+  // root.innerHTML = view;
+  // return root;
+
+};
+
+// //Verificando password
+// const verifyPass = ((pass) => {
+//   return pass.search(/(?=.*[a-z])(?=.*[0-9])(?=.*[@$#!?])[a-zA-Z0-9@$#!?]{8,32}/g) !== -1;
+// });
 
 
- 
+// export const eventRegister = () => {
+//   const idRegister = document.querySelector('#idRegister');
+//   idRegister.addEventListener('submit', (e) => {
+
+//     const idNameRegister = document.querySelector('#idNameRegister').value;
+//     const idEmailRegister = document.querySelector('#idEmailRegister').value;
+//     const idPasswordRegister = document.querySelector('#idPasswordRegister').value;
+//     const msgErrorRegister = document.querySelector('.msgErrorRegister');
+//     e.preventDefault();
+
+//     if (idNameRegister === '') {
+//       msgErrorRegister.innerHTML = `<p>Se requiere usuario</p>`;
+//     } else if (idEmailRegister === '') {
+//       msgErrorRegister.innerHTML = `<p>Se requiere correo</p>`;
+
+//     } else if (idPasswordRegister === '') {
+//       msgErrorRegister.innerHTML = `<p>Se requiere password</p>`;
+//     } else if (verifyPass(idPasswordRegister) === false) {
+//       msgWarning.innerHTML = `<p>mínimo 8 dígitos, 1 número y 1 carácter especial $#@!?</p>`;
+//     } else {
+//       createUserWEP(idEmailRegister, idPasswordRegister)
+//         .then((result) => {
+//           getUser().updateProfile({
+//             displayName: idNameRegister
+//           }).then(() => {}).catch((error) => {
+//             console.log(error);
+//           });
+//           createUser(result.user.uid);
+//         })
+//         .then(() => {
+//           window.location.hash = '#/register';
+//           alert('Enviando mensaje de validación a tu correo.');
+//           const configuration = {
+//             url: 'http://localhost:5000/#/register',
+//           };
+//           getUser().sendEmailVerification(configuration);
+//         })
+//         .catch((err) => console.error(err));
+//     }
+//   })
+// }
+
+
+// export const eventRegister = () => {
+//   const idRegister = document.querySelector('#idRegister');
+//   idRegister.addEventListener('submit', (e) => {
+
+//     const idNameRegister = document.querySelector('#idNameRegister').value;
+//     const idEmailRegister = document.querySelector('#idEmailRegister').value;
+//     const idPasswordRegister = document.querySelector('#idPasswordRegister').value;
+//     const msgErrorRegister = document.querySelector('.msgErrorRegister');
+//     e.preventDefault();
+
+//     createUserWEP(idEmailRegister, idPasswordRegister)
+//       .then((resp) => {
+//         const user = resp.user;
+//         user.updateProfile({
+//           displayName: idNameRegister,
+//         });
+//         const config = {
+//           url: 'http://localhost:5000/#/',
+//         };
+//         user.sendEmailVerification(config).then(() => {
+//             alert('Enviamos un correo de verificación. Por favor verificar y confirma que eres tú.');
+//           })
+//           .catch((error) => {
+//             console.log(error);
+//           })
+
+//         signOut()
+//         window.location.hash = '#/';
+
+//       })
+//       .catch((err) => (err.code === 'auth/email-already-in-use' ?
+//         msgErrorRegister.textContent = 'El correo registrado ya existe. Por favor intenta con otro.' :
+//         msgErrorRegister.textContent = 'Ocurrió un error. Por favor intenta otra vez.'));
+//   })
+// }

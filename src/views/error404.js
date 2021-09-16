@@ -1,10 +1,8 @@
-/* eslint-disable */
-
 export default () => {
-    const view = `
+  const view = `
   <section class="secError">
   <h1 class="hError"> Error 404 </h1>
-  <p class= "pError">Upsss...</p> 
+  <p class= "pError">Upsss...</p>
   <p class= "pError">La página</p>
   <p class= "pError">no ha sido Encontrada</p>
   <section class= "secImgError">
@@ -15,9 +13,9 @@ export default () => {
     </section>
    </section>`;
 
-    const mainError404 = document.getElementById('mainContainer');
-    mainError404.innerHTML = '';
-    mainError404.innerHTML = view;
+  const mainError404 = document.getElementById('mainContainer');
+  mainError404.innerHTML = '';
+  mainError404.innerHTML = view;
 
-    return mainError404;
+  return mainError404;
 };

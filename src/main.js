@@ -1,5 +1,23 @@
+// import {
+//     changeMenu
+// } from './router.js';
+
+
+// const init = () => {
+//     if (window.location.hash === '') {
+//         window.location.hash = '#/';
+
+//     }
+//     changeMenu(window.location.hash);
+//     window.addEventListener('hashchange', () => changeMenu(window.location.hash));
+
+// };
+
+// window.addEventListener('load', init);
+
+
 import {
-    changeMenu
+    changeMenu,
 } from './router.js';
 
 const initRouter = () => {
@@ -14,16 +32,6 @@ window.addEventListener('load', () => {
 });
 
 
-
-// const init = () => {
-//     if (window.location.hash === '') {
-//         window.location.hash = '#/';
-
-//     }
-//     changeMenu(window.location.hash);
-//     window.addEventListener('hashchange', () => changeMenu(window.location.hash));
-    
-// };
 
 // window.addEventListener('load', init);
 //registerView()
