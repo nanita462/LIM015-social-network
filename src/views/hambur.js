@@ -1,4 +1,3 @@
-/* eslint-disable */
 /*
 `
 <!--Header + menú de navegación-->
