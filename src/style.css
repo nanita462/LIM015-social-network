@@ -54,18 +54,17 @@ body{
     background-color: #FFFAB1;
     grid-template-columns: auto;
     justify-content: center;
-    
-    
-    
 }
 
-
+.secImgLogin{
+    justify-content: center;
+}
 
 .imgLogin{
     width: 155px;
     height: 160px;
-    padding-top: 30px;
-
+    padding-top: 20px;
+    
 }
 
 .tittle{
@@ -82,11 +81,11 @@ body{
    
 }
 
-.secEmail{
+.secEmail, .secName{
     padding-bottom: 10px;
     
 }
-.inputEmail{
+.inputEmail, .inputName{
     background-color: #ffffff;
     border: none;
     border-radius: 20px;
@@ -257,3 +256,8 @@ margin-top: 5px;
       display: block;
     }
 }
+
+
+
+
+

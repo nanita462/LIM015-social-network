@@ -1,6 +1,4 @@
-/* eslint-disable */
 
-//export const abc = "Hola3";
 
 // export const myFunction2 = () => {
 //     // aqui tu codigo
@@ -19,20 +17,23 @@
 // };
 
 //export default () => {
-const loginView = () => {
+ export const loginView = () => {
   const view = `
   <section class= "secViewDesktop">
   <section class= "secCover">
   <img class="imgCover" src="img/mundoverde4.png" alt="MundoVerde">
 
   </section>
+
   <section class= "secLogin">
-  
-      <form class="formLogin" id="idLogin">
+      <section class= "secImgLogin">
       <img class="imgLogin" src="img/arbol_ecologico.png" alt="EcoPunto">
+      </section>
+
       <h1 class="tittle">EcoPunto</h1>
       <h2 class="text">¡Bienvenid@ al mundo green!</h2>
 
+    <form class="formLogin" id="idLogin">
       <section class="secEmail">
         <input class="inputEmail" type="email" id="idEmail" placeholder="Ingresa tu Email" required>
       </section>
@@ -41,10 +42,13 @@ const loginView = () => {
         <input class="inputPassword" type="password" id="idPassword" placeholder="Ingresa tu contraseña" required>
       </section>
 
-      <!-- Botón submit - enviar -->
-      <input class="inputSubmit" type="submit" id="idSubmit" value="Ingresar">
       <!-- Mensaje de error -->
       <section class="msgErrorLogin"></section>
+
+      <!-- Botón submit - enviar -->
+      <input class="inputSubmit" type="submit" id="idSubmit" value="Ingresar">
+
+    </form>
 
       <h2 class="textOne">O bien ingresa con...</h2>
 
@@ -64,25 +68,23 @@ const loginView = () => {
 
       <section class="secLinkRegister">
         <h2 class="textOne">¿No tienes una cuenta?</h2>
-        <h2 class="textTwo" id= "textLoginHere"><a href='#'>Registrate aqui</a></h2>
+        <h2 class="textTwo" id="textRegisterHere"><a href='#/register'>Registrate aqui</a></h2>
       </section>
 
-    </form>
   </section>
   </section>
   `;
 
 
-  const mainLogin = document.getElementById('mainContainer');
-  mainLogin.innerHTML = '';
-  mainLogin.innerHTML = view;
+  const mainContainer = document.getElementById('"mainContainer');
+  mainContainer.innerHTML = '';
+  mainContainer.innerHTML = view;
 
   //logIn(mainLogin);
   //signInWithGoogle(articleElem);
 
-  return mainLogin;
+  return mainContainer;
 };
 
-export {
-  loginView
-};
+
+

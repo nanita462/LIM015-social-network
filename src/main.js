@@ -1,24 +1,38 @@
-
-
-
 import {
     changeMenu
 } from './router.js';
 
-
-const init = () => {
-    if (window.location.hash === '') {
-        window.location.hash = '#/';
-
-    }
-    changeMenu(window.location.hash);
-    window.addEventListener('hashchange', () => changeMenu(window.location.hash));
-    
+const initRouter = () => {
+    window.addEventListener('hashchange', () => {
+        changeMenu(window.location.hash); //devuelve ruta
+    });
 };
+//window.addEventListener('load', initRouter);
+window.addEventListener('load', () => {
+    changeMenu(window.location.hash);
+    initRouter();
+});
 
-window.addEventListener('load', init);
 
 
+// const init = () => {
+//     if (window.location.hash === '') {
+//         window.location.hash = '#/';
+
+//     }
+//     changeMenu(window.location.hash);
+//     window.addEventListener('hashchange', () => changeMenu(window.location.hash));
+    
+// };
+
+// window.addEventListener('load', init);
+//registerView()
+//const singForm= document.querySelector('#idRegister');
+//singForm.addEventListener('submit', ()=>{
+  //console.log ("submit")
+//})
+
+//singForm()
 
 // import {
 //     myFunction

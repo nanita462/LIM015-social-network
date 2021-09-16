@@ -1,22 +1,23 @@
-/* eslint-disable */
+
 import components from './views/components.js';
 
 const changeMenu = (rute) => {
 
-    const container = document.querySelector('#mainContainer');
-    container.innerHTML = '';
+    const root = document.querySelector('#root');
+    //mainContainer.innerHTML = '';
     //container.appendChild(components.login());
 
     switch (rute) {
-
+        case '':
+        case '#':
         case '#/':
             //components.login.loginView();
-            container.appendChild(components.login());
+            return root.appendChild(components.login());
             break;
 
         case '#/register':
             //components.register.registerView();
-            container.appendChild(components.register());
+            return root.appendChild(components.register());
             break;
 
         default:
