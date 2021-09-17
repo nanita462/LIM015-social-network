@@ -1,18 +1,106 @@
-// import {
-//   createUserWEP,
-//   signOut,
-//   //getUser,
-// } from "./firebase/auth.js";
+import {
+  createUserWEP,
+  signOut,
+  signInWithGoogle,
+  //signInWithFb,
+  //createUser,
+  //getUser,
+} from "../firebase/auth.js";
 
 
+// //Verificando password
+const verifyPass = ((pass) => {
+  return pass.search(/(?=.*[a-z])(?=.*[0-9])(?=.*[@$#!?])[a-zA-Z0-9@$#!?]{8,32}/g) !== -1;
+});
 
-// export const abc = () => {
-//   const idNameRegister = element.querySelector('#idNameRegister').value;
-//   const idEmailRegister = element.querySelector('#idEmailRegister').value;
-//   alert("email:" + idNameRegister + "pass: " + idEmailRegister)
+
+//Registro con Email y idPassword Register
+const registerWEP = (document) => {
+  const goRegister = mainContainer.querySelector('form');
+  goRegister.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const idNameRegister = document.querySelector('#idNameRegister').value;
+    const idEmailRegister = document.querySelector('#idEmailRegister').value;
+    const idPasswordRegister = document.querySelector('#idPasswordRegister').value;
+    const msgErrorRegister = document.querySelector('.msgErrorRegister');
+
+    if (verifyPass(idPasswordRegister) === false) {
+      msgErrorRegister.innerHTML = `<p class="textError">Mínimo 8 caracteres, incluye un número y un carácter especial $#@!?</p>`;
+    } else {
+      createUserWEP(idEmailRegister, idPasswordRegister)
+        .then((credentials) => {
+          const user = credentials.user;
+          user.updateProfile({
+            displayName: idNameRegister,
+          });
+          const configRegister = {
+            url: 'http://localhost:5000/#/'
+          };
+          user.sendEmailVerification(configRegister)
+            .then(() => {
+              alert("Te enviamos un correo de verificación.")
+            }).catch((error) => {
+              console.log(error);
+            });
+
+          signOut();
+          window.location.hash = '#/';
+        }).catch((err) => (err.code === 'auth/email-already-in-use' ?
+          msgErrorRegister.textContent = "El correo ya esta registrado. Por favor intenta con otro correo." :
+          msgErrorRegister.textContent = "Ha ocurrido un error. Intenta otra vez."));
+    }
+  })
+};
+
+
+const registerWithGoogle = (document) => {
+  const idGoogle = document.querySelector("#idGoogle");
+  idGoogle.addEventListener('click', () => {
+    const msgErrorRegister = document.querySelector('.msgErrorRegister');
+
+    signInWithGoogle()
+      .then((credentials) => {
+        //console.log(credentials)
+        const user = credentials.user;
+        window.location.hash = '#/home';
+
+        return {
+          user,
+          userEmail: user.email,
+          userName: user.displayName,
+          userPhoto: user.photoURL,
+          userToken: user.refreshToken,
+        };
+      }).catch(() => {
+        msgErrorRegister.textContent = "Ha ocurrido un error. Intenta otra vez.";
+      })
+  });
+}
+
+
+// const registerWithFb = (document) => {
+//   const idFb = document.querySelector("#idFb");
+//   idFb.addEventListener('click', () => {
+//     const msgErrorRegister = document.querySelector('.msgErrorRegister');
+
+//     signInWithFb()
+//       .then((credentials) => {
+//         //console.log(credentials)
+//         const user = credentials.user;
+//         window.location.hash = '#/home';
+
+//         return {
+//           user,
+//           userEmail: user.email,
+//           userName: user.displayName,
+//           userPhoto: user.photoURL,
+//           userToken: user.refreshToken,
+//         };
+//       }).catch(() => {
+//         msgErrorRegister.textContent = "Ha ocurrido un error. Intenta otra vez.";
+//       })
+//   });
 // }
-
-
 
 
 export const registerView = () => {
@@ -33,6 +121,7 @@ export const registerView = () => {
       <form class="formLogin" id="idRegister">
 
       <section class="secName">
+      <i class="fa fa-user icon"></i>
         <input class="inputName" type="text" id="idNameRegister" placeholder="Ingresa tu nombre de usuario" required>
       </section>
 
@@ -56,15 +145,15 @@ export const registerView = () => {
       <h2 class="textOne">O bien registra con...</h2>
 
       <section class="secIcons">
-      <section class="secIconGoogle">
-      <a class="iconGoogle" href="" alt="Google">
+      <section class="secIconGoogle" id= "idGoogle">
+      <a class="iconGoogle" alt="Google">
       <img class= "icon" src="./img/google.png" alt="Google">
       </a>
       </section>
 
       <section class="secIconFb">
-      <a class="iconFb" href="#" alt="Facebook">
-      <img class= "icon" src="./img/facebook.png" alt="facebook">
+      <a class="iconFb" alt="Facebook">
+      <img class= "icon" id= "idFb" src="./img/facebook.png" alt="facebook">
       </a>
       </section>
       </section>
@@ -81,101 +170,12 @@ export const registerView = () => {
   </section>
   `;
 
-  const mainRegister = document.getElementById('mainContainer');
-  mainRegister.innerHTML = '';
-  mainRegister.innerHTML = view;
+  const mainContainer = document.getElementById('mainContainer');
+  mainContainer.innerHTML = '';
+  mainContainer.innerHTML = view;
 
-  //eventRegister(mainRegister)
-  return mainRegister;
-
-  // const root = document.getElementById('root');
-  // root.innerHTML = '';
-  // root.innerHTML = view;
-  // return root;
-
-};
-
-// //Verificando password
-// const verifyPass = ((pass) => {
-//   return pass.search(/(?=.*[a-z])(?=.*[0-9])(?=.*[@$#!?])[a-zA-Z0-9@$#!?]{8,32}/g) !== -1;
-// });
-
-
-// export const eventRegister = () => {
-//   const idRegister = document.querySelector('#idRegister');
-//   idRegister.addEventListener('submit', (e) => {
-
-//     const idNameRegister = document.querySelector('#idNameRegister').value;
-//     const idEmailRegister = document.querySelector('#idEmailRegister').value;
-//     const idPasswordRegister = document.querySelector('#idPasswordRegister').value;
-//     const msgErrorRegister = document.querySelector('.msgErrorRegister');
-//     e.preventDefault();
-
-//     if (idNameRegister === '') {
-//       msgErrorRegister.innerHTML = `<p>Se requiere usuario</p>`;
-//     } else if (idEmailRegister === '') {
-//       msgErrorRegister.innerHTML = `<p>Se requiere correo</p>`;
-
-//     } else if (idPasswordRegister === '') {
-//       msgErrorRegister.innerHTML = `<p>Se requiere password</p>`;
-//     } else if (verifyPass(idPasswordRegister) === false) {
-//       msgWarning.innerHTML = `<p>mínimo 8 dígitos, 1 número y 1 carácter especial $#@!?</p>`;
-//     } else {
-//       createUserWEP(idEmailRegister, idPasswordRegister)
-//         .then((result) => {
-//           getUser().updateProfile({
-//             displayName: idNameRegister
-//           }).then(() => {}).catch((error) => {
-//             console.log(error);
-//           });
-//           createUser(result.user.uid);
-//         })
-//         .then(() => {
-//           window.location.hash = '#/register';
-//           alert('Enviando mensaje de validación a tu correo.');
-//           const configuration = {
-//             url: 'http://localhost:5000/#/register',
-//           };
-//           getUser().sendEmailVerification(configuration);
-//         })
-//         .catch((err) => console.error(err));
-//     }
-//   })
-// }
-
-
-// export const eventRegister = () => {
-//   const idRegister = document.querySelector('#idRegister');
-//   idRegister.addEventListener('submit', (e) => {
-
-//     const idNameRegister = document.querySelector('#idNameRegister').value;
-//     const idEmailRegister = document.querySelector('#idEmailRegister').value;
-//     const idPasswordRegister = document.querySelector('#idPasswordRegister').value;
-//     const msgErrorRegister = document.querySelector('.msgErrorRegister');
-//     e.preventDefault();
-
-//     createUserWEP(idEmailRegister, idPasswordRegister)
-//       .then((resp) => {
-//         const user = resp.user;
-//         user.updateProfile({
-//           displayName: idNameRegister,
-//         });
-//         const config = {
-//           url: 'http://localhost:5000/#/',
-//         };
-//         user.sendEmailVerification(config).then(() => {
-//             alert('Enviamos un correo de verificación. Por favor verificar y confirma que eres tú.');
-//           })
-//           .catch((error) => {
-//             console.log(error);
-//           })
-
-//         signOut()
-//         window.location.hash = '#/';
-
-//       })
-//       .catch((err) => (err.code === 'auth/email-already-in-use' ?
-//         msgErrorRegister.textContent = 'El correo registrado ya existe. Por favor intenta con otro.' :
-//         msgErrorRegister.textContent = 'Ocurrió un error. Por favor intenta otra vez.'));
-//   })
-// }
+  registerWEP(mainContainer);
+  registerWithGoogle(mainContainer);
+  //registerWithFb(mainContainer);
+  return mainContainer;
+}
