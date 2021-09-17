@@ -31,7 +31,7 @@ const changeMenu = (rute) => {
             //components.register.homeView();
             // mainContainer.appendChild(components.home());
             return root.appendChild(components.home());
-            // break;
+            break;
 
         default:
             return components.error404();
