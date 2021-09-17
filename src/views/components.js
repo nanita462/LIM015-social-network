@@ -1,6 +1,6 @@
 import {
     loginView,
-    //eventLogin
+    //eventLogin,
 } from "./login.js";
 
 import {

@@ -1,8 +1,8 @@
-// import {
-//   createUserWEP,
+import {
+createUserWEP,
 //   signOut,
 //   //getUser,
-// } from "./firebase/auth.js";
+} from "../firebase/auth.js";
 
 
 
@@ -85,15 +85,29 @@ export const registerView = () => {
   mainContainer.innerHTML = '';
   mainContainer.innerHTML = view;
 
+  const goRegister = mainContainer.querySelector('form');
+    goRegister.addEventListener('submit', (e) => {
+     e.preventDefault();
+      const logInEmail = document.querySelector('#idEmailRegister').value;
+      const logInPassword = document.querySelector('#idPasswordRegister').value;
+      //console.log (logInEmail, logInPassword);
+
+      createUserWEP(logInEmail,logInPassword)
+      .then(userCredential =>{
+        console.log("credenciales");
+      });
+
+    })}
+
   //eventRegister(mainRegister)
-  return mainRegister;
+  //return mainContainer;
 
   // const root = document.getElementById('root');
   // root.innerHTML = '';
   // root.innerHTML = view;
   // return root;
 
-};
+//};
 
 // //Verificando password
 // const verifyPass = ((pass) => {
