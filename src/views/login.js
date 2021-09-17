@@ -1,11 +1,10 @@
 //import {
-  //singInWEP,
-  //signInWithGoogle,
-  //signInWithFb,
- //} from "../firebase/auth.js";
+//singInWEP,
+//signInWithGoogle,
+//signInWithFb,
+//} from "../firebase/auth.js";
 
 //import { auth } from "../firebase/config.js";
-
 
 
 export const loginView = () => {
@@ -69,93 +68,93 @@ export const loginView = () => {
   mainLogin.innerHTML = '';
   mainLogin.innerHTML = view;
   return mainLogin;
-  }
-  // const root = document.getElementById('root');
-  // root.innerHTML = '';
-  // root.innerHTML = view;
-  // return root;
-  
-    // const goLogIn = mainLogin.querySelector('form');
-    // goLogIn.addEventListener('submit', (e) => {
-    //  e.preventDefault();
-    //   const logInEmail = document.querySelector('#idEmail').value;
-    //   const logInPassword = document.querySelector('#idPassword').value;
-    //   //console.log (logInEmail, logInPassword);
+}
+// const root = document.getElementById('root');
+// root.innerHTML = '';
+// root.innerHTML = view;
+// return root;
 
-    //   auth.createUserWithEmailAndPassword(logInEmail,logInPassword)
-    //   .then(userCredential =>{
-    //     console.log("credenciales");
-    //   });
+// const goLogIn = mainLogin.querySelector('form');
+// goLogIn.addEventListener('submit', (e) => {
+//  e.preventDefault();
+//   const logInEmail = document.querySelector('#idEmail').value;
+//   const logInPassword = document.querySelector('#idPassword').value;
+//   //console.log (logInEmail, logInPassword);
 
-    // })}
+//   auth.createUserWithEmailAndPassword(logInEmail,logInPassword)
+//   .then(userCredential =>{
+//     console.log("credenciales");
+//   });
 
-
-  //     .then(()=>{
-  //       firebase.auth().onAuthStateChanged((user)=>{
-  //         if(user){
-  //           if (user.emailVerified === false){
-  //             mainLogin.querySelector('msgErrorLogin').innerHTML = 'Email no verificado, revise su correo porfavor.';
-  //             firebase.auth().signOut();
-  //           } else {
-  //             mainLogin.querySelector('msgErrorLogin').innerHTML = 'Puede ingresar';
-  //             window.location.hash = '#/home';
-             
-  //           }
-  //         }
-  //       });
-  //     })
-  //     .catch(() => {
-  //       mainLogin.querySelector('msgErrorLogin').innerHTML = 'Cuenta o clave no coinciden verifique o pulse click en REGISTRATE.';
-  //     });
-  // });
-  //           }
-          
-        
+// })}
 
 
-      
+//     .then(()=>{
+//       firebase.auth().onAuthStateChanged((user)=>{
+//         if(user){
+//           if (user.emailVerified === false){
+//             mainLogin.querySelector('msgErrorLogin').innerHTML = 'Email no verificado, revise su correo porfavor.';
+//             firebase.auth().signOut();
+//           } else {
+//             mainLogin.querySelector('msgErrorLogin').innerHTML = 'Puede ingresar';
+//             window.location.hash = '#/home';
 
-
-    
+//           }
+//         }
+//       });
+//     })
+//     .catch(() => {
+//       mainLogin.querySelector('msgErrorLogin').innerHTML = 'Cuenta o clave no coinciden verifique o pulse click en REGISTRATE.';
+//     });
+// });
+//           }
 
 
 
 
-    //const eventLogin = (element) => {
-      //   // const goLogIn = element.querySelector('form');
-      //   // goLogIn.addEventListener('submit', (e) => {
-      //   const btnLogin = element.querySelector('#idSubmit');
-      //   btnLogin.addEventListener('submit', (e) => {
-      //     e.preventDefault();
-      //     const logInPassword = element.querySelector('#idPassword').value;
-      //     const logInEmail = element.querySelector('#idEmail').value;
-      //     const elemDiv = element.querySelector('.msgErrorLogin');
-      
-      //     logInAuth(logInEmail, logInPassword)
-      //       .then((userCredential) => {
-      //         const user = userCredential.user;
-      //         if (user.emailVerified) {
-      //           window.location.hash = '#/register';
-      //         } else {
-      //           elemDiv.textContent = '⚠️ Please verify your email and try again.';
-      //         }
-      //       })
-      //       .catch((error) => {
-      //         if (error.code === 'auth/wrong-password') {
-      //           elemDiv.textContent = '⚠️ Your password is wrong. Try again.';
-      //         } else if (error.code === 'auth/user-not-found') {
-      //           elemDiv.textContent = '⚠️ The email you entered does not match to any account. Try again.';
-      //         } else {
-      //           elemDiv.textContent = '⚠️ An error occurred. Please try again.';
-      //         }
-      //       });
-      //   });
-      // };
 
 
 
 
-    
+
+
+
+
+//const eventLogin = (element) => {
+//   // const goLogIn = element.querySelector('form');
+//   // goLogIn.addEventListener('submit', (e) => {
+//   const btnLogin = element.querySelector('#idSubmit');
+//   btnLogin.addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     const logInPassword = element.querySelector('#idPassword').value;
+//     const logInEmail = element.querySelector('#idEmail').value;
+//     const elemDiv = element.querySelector('.msgErrorLogin');
+
+//     logInAuth(logInEmail, logInPassword)
+//       .then((userCredential) => {
+//         const user = userCredential.user;
+//         if (user.emailVerified) {
+//           window.location.hash = '#/register';
+//         } else {
+//           elemDiv.textContent = '⚠️ Please verify your email and try again.';
+//         }
+//       })
+//       .catch((error) => {
+//         if (error.code === 'auth/wrong-password') {
+//           elemDiv.textContent = '⚠️ Your password is wrong. Try again.';
+//         } else if (error.code === 'auth/user-not-found') {
+//           elemDiv.textContent = '⚠️ The email you entered does not match to any account. Try again.';
+//         } else {
+//           elemDiv.textContent = '⚠️ An error occurred. Please try again.';
+//         }
+//       });
+//   });
+// };
+
+
+
+
+
 
 
 // export const eventLogin = () => {
