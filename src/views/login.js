@@ -1,14 +1,66 @@
-//import {
-  //singInWEP,
-  //signInWithGoogle,
-  //signInWithFb,
- //} from "../firebase/auth.js";
+import {
+singInWEP,
+signInWithGoogle,
+//signInWithFb,
+} from "../firebase/auth.js";
 
+// const verifyPassLogin = ((pass) => {
+//   return pass.search(/(?=.*[a-z])(?=.*[0-9])(?=.*[@$#!?])[a-zA-Z0-9@$#!?]{8,32}/g) !== -1;
+// });
 //import { auth } from "../firebase/config.js";
+const loginWEP = (document) => {
+  const goLogin = mainContainer.querySelector('form');
+  goLogin.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const idEmailLogin = document.querySelector('#idEmailLogin').value;
+    const idPasswordLogin = document.querySelector('#idPasswordLogin').value;
+    const msgErrorLogin = document.querySelector('.msgErrorLogin');
 
+    
+      singInWEP(idEmailLogin, idPasswordLogin)
+        .then((credentials) => {
+          const user = credentials.user;
+          if(user.emailVerified===true){
+            window.location.hash = '#/home';
+          }
+          else{
+            msgErrorLogin.textContent='Por favor verifique su correo e intente de nuevo'
+          }
+          
+          }).catch((err) => {
+          if (err.code === 'auth/wrong-password'){ 
+          msgErrorLogin.textContent = "La contraseña es incorrecta intente de nuevo." 
+          }
+          else if(error.code === 'auth/user-not-found'){
+          msgErrorLogin.textContent = "El correo no corresponde con una cuenta registrada, intente de nuevo" 
+          }
+          else{
+          msgErrorLogin.textContent = "Ha ocurrido un error. Intenta otra vez."
+          }
+          
+    });
+  });
 
+};
 
-export const loginView = () => {
+const loginWithGoogle = (document) => {
+  const idGoogleLogin = document.querySelector("#idGoogleLogin");
+  idGoogleLogin.addEventListener('click', (e) => {
+  e.preventDefault();
+  
+    signInWithGoogle()
+      .then(() =>{ 
+        console.log('usuario listo')
+        window.location.hash = '#/home'
+              
+       }).catch((error) => {
+        console.error(error)
+      })
+  });
+};
+
+ export const loginView = () => {
   const view = `
   <section class= "secViewDesktop">
   <section class= "secCover">
@@ -25,12 +77,16 @@ export const loginView = () => {
       <h2 class="text">¡Bienvenid@ al mundo green!</h2>
 
     <form class="formLogin" id="idLogin">
+
+    
+
+
       <section class="secEmail">
-        <input class="inputEmail" type="email" id="idEmail" placeholder="Ingresa tu Email" required>
+        <input class="inputEmail" type="email" id="idEmailLogin" placeholder="Ingresa tu Email" required>
       </section>
 
       <section class="secPassword">
-        <input class="inputPassword" type="password" id="idPassword" placeholder="Ingresa tu contraseña" required>
+        <input class="inputPassword" type="password" id="idPasswordLogin" placeholder="Ingresa tu contraseña" required>
       </section>
 
       <!-- Mensaje de error -->
@@ -44,8 +100,8 @@ export const loginView = () => {
       <h2 class="textOne">O bien ingresa con...</h2>
 
       <section class="secIcons">
-      <section class="secIconGoogle">
-        <a class="iconGoogle" href="" alt="Google">
+      <section class="secIconGoogle" id= "idGoogleLogin">
+        <a class="iconGoogle"  alt="Google">
         <img class= "icon" src="./img/google.png" alt="Google">
         </a>
       </section>
@@ -68,138 +124,10 @@ export const loginView = () => {
   const mainLogin = document.getElementById('mainContainer');
   mainLogin.innerHTML = '';
   mainLogin.innerHTML = view;
+
+  loginWEP(mainLogin);
+  loginWithGoogle(mainLogin);
+
+
   return mainLogin;
-  }
-  // const root = document.getElementById('root');
-  // root.innerHTML = '';
-  // root.innerHTML = view;
-  // return root;
-  
-    // const goLogIn = mainLogin.querySelector('form');
-    // goLogIn.addEventListener('submit', (e) => {
-    //  e.preventDefault();
-    //   const logInEmail = document.querySelector('#idEmail').value;
-    //   const logInPassword = document.querySelector('#idPassword').value;
-    //   //console.log (logInEmail, logInPassword);
-
-    //   auth.createUserWithEmailAndPassword(logInEmail,logInPassword)
-    //   .then(userCredential =>{
-    //     console.log("credenciales");
-    //   });
-
-    // })}
-
-
-  //     .then(()=>{
-  //       firebase.auth().onAuthStateChanged((user)=>{
-  //         if(user){
-  //           if (user.emailVerified === false){
-  //             mainLogin.querySelector('msgErrorLogin').innerHTML = 'Email no verificado, revise su correo porfavor.';
-  //             firebase.auth().signOut();
-  //           } else {
-  //             mainLogin.querySelector('msgErrorLogin').innerHTML = 'Puede ingresar';
-  //             window.location.hash = '#/home';
-             
-  //           }
-  //         }
-  //       });
-  //     })
-  //     .catch(() => {
-  //       mainLogin.querySelector('msgErrorLogin').innerHTML = 'Cuenta o clave no coinciden verifique o pulse click en REGISTRATE.';
-  //     });
-  // });
-  //           }
-          
-        
-
-
-      
-
-
-    
-
-
-
-
-    //const eventLogin = (element) => {
-      //   // const goLogIn = element.querySelector('form');
-      //   // goLogIn.addEventListener('submit', (e) => {
-      //   const btnLogin = element.querySelector('#idSubmit');
-      //   btnLogin.addEventListener('submit', (e) => {
-      //     e.preventDefault();
-      //     const logInPassword = element.querySelector('#idPassword').value;
-      //     const logInEmail = element.querySelector('#idEmail').value;
-      //     const elemDiv = element.querySelector('.msgErrorLogin');
-      
-      //     logInAuth(logInEmail, logInPassword)
-      //       .then((userCredential) => {
-      //         const user = userCredential.user;
-      //         if (user.emailVerified) {
-      //           window.location.hash = '#/register';
-      //         } else {
-      //           elemDiv.textContent = '⚠️ Please verify your email and try again.';
-      //         }
-      //       })
-      //       .catch((error) => {
-      //         if (error.code === 'auth/wrong-password') {
-      //           elemDiv.textContent = '⚠️ Your password is wrong. Try again.';
-      //         } else if (error.code === 'auth/user-not-found') {
-      //           elemDiv.textContent = '⚠️ The email you entered does not match to any account. Try again.';
-      //         } else {
-      //           elemDiv.textContent = '⚠️ An error occurred. Please try again.';
-      //         }
-      //       });
-      //   });
-      // };
-
-
-
-
-    
-
-
-// export const eventLogin = () => {
-//   // const goLogIn = element.querySelector('form');
-//   // goLogIn.addEventListener('submit', (e) => {
-//   const btnLogin = document.querySelector('#idSubmit');
-//   btnLogin.addEventListener('submit', (e) => {
-
-//     const logInEmail = element.querySelector('#idEmail').value;
-//     const logInPassword = element.querySelector('#idPassword').value;
-//     const elemDiv = element.querySelector('.msgErrorLogin');
-
-//     singInWEP(logInEmail, logInPassword).catch(error => console.log(error.message));
-//   })
-// }
-
-
-// export const eventLogin = (element) => {
-//   // const goLogIn = element.querySelector('form');
-//   // goLogIn.addEventListener('submit', (e) => {
-//   const btnLogin = element.querySelector('#idSubmit');
-//   btnLogin.addEventListener('submit', (e) => {
-//     e.preventDefault();
-//     const logInPassword = element.querySelector('#idPassword').value;
-//     const logInEmail = element.querySelector('#idEmail').value;
-//     const elemDiv = element.querySelector('.msgErrorLogin');
-
-//     logInAuth(logInEmail, logInPassword)
-//       .then((userCredential) => {
-//         const user = userCredential.user;
-//         if (user.emailVerified) {
-//           window.location.hash = '#/register';
-//         } else {
-//           elemDiv.textContent = '⚠️ Please verify your email and try again.';
-//         }
-//       })
-//       .catch((error) => {
-//         if (error.code === 'auth/wrong-password') {
-//           elemDiv.textContent = '⚠️ Your password is wrong. Try again.';
-//         } else if (error.code === 'auth/user-not-found') {
-//           elemDiv.textContent = '⚠️ The email you entered does not match to any account. Try again.';
-//         } else {
-//           elemDiv.textContent = '⚠️ An error occurred. Please try again.';
-//         }
-//       });
-//   });
-// };
+};
