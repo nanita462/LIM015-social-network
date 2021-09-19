@@ -26,14 +26,14 @@ export const createUser = (id, info) => {
 
 // //Logueo con Email y password
 // //Acceso de usuarios existentes
-// export const singInWEP = (email, password) => {
-//     return firebase.auth().signInWithEmailAndPassword(email, password);
-// };
+export const singInWEP = (email, password) => {
+return firebase.auth().signInWithEmailAndPassword(email, password);
+ };
 
 // //Configuracion de un observador de estado de autenticación y obtención de  datos del usuario
 // //Estado de autenticación cambiado
 // //Se llama cuando un usuario de loguea o desloguea
-// export const authStateChanged = (cb) => firebase.auth().onAuthStateChanged(cb);
+export const authStateChanged = (cb) => firebase.auth().onAuthStateChanged(cb);
 
 // //Autentica mediante el Acceso con Google
 export const signInWithGoogle = () => {
