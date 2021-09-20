@@ -1,5 +1,5 @@
+/* eslint-disable eol-last */
 /*
-`
 <!--Header + menú de navegación-->
   <header class="secHeader" id="idHeader">
     <nav>
@@ -26,7 +26,6 @@
 
   <!--Descripción de usuari@-->
 
-
   <!--Sección compartir-->
   <section class="secShareBox">
     <textarea name="" id="idShareBoxText" cols="30" rows="10" placeholder="¿Qué quieres compartir?"></textarea>
@@ -47,4 +46,4 @@
   <!--HomeIcono - verificar/buscar+ -->
   <script src="https://kit.fontawesome.com/74ba6e58ef.js" crossorigin="anonymous"></script>
 
-`*/
+` */

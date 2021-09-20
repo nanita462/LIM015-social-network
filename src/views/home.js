@@ -1,3 +1,4 @@
+/* eslint-disable eol-last */
 export const homeView = () => {
   const view = `
   <header class="secHeader" id="idHeader">
@@ -76,10 +77,9 @@ export const homeView = () => {
   mainHome.innerHTML = '';
   mainHome.innerHTML = view;
   return mainHome;
-}
+};
 
-
-//POST
+// POST
 /* <section class="secPost">
       <section class="secPostName">
         Aqui va nombre de quien publica
