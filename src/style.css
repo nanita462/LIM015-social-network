@@ -82,7 +82,6 @@ body{
     background-color: #ffffff;
     border: none;
     border-radius: 20px;
-    *box-shadow: 5px;
     height: 40px;
     width: 290px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -99,7 +98,6 @@ body{
     background-color: #ffffff;
     border: none;
     border-radius: 20px;
-    *box-shadow: 5px;
     height: 40px;
     width: 290px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

@@ -1,13 +1,15 @@
+/* eslint-disable eol-last */
+/* eslint-disable no-undef */
 import {
   singInWEP,
   signInWithGoogle,
-  //signInWithFb,
-} from "../firebase/auth.js";
+  // signInWithFb,
+} from '../firebase/auth.js';
 
 // const verifyPassLogin = ((pass) => {
 //   return pass.search(/(?=.*[a-z])(?=.*[0-9])(?=.*[@$#!?])[a-zA-Z0-9@$#!?]{8,32}/g) !== -1;
 // });
-//import { auth } from "../firebase/config.js";
+// import { auth } from "../firebase/config.js";
 export const loginWEP = (document) => {
   const goLogin = mainContainer.querySelector('form');
   goLogin.addEventListener('submit', (e) => {
@@ -17,43 +19,40 @@ export const loginWEP = (document) => {
     const idPasswordLogin = document.querySelector('#idPasswordLogin').value;
     const msgErrorLogin = document.querySelector('.msgErrorLogin');
 
-
     singInWEP(idEmailLogin, idPasswordLogin)
       .then((credentials) => {
-        //console.log(credentials)
+        // console.log(credentials)
         const user = credentials.user;
-
         if (user.emailVerified === true) {
           window.location.hash = '#/home';
         } else {
-          msgErrorLogin.textContent = 'Por favor verifique su correo e intente de nuevo'
+          msgErrorLogin.textContent = 'Por favor verifique su correo e intente de nuevo';
         }
       }).catch((err) => {
-        //console.log(err)
+        // console.log(err)
         if (err.code === 'auth/wrong-password') {
-          msgErrorLogin.textContent = "La contraseña es incorrecta, intenta nuevamente."
+          msgErrorLogin.textContent = 'La contraseña es incorrecta, intenta nuevamente.';
         } else if (err.code === 'auth/user-not-found') {
-          msgErrorLogin.textContent = "El correo no corresponde a una cuenta registrada, intenta nuevamente."
+          msgErrorLogin.textContent = 'El correo no corresponde a una cuenta registrada, intenta nuevamente.';
         } else {
-          msgErrorLogin.textContent = "Ha ocurrido un error. Intenta otra vez."
+          msgErrorLogin.textContent = 'Ha ocurrido un error. Intenta otra vez.';
         }
       });
   });
 };
 
 export const loginWithGoogle = (document) => {
-  const idGoogleLogin = document.querySelector("#idGoogleLogin");
+  const idGoogleLogin = document.querySelector('#idGoogleLogin');
   idGoogleLogin.addEventListener('click', (e) => {
     e.preventDefault();
 
     signInWithGoogle()
       .then(() => {
-        console.log('usuario listo')
-        window.location.hash = '#/home'
-
+        console.log('usuario listo');
+        window.location.hash = '#/home';
       }).catch((error) => {
-        console.error(error)
-      })
+        console.error(error);
+      });
   });
 };
 
