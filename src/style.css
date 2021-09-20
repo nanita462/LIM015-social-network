@@ -3,7 +3,6 @@ body{
     font-family: 'Roboto', sans-serif;
     margin: 0px;
     padding: 0px;
-
 }
 
 .secViewDesktop{
@@ -12,29 +11,27 @@ body{
     width: 100%;
     *height: 100vh;
     padding-top: 18px;
-  
 }
 
 .secViewDesktop.hidden {
     display: none;
-  }
-  
+}
+
 .secViewDesktop .secCover {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: right;
-  }
-  
+}
+
 .secViewDesktop .secCover > img {
     display: none;
-  }
-  
-  
+}
+
 .imgCover{
     width: 100%;
-    height: 600px; 
+    height: 600px;
     position: relative;
     *padding-top: 100px;
     *padding-left: 100px;
@@ -42,7 +39,7 @@ body{
 
 .imgCoverRegister{
     width: 100%;
-    height: 400px; 
+    height: 400px;
     position: relative;
 }
 
@@ -64,26 +61,22 @@ body{
     width: 155px;
     height: 160px;
     padding-top: 20px;
-    
 }
 
 .tittle{
- font-size: 35px;
- margin-top: 0px;
- font-family: 'Ribeye', cursive;
- margin-bottom: 5px;
-
+    font-size: 35px;
+    margin-top: 0px;
+    font-family: 'Ribeye', cursive;
+    margin-bottom: 5px;
 }
 
 .text{
-   font-size: 22px; 
-   margin-top: 0px;
-   
+    font-size: 22px;
+    margin-top: 0px;
 }
 
 .secEmail, .secName{
     padding-bottom: 10px;
-    
 }
 .inputEmail, .inputName{
     background-color: #ffffff;
@@ -94,12 +87,14 @@ body{
     width: 290px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     text-align: center;
+    *outline: none;
 }
+
 .secPassword{
     padding-bottom: 10px;
     margin-bottom: 0px;
-    
 }
+
 .inputPassword{
     background-color: #ffffff;
     border: none;
@@ -109,17 +104,19 @@ body{
     width: 290px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     text-align: center;
+    *outline: none;
 }
+
+/* .inputEmail:focus, .inputName:focus, .inputPassword:focus {
+    background: rgba(28, 224, 10, 0.2);
+  } */
 
 ::placeholder{
     font-size: 18px;
     color: #727074;
     text-align: center;
-    
-
-    
-
 }
+
 .inputSubmit{
     padding-bottom: 10px;
     color: #ffffff;
@@ -140,24 +137,21 @@ body{
 }
 
 .textOne{
-    font-size: 18px; 
+    font-size: 18px;
     margin-top: 0px;
     margin-bottom: 0px;
     color: #000000;
     font-weight: bold;
     cursor: pointer;
-    
 }
 
 .textTwo{
-    font-size: 18px; 
+    font-size: 18px;
     margin-top: 0px;
     margin-bottom: 0px;
-    
     font-weight: bold;
     cursor: pointer;
     text-decoration:none;
-
 }
 .textTwo a:hover {
     color: black;
@@ -174,7 +168,6 @@ margin-top: 5px;
     width: 35px;
     height: 35px;
     padding: 5px;
-    
 }
 
 /*View Error404*/
@@ -192,14 +185,14 @@ margin-top: 5px;
 
 .hError{
     font-family: 'Ribeye', cursive;
-    font-size: 50px; 
+    font-size: 50px;
     color: #ffffff;
     padding-top: 20px;
 }
 
 
 .pError{
-    font-size: 25px; 
+    font-size: 25px;
     padding-bottom: 5px;
     margin-bottom: 0px;
     margin-top: 0px;
@@ -213,15 +206,12 @@ margin-top: 5px;
 }
 
 .imgError{
-
     width: 200px;
     height: 200px;
-    
 }
 
 .secInputError{
     padding-top: 20px;
-
 }
 
 .inputError{
@@ -261,6 +251,115 @@ margin-top: 5px;
     margin-top: 0px;
 }
 
+.msgErrorLogin{
+    font-size: 12px;
+    color: red;
+    font-weight: bold;
+    padding: 0px;
+    padding: 5px;
+    margin-top: 0px;
+}
+
+/*HEADER -NAV*/
+.secHeader{
+    background-color: #1D8C6C;
+}
+.logoText{
+    font-family: 'Ribeye', cursive;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 30px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+
+/*PUBLICACION*/
+
+/* .secHome{
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    column-gap: 5%;
+    padding: 3rem 2rem;
+} */
+
+.secUserInfo{
+    display:flex;
+    width: 90%;
+    margin: 0 5% 0.5rem;
+    padding: 1rem .5rem .1rem;
+    align-items: center;
+}
+
+.imgProfile{
+    *width: 2.5rem;
+    *height: 2.5rem;
+    margin-right: 25px;
+    *border-radius: 50%;
+}
+
+.secTextInfo{
+    font-size: 15px;
+}
+
+.nameUser , .nameUser1 {
+    padding-bottom: 0px;
+    *margin-top: 0px;
+    font-weight: bold;
+}
+
+.secPublishBox{
+    width: 90%;
+    margin: 0 5%;
+    padding: 1rem .2rem .3rem;
+    border-radius: 0.8rem;
+    height: auto;
+    border: 1px dashed rgba(89, 86, 86, 0.842);
+}
+
+.boxText {
+    margin: 0 0.8rem;
+    height: 3rem;
+    width: 94%;
+    padding: 0.5rem;
+}
+
+.boxText::-webkit-input-placeholder {
+    color:#444444bb;
+    font-size: 14px;
+    font-weight: lighter;
+    letter-spacing: 0.5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+@media screen and (min-width: 700px) {
+    .boxText {
+        height: 3rem;
+        width: 100%;
+    }
+}
+
+
+/* .secHome{
+    width: 100%;
+    *height: 100%;
+    display: grid;
+    text-align: center;
+    background-color: #FFFAB1;
+    grid-template-columns: auto auto;
+    justify-content: center;
+}
+
+.secImgProfile{
+    justify-content: left;
+}
+
+.imgProfile{
+   *width: 155px;
+    *height: 160px;
+    padding-top: 20px;
+} */
+
 
 
 @media screen and (min-width: 1024px) {
@@ -269,6 +368,12 @@ margin-top: 5px;
     }
     .secViewDesktop .secCover > img{
       display: block;
+    }
+    .secHome {
+        display: grid;
+        grid-template-columns: 0.5fr 1.5fr;
+        column-gap: 5%;
+        padding: 3rem 2rem;
     }
 }
 
