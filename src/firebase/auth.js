@@ -6,8 +6,8 @@ export const signOut = () => firebase.auth().signOut();
 
 // Autentica mediante el Acceso con Google
 export const signInWithGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    return firebase.auth().signInWithPopup(provider);
+  const provider = new firebase.auth.GoogleAuthProvider();
+  return firebase.auth().signInWithPopup(provider);
 };
 
 // Autentica mediante el Acceso con Facebook
@@ -16,13 +16,9 @@ export const signInWithGoogle = () => {
 //     return firebase.auth().signInWithPopup(provider);
 // };
 
-
 // Logueo con Email y password
 // Acceso de usuarios existentes
-export const singInWEP = (email, password) => {
-    return firebase.auth().signInWithEmailAndPassword(email, password);
-};
-
+export const singInWEP = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
 
 // ****Do new user, receives id and info
 // export const createUser = (id, info) => {
@@ -32,13 +28,8 @@ export const singInWEP = (email, password) => {
 //             info,
 //         });
 // };
-
-
 // Obtener el usuario que accedió
 // export const getUser = () => firebase.auth().currentUser;
-
-
-
 // Configuracion de un observador de estado de autenticación y obtención de  datos del usuario
 // Estado de autenticación cambiado
 // Se llama cuando un usuario se loguea o desloguea

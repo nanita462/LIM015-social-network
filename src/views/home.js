@@ -77,30 +77,3 @@ export const homeView = () => {
   mainHome.innerHTML = view;
   return mainHome;
 }
-
-
-//POST
-/* <section class="secPost">
-      <section class="secPostName">
-        Aqui va nombre de quien publica
-      </section>
-      <section class="secPostDate">
-        Aqui va fecha de publicación
-      </section>
-
-      <section class="secPostImg">
-        Aqui va imagen posteada
-      </section>
-
-      <section class="secPostText">
-        Aqui va el texto de post
-      </section>
-
-      <section class="secBtnPost">
-        <button class="buttonShare" id="idButtonShare" type="button">Compartir</button>
-        <button class="buttonLike" id="idButtonImg" type="button">Me gusta</button>
-        <button class="buttonDelete" id="idButtonShare" type="button">Eliminar</button>
-        <!--<button class="buttonEdit" id="idButtonEdit" type="button">Editar</button>-->
-
-      </section>
-    </section> */

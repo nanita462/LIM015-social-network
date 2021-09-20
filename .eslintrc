@@ -26,6 +26,14 @@
     "jest/no-focused-tests": "error",
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
-    "jest/valid-expect": "error"
+    "jest/valid-expect": "error",
+    "max-len": [2, 120, 4, {"ignoreUrls": true}],
+    "no-console": "off",
+    "consistent-return": "off",
+    "no-alert": "off",
+    "arrow-body-style": "off",
+    "no-param-reassign": "off",
+    "import/no-cycle": "off",
+    "dot-notation": "off"
   }
 }

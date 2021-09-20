@@ -26,7 +26,6 @@
 
   <!--Descripción de usuari@-->
 
-
   <!--Sección compartir-->
   <section class="secShareBox">
     <textarea name="" id="idShareBoxText" cols="30" rows="10" placeholder="¿Qué quieres compartir?"></textarea>

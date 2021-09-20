@@ -1,24 +1,22 @@
 import {
-    loginView,
-    //eventLogin,
+  loginView,
+  //eventLogin,
 } from "./login.js";
 
 import {
-    registerView,
-    //eventRegister,
+  registerView,
+  //eventRegister,
 } from "./register.js";
 
 import {
-    homeView
+  homeView
 } from "./home.js";
 
 import errorView from './error404.js';
 
 export default {
-    login: loginView,
-    //{loginView, eventLogin,},
-    register: registerView,
-    //{registerView,eventRegister,},
-    home: homeView,
-    error404: errorView,
+  login: loginView,
+  register: registerView,
+  home: homeView,
+  error404: errorView,
 };
