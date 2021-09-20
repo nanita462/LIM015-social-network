@@ -10,7 +10,7 @@ import {
 
 import {
     homeView
-} from "./timeline.js";
+} from "./home.js";
 
 import errorView from './error404.js';
 

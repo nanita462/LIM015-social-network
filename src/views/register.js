@@ -170,12 +170,12 @@ export const registerView = () => {
   </section>
   `;
 
-  const mainContainer = document.getElementById('mainContainer');
-  mainContainer.innerHTML = '';
-  mainContainer.innerHTML = view;
+  const mainRegister = document.getElementById('mainContainer');
+  mainRegister.innerHTML = '';
+  mainRegister.innerHTML = view;
 
-  registerWEP(mainContainer);
-  registerWithGoogle(mainContainer);
-  //registerWithFb(mainContainer);
-  return mainContainer;
+  registerWEP(mainRegister);
+  registerWithGoogle(mainRegister);
+  //registerWithFb(mainRegister);
+  return mainRegister;
 }
