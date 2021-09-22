@@ -46,8 +46,4 @@
   <!--HomeIcono - verificar/buscar+ -->
   <script src="https://kit.fontawesome.com/74ba6e58ef.js" crossorigin="anonymous"></script>
 
-<<<<<<< HEAD
-`*/
-=======
 ` */
->>>>>>> 12d94095b70f8819c6ce2995970e66eda5d09014

@@ -5,6 +5,32 @@ body{
     padding: 0px;
 }
 
+.navbar {
+  width: 100%;
+  background-color: #04AA6D;
+  overflow: auto;
+  display: flex;
+  justify-content: right;
+}
+
+.navbar a {
+  float: left;
+  padding: 2px;
+  color: white;
+  padding-top: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-decoration: none;
+  font-size: 17px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar a:hover {
+  background-color:#834813;
+}
+
+
 .secViewDesktop{
     display: grid;
     grid-template-columns: 0px 2fr;
@@ -275,44 +301,9 @@ header{
     padding-bottom: 10px;
     display: flex;
     justify-content: center;
-    
 }
-
-
-
-.navbar {
-  width: 100%;
-  background-color: #04AA6D;
-  overflow: auto;
-  display: flex;
-  justify-content: right;
-   
-}
-
-.navbar a {
-  float: left;
-  padding: 2px;
-  color: white;
-  padding-top: 15px;
-  padding-left: 30px;
-  padding-right: 30px;
-   
-  text-decoration: none;
-  font-size: 17px;
-  }
-
-
-
-.navbar a:hover {
-  background-color:#834813;
-}
-
-
-
-
 
 /*PUBLICACION*/
-
 /* .secHome{
     display: grid;
     grid-template-columns: 0.5fr 1.5fr;
@@ -341,22 +332,7 @@ header{
     font-weight: bold;
 }
 
-
-
-
-
-.navbar a {
-  
-  display: flex;
-  justify-content: space-between;
-}
-
-
-  
-
-
 @media screen and (min-width: 260px) {
-  
   .logoText {
     font-family: 'Ribeye', cursive;
     text-decoration: none;
@@ -367,7 +343,6 @@ header{
     padding-bottom: 10px;
     display: flex;
     justify-content: center;
-    
 }
 
 .navbar a {
@@ -401,9 +376,6 @@ header{
    flex-direction: column;
    align-items: center;
    padding: 20px 0px 10px 0px;
-
-   
-
   }
 
   .boxText{
@@ -411,23 +383,18 @@ header{
     width: 90%;
     border-radius: 20px;
     *margin-left: 7px;
-    *margin: 5% 0%;
     resize: none;
     overflow: auto;
-    
     box-sizing: border-box;
     border: 2px solid #d1cad6;
     outline-style: none;
     padding-bottom: 10px;
-    
-  
 }
 
 .secBtnBoxText{
   display: flex;
   padding-top:10px;
   margin: 0px;
-
 }
 
 .boxText::-webkit-input-placeholder {
@@ -437,7 +404,6 @@ header{
   letter-spacing: 0.5px;
   font-family: 'Roboto', sans-serif;
 }
-
 
 .inputShare{
     padding-bottom: 10px;
@@ -464,14 +430,12 @@ header{
   padding: 0px;
   margin: 0px;
   *position: relative;
-  
 }
 #file_input {
   position: absolute;
   cursor: pointer;
   opacity: 0;
   z-index: 1;
-   
 }
 #iconFile{
   position: relative;
@@ -491,10 +455,9 @@ header{
     padding-bottom: 10px;
     display: flex;
     justify-content: center;
-    
 }
 
-.navbar a {
+  .navbar a {
   float: left;
   *padding: 2px;
   color: white;
@@ -508,26 +471,23 @@ header{
   .navbar a:hover {
   background-color:#834813;
 }
- .imgProfile{
+  .imgProfile{
   width: 130px;
   height: 130px;
   margin-right: 25px;
   *border-radius: 50%;
 }
   .secPublishBox{
-   height: 180px;
-   width: 98%;
-   border-radius: 20px;
-   margin-left: 9px;
-   background-color: #ffffff;
-   border: #1D8C6C 1px solid;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   padding: 20px 0px 10px 0px;
-
-   
-
+  height: 180px;
+  width: 98%;
+  border-radius: 20px;
+  margin-left: 9px;
+  background-color: #ffffff;
+  border: #1D8C6C 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0px 10px 0px;
   }
 
   .boxText{
@@ -535,16 +495,12 @@ header{
     width: 90%;
     border-radius: 20px;
     *margin-left: 7px;
-    *margin: 5% 0%;
     resize: none;
     overflow: auto;
-    
     box-sizing: border-box;
     border: 2px solid #d1cad6;
     outline-style: none;
     padding-bottom: 10px;
-    
-  
 }
 
 .secBtnBoxText{
@@ -587,14 +543,12 @@ header{
   padding: 0px;
   margin: 0px;
   z-index: 1;
-  
 }
 #file_input {
   position: absolute;
   cursor: pointer;
   opacity: 0;
   z-index: 0;
-   
 }
 
 }
@@ -612,7 +566,6 @@ header{
         grid-template-columns: 0.5fr 1.5fr;
         column-gap: 5%;
         padding: 3rem 2rem;
-    
     }
     .logoText {
       font-family: 'Ribeye', cursive;
@@ -624,9 +577,8 @@ header{
       padding-bottom: 10px;
       display: flex;
       justify-content: center;
-      
   }
-  
+
   .navbar a {
     float: left;
     *padding: 2px;
@@ -637,7 +589,7 @@ header{
     text-decoration: none;
     font-size: 17px;
     }
-  
+
     .navbar a:hover {
     background-color:#834813;
   }
@@ -649,54 +601,45 @@ header{
     cursor: pointer;
   }
     .secPublishBox{
-     height: 180px;
-     width: 98%;
-     border-radius: 20px;
-     margin-left: 3px;
-     background-color: #ffffff;
-     border: #1D8C6C 1px solid;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     padding: 20px 0px 10px 0px;
-  
-     
-  
+    height: 180px;
+    width: 98%;
+    border-radius: 20px;
+    margin-left: 3px;
+    background-color: #ffffff;
+    border: #1D8C6C 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0px 10px 0px;
     }
-  
+
     .boxText{
       height: 140px;
       width: 90%;
       border-radius: 20px;
       *margin-left: 7px;
-      *margin: 5% 0%;
       resize: none;
       overflow: auto;
-      
       box-sizing: border-box;
       border: 2px solid #d1cad6;
       outline-style: none;
       padding-bottom: 10px;
-      
-    
   }
   
-  .secBtnBoxText{
+    .secBtnBoxText{
     display: flex;
     padding-top:10px;
     margin: 0px;
-  
-  }
-  
-  .boxText::-webkit-input-placeholder {
+    }
+
+    .boxText::-webkit-input-placeholder {
     color:#444444bb;
     font-size: 14px;
     font-weight: lighter;
     letter-spacing: 0.5px;
     font-family: 'Roboto', sans-serif;
   }
-  
-  
+
   .inputShare{
       padding-bottom: 10px;
       color: #ffffff;
@@ -717,22 +660,18 @@ header{
       margin-left: 190px;
       z-index: 3;
   }
-  
+
   .imgFile{
     padding: 0px;
     margin: 0px;
     position: absolute;
     z-index: 1;
-    
   }
   #file_input {
-    
     cursor: pointer;
     opacity: 0;
     z-index: 0;
-     
   }
-   
 }
 
 
