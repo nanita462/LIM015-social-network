@@ -1,20 +1,22 @@
+/* eslint-disable eol-last */
+/* eslint-disable quotes */
+/* eslint-disable max-len */
+/* eslint-disable no-undef */
 import {
   createUserWEP,
   signOut,
   signInWithGoogle,
-  //signInWithFb,
-  //createUser,
-  //getUser,
-} from "../firebase/auth.js";
+  // signInWithFb,
+  // createUser,
+  // getUser,
+} from '../firebase/auth.js';
 
-
-// //Verificando password
+// Verificando password
 const verifyPass = ((pass) => {
   return pass.search(/(?=.*[a-z])(?=.*[0-9])(?=.*[@$#!?])[a-zA-Z0-9@$#!?]{8,32}/g) !== -1;
 });
 
-
-//Registro con Email y idPassword Register
+// Registro con Email y idPassword Register
 const registerWEP = (document) => {
   const goRegister = mainContainer.querySelector('form');
   goRegister.addEventListener('submit', (e) => {
@@ -34,24 +36,30 @@ const registerWEP = (document) => {
             displayName: idNameRegister,
           });
           const configRegister = {
-            url: 'http://localhost:5000/#/'
+            url: 'http://localhost:5000/#/',
           };
           user.sendEmailVerification(configRegister)
             .then(() => {
-              alert("Te enviamos un correo de verificación.")
+              alert("Te enviamos un correo de verificación.");
             }).catch((error) => {
               console.log(error);
             });
 
           signOut();
           window.location.hash = '#/';
-        }).catch((err) => (err.code === 'auth/email-already-in-use' ?
-          msgErrorRegister.textContent = "El correo ya esta registrado. Por favor intenta con otro correo." :
-          msgErrorRegister.textContent = "Ha ocurrido un error. Intenta otra vez."));
+        }).catch((err) => {
+          if (err.code === 'auth/email-already-in-use') {
+            msgErrorRegister.textContent = 'El correo ya esta registrado. Por favor intenta con otro correo.';
+          } else {
+            msgErrorRegister.textContent = 'Ha ocurrido un error. Intenta otra vez.';
+          }
+        });
+      // .catch((err) => (err.code === 'auth/email-already-in-use' ?
+      //   msgErrorRegister.textContent = 'El correo ya esta registrado. Por favor intenta con otro correo.' :
+      //   msgErrorRegister.textContent = 'Ha ocurrido un error. Intenta otra vez.'));
     }
-  })
+  });
 };
-
 
 const registerWithGoogle = (document) => {
   const idGoogle = document.querySelector("#idGoogle");
@@ -60,7 +68,7 @@ const registerWithGoogle = (document) => {
 
     signInWithGoogle()
       .then((credentials) => {
-        //console.log(credentials)
+        // console.log(credentials)
         const user = credentials.user;
         window.location.hash = '#/home';
 
@@ -73,10 +81,9 @@ const registerWithGoogle = (document) => {
         };
       }).catch(() => {
         msgErrorRegister.textContent = "Ha ocurrido un error. Intenta otra vez.";
-      })
+      });
   });
-}
-
+};
 
 // const registerWithFb = (document) => {
 //   const idFb = document.querySelector("#idFb");
@@ -101,7 +108,6 @@ const registerWithGoogle = (document) => {
 //       })
 //   });
 // }
-
 
 export const registerView = () => {
   const view = `
@@ -166,16 +172,15 @@ export const registerView = () => {
       <!--</form>-->
   </section>
   
-  
   </section>
   `;
 
-  const mainContainer = document.getElementById('mainContainer');
-  mainContainer.innerHTML = '';
-  mainContainer.innerHTML = view;
+  const mainRegister = document.getElementById('mainContainer');
+  mainRegister.innerHTML = '';
+  mainRegister.innerHTML = view;
 
-  registerWEP(mainContainer);
-  registerWithGoogle(mainContainer);
-  //registerWithFb(mainContainer);
-  return mainContainer;
-}
+  registerWEP(mainRegister);
+  registerWithGoogle(mainRegister);
+  // registerWithFb(mainRegister);
+  return mainRegister;
+};

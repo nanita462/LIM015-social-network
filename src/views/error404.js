@@ -1,3 +1,4 @@
+/* eslint-disable eol-last */
 export default () => {
   const view = `
   <section class="secError">
