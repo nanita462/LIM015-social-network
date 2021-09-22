@@ -2,28 +2,18 @@
 export const homeView = () => {
   const view = `
   <header class="secHeader" id="idHeader">
+  <section class="secLogoText" id="idNavList">
   <!--<h1 class="logoText">EcoPunto</h1>-->
   <a class="logoText" href='#/home'>EcoPunto</a>
+  </section>
   
-  
-  <nav>
-    <section class="secNavList" id="idNavList">
-
-      <section class="secNavListItem">
-        <a href='#/Home'><i class="fas fa-home"></i>Inicio</a>
-      </section>
-
-      <section class="secNavListItem">
-        <a href='#/profile'>Mi perfil</a>
-      </section>
-
-      <section class="secNavListItem">
-        <a href='#/logOut'>Salir</a>
-      </section>
-
-    </section>
-  </nav>
-
+  <section class="navbar" id="idNavList">
+   
+  <a href="#/home"><span data-width="25"class="iconify" data-icon="bx:bxs-home-heart"></span>Inicio</a> 
+  <a href="#/profile"><span data-width="25" class="iconify" data-icon="mdi:account-circle"></span>Mi perfil</a>
+  <a href="#/"><span data-width="25" class="iconify" data-icon="ic:outline-log-in"></span>Cerrar sesión</a> 
+    
+  </section>
 </header>
 
 
@@ -32,8 +22,8 @@ export const homeView = () => {
   <section class="secUserInfo">
 
     <section class="secImgProfile">
-      <img class="imgProfile" src="./img/mundoverde.png" alt="ImgProfile"
-        style="height: 200px; width: 200px; border-radius: 90px;">
+      <img class="imgProfile" src="./img/avatar.png" alt="ImgProfile"
+        style= border-radius: 90px;">
     </section>
 
     <section class="secTextInfo">
@@ -52,11 +42,16 @@ export const homeView = () => {
       
       <section class="errorPublish"></section>
       
-
+      
       <section class="secBtnBoxText">
-        <input id="inputUploadImg" type="file" accept="image/png, image/jpeg, image/jpg">
-        <!--<button class="buttonDelete" id="idButtonDelete" type="button">Borrar</button>-->
-        <button class="buttonPublish" id="idButtonPublish" type="button">Publicar</button>
+      <figure class="imgFile">
+      <span id= "iconFile" class="iconify" data-icon="noto-v1:framed-picture" data-width="40" data-height="40"></span>
+      <input type="file" id="file_input" />
+      <div class="hoverPhoto"></div>
+      </figure>
+       
+       <!--<button class="inputShare"  id="idButtonDelete" type="button">Borrar</button>-->
+        <button class="inputShare"  id="idButtonPublish" type="button">Publicar</button>
       </section>
 
     </section>

@@ -14,8 +14,4 @@ firebase.initializeApp({
   storageBucket: 'red-social-ecopunto.appspot.com',
   messagingSenderId: '462188771189',
   appId: '1:462188771189:web:96d506830c4bae22bec53c',
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 12d94095b70f8819c6ce2995970e66eda5d09014

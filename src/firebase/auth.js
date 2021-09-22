@@ -32,15 +32,10 @@ export const singInWEP = (email, password) => firebase.auth().signInWithEmailAnd
 //             info,
 //         });
 // };
-<<<<<<< HEAD
-// Obtener el usuario que accedió
-// export const getUser = () => firebase.auth().currentUser;
-=======
 
 // Obtener el usuario que accedió
 // export const getUser = () => firebase.auth().currentUser;
 
->>>>>>> 12d94095b70f8819c6ce2995970e66eda5d09014
 // Configuracion de un observador de estado de autenticación y obtención de  datos del usuario
 // Estado de autenticación cambiado
 // Se llama cuando un usuario se loguea o desloguea

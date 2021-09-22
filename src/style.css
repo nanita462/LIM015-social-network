@@ -259,17 +259,56 @@ margin-top: 5px;
 }
 
 /*HEADER -NAV*/
-.secHeader{
-    background-color: #1D8C6C;
+header{
+    background-color: #04AA6D;
+    display:flex;
+    width: 100%;
+    justify-content: space-between;
 }
-.logoText{
+.logoText {
     font-family: 'Ribeye', cursive;
     text-decoration: none;
     color: #ffffff;
     font-size: 30px;
     padding-left: 20px;
-    padding-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    
 }
+
+
+
+.navbar {
+  width: 100%;
+  background-color: #04AA6D;
+  overflow: auto;
+  display: flex;
+  justify-content: right;
+   
+}
+
+.navbar a {
+  float: left;
+  padding: 2px;
+  color: white;
+  padding-top: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+   
+  text-decoration: none;
+  font-size: 17px;
+  }
+
+
+
+.navbar a:hover {
+  background-color:#834813;
+}
+
+
+
 
 
 /*PUBLICACION*/
@@ -289,75 +328,276 @@ margin-top: 5px;
     align-items: center;
 }
 
-.imgProfile{
-    *width: 2.5rem;
-    *height: 2.5rem;
-    margin-right: 25px;
-    *border-radius: 50%;
-}
+
 
 .secTextInfo{
     font-size: 15px;
+    
 }
 
 .nameUser , .nameUser1 {
     padding-bottom: 0px;
-    *margin-top: 0px;
+    margin-top: 0px;
     font-weight: bold;
 }
 
-.secPublishBox{
-    width: 90%;
-    margin: 0 5%;
-    padding: 1rem .2rem .3rem;
-    border-radius: 0.8rem;
-    height: auto;
-    border: 1px dashed rgba(89, 86, 86, 0.842);
+
+
+
+
+.navbar a {
+  
+  display: flex;
+  justify-content: space-between;
 }
 
-.boxText {
-    margin: 0 0.8rem;
-    height: 3rem;
-    width: 94%;
-    padding: 0.5rem;
+
+  
+
+
+@media screen and (min-width: 260px) {
+  
+  .logoText {
+    font-family: 'Ribeye', cursive;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 30px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.navbar a {
+  float: left;
+  *padding: 2px;
+  color: white;
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-right: 2px;
+  text-decoration: none;
+  font-size: 12px;
+  }
+
+  .navbar a:hover {
+  background-color:#834813;
+}
+ .imgProfile{
+  width: 130px;
+  height: 130px;
+  margin-right: 25px;
+  *border-radius: 50%;
+}
+  .secPublishBox{
+   height: 180px;
+   width: 98%;
+   border-radius: 20px;
+   margin-left: 3px;
+   background-color: #ffffff;
+   border: #1D8C6C 1px solid;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 20px 0px 10px 0px;
+
+   
+
+  }
+
+  .boxText{
+    height: 140px;
+    width: 90%;
+    border-radius: 20px;
+    *margin-left: 7px;
+    *margin: 5% 0%;
+    resize: none;
+    overflow: auto;
+    
+    box-sizing: border-box;
+    border: 2px solid #d1cad6;
+    outline-style: none;
+    padding-bottom: 10px;
+    
+  
+}
+
+.secBtnBoxText{
+  display: flex;
+  padding-top:10px;
+  margin: 0px;
+
 }
 
 .boxText::-webkit-input-placeholder {
-    color:#444444bb;
-    font-size: 14px;
-    font-weight: lighter;
-    letter-spacing: 0.5px;
-    font-family: 'Roboto', sans-serif;
+  color:#444444bb;
+  font-size: 14px;
+  font-weight: lighter;
+  letter-spacing: 0.5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.inputShare{
+    padding-bottom: 10px;
+    color: #ffffff;
+    background: #55A603;
+    border-color: #55A603;
+    border-radius: 20px;
+    border: none;
+    width: 90px;
+    height: 35px;
+    cursor: pointer;
+    vertical-align: bottom;
+    padding-top: 7px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    margin-left: 190px;
+    z-index: 3;
+}
+
+.imgFile{
+  padding: 0px;
+  margin: 0px;
+  *position: relative;
+  
+}
+#file_input {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 1;
+   
+}
+#iconFile{
+  position: relative;
+  z-index: 0;
+}
+
 }
 
 @media screen and (min-width: 700px) {
-    .boxText {
-        height: 3rem;
-        width: 100%;
-    }
-}
-
-
-/* .secHome{
-    width: 100%;
-    *height: 100%;
-    display: grid;
-    text-align: center;
-    background-color: #FFFAB1;
-    grid-template-columns: auto auto;
+  .logoText {
+    font-family: 'Ribeye', cursive;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 30px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    display: flex;
     justify-content: center;
+    
 }
 
-.secImgProfile{
-    justify-content: left;
+.navbar a {
+  float: left;
+  *padding: 2px;
+  color: white;
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-decoration: none;
+  font-size: 15px;
+  }
+
+  .navbar a:hover {
+  background-color:#834813;
+}
+ .imgProfile{
+  width: 130px;
+  height: 130px;
+  margin-right: 25px;
+  *border-radius: 50%;
+}
+  .secPublishBox{
+   height: 180px;
+   width: 98%;
+   border-radius: 20px;
+   margin-left: 9px;
+   background-color: #ffffff;
+   border: #1D8C6C 1px solid;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 20px 0px 10px 0px;
+
+   
+
+  }
+
+  .boxText{
+    height: 140px;
+    width: 90%;
+    border-radius: 20px;
+    *margin-left: 7px;
+    *margin: 5% 0%;
+    resize: none;
+    overflow: auto;
+    
+    box-sizing: border-box;
+    border: 2px solid #d1cad6;
+    outline-style: none;
+    padding-bottom: 10px;
+    
+  
 }
 
-.imgProfile{
-   *width: 155px;
-    *height: 160px;
-    padding-top: 20px;
-} */
+.secBtnBoxText{
+  display: flex;
+  padding-top:10px;
+  margin: 0px;
 
+}
+
+.boxText::-webkit-input-placeholder {
+  color:#444444bb;
+  font-size: 14px;
+  font-weight: lighter;
+  letter-spacing: 0.5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.inputShare{
+    padding-bottom: 10px;
+    color: #ffffff;
+    background: #55A603;
+    border-color: #55A603;
+    border-radius: 20px;
+    border: none;
+    width: 90px;
+    height: 35px;
+    cursor: pointer;
+    vertical-align: bottom;
+    padding-top: 7px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    margin-left: 190px;
+    z-index: 3;
+}
+
+.imgFile{
+  padding: 0px;
+  margin: 0px;
+  z-index: 1;
+  
+}
+#file_input {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 0;
+   
+}
+
+}
 
 
 @media screen and (min-width: 1024px) {
@@ -372,7 +612,127 @@ margin-top: 5px;
         grid-template-columns: 0.5fr 1.5fr;
         column-gap: 5%;
         padding: 3rem 2rem;
+    
     }
+    .logoText {
+      font-family: 'Ribeye', cursive;
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 30px;
+      padding-left: 20px;
+      padding-top: 5px;
+      padding-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      
+  }
+  
+  .navbar a {
+    float: left;
+    *padding: 2px;
+    color: white;
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+    font-size: 17px;
+    }
+  
+    .navbar a:hover {
+    background-color:#834813;
+  }
+   .imgProfile{
+    width: 200px;
+    height: 200px;
+    margin-right: 25px;
+    *border-radius: 50%;
+    cursor: pointer;
+  }
+    .secPublishBox{
+     height: 180px;
+     width: 98%;
+     border-radius: 20px;
+     margin-left: 3px;
+     background-color: #ffffff;
+     border: #1D8C6C 1px solid;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding: 20px 0px 10px 0px;
+  
+     
+  
+    }
+  
+    .boxText{
+      height: 140px;
+      width: 90%;
+      border-radius: 20px;
+      *margin-left: 7px;
+      *margin: 5% 0%;
+      resize: none;
+      overflow: auto;
+      
+      box-sizing: border-box;
+      border: 2px solid #d1cad6;
+      outline-style: none;
+      padding-bottom: 10px;
+      
+    
+  }
+  
+  .secBtnBoxText{
+    display: flex;
+    padding-top:10px;
+    margin: 0px;
+  
+  }
+  
+  .boxText::-webkit-input-placeholder {
+    color:#444444bb;
+    font-size: 14px;
+    font-weight: lighter;
+    letter-spacing: 0.5px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  
+  .inputShare{
+      padding-bottom: 10px;
+      color: #ffffff;
+      background: #55A603;
+      border-color: #55A603;
+      border-radius: 20px;
+      border: none;
+      width: 90px;
+      height: 35px;
+      cursor: pointer;
+      vertical-align: bottom;
+      padding-top: 7px;
+      margin-bottom: 15px;
+      font-size: 15px;
+      font-weight: bold;
+      letter-spacing: 0.6px;
+      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+      margin-left: 190px;
+      z-index: 3;
+  }
+  
+  .imgFile{
+    padding: 0px;
+    margin: 0px;
+    position: absolute;
+    z-index: 1;
+    
+  }
+  #file_input {
+    
+    cursor: pointer;
+    opacity: 0;
+    z-index: 0;
+     
+  }
+   
 }
 
 
