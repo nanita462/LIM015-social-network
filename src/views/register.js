@@ -145,7 +145,6 @@ export const registerView = () => {
 
       <!-- Botón submit - Registrar -->
       <input class="inputSubmit" type="submit" id="idSubmitRegister" value="Registrar">
-      
       </form>
 
       <h2 class="textOne">O bien registra con...</h2>
@@ -171,7 +170,7 @@ export const registerView = () => {
 
       <!--</form>-->
   </section>
-  
+
   </section>
   `;
 

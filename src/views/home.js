@@ -1,18 +1,19 @@
 /* eslint-disable eol-last */
 export const homeView = () => {
-  const view = `
+  // eslint-disable-next-line spaced-comment
+  const view =/*html*/ `
   <header class="secHeader" id="idHeader">
   <section class="secLogoText" id="idNavList">
   <!--<h1 class="logoText">EcoPunto</h1>-->
   <a class="logoText" href='#/home'>EcoPunto</a>
   </section>
-  
+
   <section class="navbar" id="idNavList">
-   
-  <a href="#/home"><span data-width="25"class="iconify" data-icon="bx:bxs-home-heart"></span>Inicio</a> 
+
+  <a href="#/home"><span data-width="25"class="iconify" data-icon="bx:bxs-home-heart"></span>Inicio</a>
   <a href="#/profile"><span data-width="25" class="iconify" data-icon="mdi:account-circle"></span>Mi perfil</a>
-  <a href="#/"><span data-width="25" class="iconify" data-icon="ic:outline-log-in"></span>Cerrar sesión</a> 
-    
+  <a href="#/"><span data-width="25" class="iconify" data-icon="ic:outline-log-in"></span>Cerrar sesión</a>
+
   </section>
 </header>
 
@@ -39,17 +40,14 @@ export const homeView = () => {
     <section class="secPublishBox">
       <textarea class="boxText" name="" id="idPublishBoxText" cols="30" rows="10"
         placeholder="¿Qué quieres compartir?"></textarea>
-      
+
       <section class="errorPublish"></section>
-      
-      
       <section class="secBtnBoxText">
       <figure class="imgFile">
       <span id= "iconFile" class="iconify" data-icon="noto-v1:framed-picture" data-width="40" data-height="40"></span>
       <input type="file" id="file_input" />
       <div class="hoverPhoto"></div>
       </figure>
-       
        <!--<button class="inputShare"  id="idButtonDelete" type="button">Borrar</button>-->
         <button class="inputShare"  id="idButtonPublish" type="button">Publicar</button>
       </section>

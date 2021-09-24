@@ -5,6 +5,32 @@ body{
     padding: 0px;
 }
 
+.navbar {
+  width: 100%;
+  background-color: #04AA6D;
+  overflow: auto;
+  display: flex;
+  justify-content: right;
+}
+
+.navbar a {
+  float: left;
+  padding: 2px;
+  color: white;
+  padding-top: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-decoration: none;
+  font-size: 17px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar a:hover {
+  background-color:#834813;
+}
+
+
 .secViewDesktop{
     display: grid;
     grid-template-columns: 0px 2fr;
@@ -278,39 +304,6 @@ header{
     
 }
 
-
-
-.navbar {
-  width: 100%;
-  background-color: #04AA6D;
-  overflow: auto;
-  display: flex;
-  justify-content: right;
-   
-}
-
-.navbar a {
-  float: left;
-  padding: 2px;
-  color: white;
-  padding-top: 15px;
-  padding-left: 30px;
-  padding-right: 30px;
-   
-  text-decoration: none;
-  font-size: 17px;
-  }
-
-
-
-.navbar a:hover {
-  background-color:#834813;
-}
-
-
-
-
-
 /*PUBLICACION*/
 
 /* .secHome{
@@ -332,8 +325,7 @@ header{
 
 .secTextInfo{
     font-size: 15px;
-    
-}
+    }
 
 .nameUser , .nameUser1 {
     padding-bottom: 0px;
@@ -343,20 +335,7 @@ header{
 
 
 
-
-
-.navbar a {
-  
-  display: flex;
-  justify-content: space-between;
-}
-
-
-  
-
-
 @media screen and (min-width: 260px) {
-  
   .logoText {
     font-family: 'Ribeye', cursive;
     text-decoration: none;
@@ -367,12 +346,10 @@ header{
     padding-bottom: 10px;
     display: flex;
     justify-content: center;
-    
-}
+    }
 
-.navbar a {
+  .navbar a {
   float: left;
-  *padding: 2px;
   color: white;
   padding-top: 15px;
   padding-left: 10px;
@@ -380,7 +357,6 @@ header{
   text-decoration: none;
   font-size: 12px;
   }
-
   .navbar a:hover {
   background-color:#834813;
 }
@@ -402,26 +378,19 @@ header{
    align-items: center;
    padding: 20px 0px 10px 0px;
 
-   
-
-  }
+   }
 
   .boxText{
     height: 140px;
     width: 90%;
     border-radius: 20px;
-    *margin-left: 7px;
-    *margin: 5% 0%;
     resize: none;
     overflow: auto;
-    
     box-sizing: border-box;
     border: 2px solid #d1cad6;
     outline-style: none;
     padding-bottom: 10px;
-    
-  
-}
+    }
 
 .secBtnBoxText{
   display: flex;
@@ -464,15 +433,13 @@ header{
   padding: 0px;
   margin: 0px;
   *position: relative;
-  
 }
 #file_input {
   position: absolute;
   cursor: pointer;
   opacity: 0;
   z-index: 1;
-   
-}
+   }
 #iconFile{
   position: relative;
   z-index: 0;
@@ -491,8 +458,7 @@ header{
     padding-bottom: 10px;
     display: flex;
     justify-content: center;
-    
-}
+    }
 
 .navbar a {
   float: left;
@@ -525,27 +491,19 @@ header{
    flex-direction: column;
    align-items: center;
    padding: 20px 0px 10px 0px;
-
-   
-
   }
 
   .boxText{
     height: 140px;
     width: 90%;
     border-radius: 20px;
-    *margin-left: 7px;
-    *margin: 5% 0%;
     resize: none;
     overflow: auto;
-    
     box-sizing: border-box;
     border: 2px solid #d1cad6;
     outline-style: none;
     padding-bottom: 10px;
-    
-  
-}
+     }
 
 .secBtnBoxText{
   display: flex;
@@ -587,15 +545,13 @@ header{
   padding: 0px;
   margin: 0px;
   z-index: 1;
-  
-}
+  }
 #file_input {
   position: absolute;
   cursor: pointer;
   opacity: 0;
   z-index: 0;
-   
-}
+   }
 
 }
 
@@ -612,7 +568,6 @@ header{
         grid-template-columns: 0.5fr 1.5fr;
         column-gap: 5%;
         padding: 3rem 2rem;
-    
     }
     .logoText {
       font-family: 'Ribeye', cursive;
@@ -624,12 +579,9 @@ header{
       padding-bottom: 10px;
       display: flex;
       justify-content: center;
-      
-  }
-  
+      }
   .navbar a {
     float: left;
-    *padding: 2px;
     color: white;
     padding-top: 15px;
     padding-left: 20px;
@@ -637,7 +589,7 @@ header{
     text-decoration: none;
     font-size: 17px;
     }
-  
+
     .navbar a:hover {
     background-color:#834813;
   }
@@ -659,35 +611,25 @@ header{
      flex-direction: column;
      align-items: center;
      padding: 20px 0px 10px 0px;
-  
-     
-  
-    }
-  
+     }
     .boxText{
       height: 140px;
       width: 90%;
       border-radius: 20px;
-      *margin-left: 7px;
-      *margin: 5% 0%;
       resize: none;
       overflow: auto;
-      
       box-sizing: border-box;
       border: 2px solid #d1cad6;
       outline-style: none;
       padding-bottom: 10px;
-      
-    
-  }
-  
+       }
+
   .secBtnBoxText{
     display: flex;
     padding-top:10px;
     margin: 0px;
-  
   }
-  
+
   .boxText::-webkit-input-placeholder {
     color:#444444bb;
     font-size: 14px;
@@ -695,8 +637,6 @@ header{
     letter-spacing: 0.5px;
     font-family: 'Roboto', sans-serif;
   }
-  
-  
   .inputShare{
       padding-bottom: 10px;
       color: #ffffff;
@@ -717,23 +657,18 @@ header{
       margin-left: 190px;
       z-index: 3;
   }
-  
   .imgFile{
     padding: 0px;
     margin: 0px;
     position: absolute;
     z-index: 1;
-    
-  }
+    }
   #file_input {
-    
     cursor: pointer;
     opacity: 0;
     z-index: 0;
-     
-  }
-   
-}
+     }
+   }
 
 
 

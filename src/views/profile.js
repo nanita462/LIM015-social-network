@@ -71,11 +71,6 @@
 //     });
 //   });
 
-<<<<<<< HEAD
-export {
-  perfilView
-};
-=======
 //   const imagePrev = document.querySelector("imagePrev")
 //   const fileInput = document.querySelector("#fileInput")
 
@@ -97,4 +92,3 @@ export {
 // export {
 //   perfilView
 // };
->>>>>>> 12d94095b70f8819c6ce2995970e66eda5d09014
