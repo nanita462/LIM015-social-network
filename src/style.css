@@ -1,381 +1,678 @@
-body{
-    background-color: #FFFAB1;
-    font-family: 'Roboto', sans-serif;
-    margin: 0px;
-    padding: 0px;
+body {
+  background-color: #fffab1;
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+  padding: 0px;
 }
 
-.secViewDesktop{
-    display: grid;
-    grid-template-columns: 0px 2fr;
-    width: 100%;
-    *height: 100vh;
-    padding-top: 18px;
+/*** HEADER - NAV ***/
+header {
+  background-color: #04aa6d;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #04aa6d;
+  overflow: auto;
+  display: flex;
+  justify-content: right;
+}
+
+.navbar a {
+  float: left;
+  padding: 2px;
+  color: white;
+  padding-top: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-decoration: none;
+  font-size: 17px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar a:hover {
+  background-color: #834813;
+}
+
+.logoText {
+  font-family: "Ribeye", cursive;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 30px;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+/****VISTA DESKTOP LOGIN/REGISTER***/
+.secViewDesktop {
+  display: grid;
+  grid-template-columns: 0px 2fr;
+  width: 100%;
+  *height: 100vh;
+  padding-top: 18px;
 }
 
 .secViewDesktop.hidden {
-    display: none;
+  display: none;
 }
 
 .secViewDesktop .secCover {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: right;
 }
 
 .secViewDesktop .secCover > img {
-    display: none;
+  display: none;
 }
 
-.imgCover{
-    width: 100%;
-    height: 600px;
-    position: relative;
-    *padding-top: 100px;
-    *padding-left: 100px;
+.imgCover {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  *padding-top: 100px;
+  *padding-left: 100px;
 }
 
-.imgCoverRegister{
-    width: 100%;
-    height: 400px;
-    position: relative;
+.imgCoverRegister {
+  width: 100%;
+  height: 400px;
+  position: relative;
 }
 
-.secLogin{
-    width: 100%;
-    *height: 100%;
-    display: grid;
-    text-align: center;
-    background-color: #FFFAB1;
-    grid-template-columns: auto;
-    justify-content: center;
+/*** LOGIN / REGISTER ***/
+.secLogin {
+  width: 100%;
+  *height: 100%;
+  display: grid;
+  text-align: center;
+  background-color: #fffab1;
+  grid-template-columns: auto;
+  justify-content: center;
 }
 
-.secImgLogin{
-    justify-content: center;
+.secImgLogin {
+  justify-content: center;
 }
 
-.imgLogin{
-    width: 155px;
-    height: 160px;
-    padding-top: 20px;
+.imgLogin {
+  width: 155px;
+  height: 160px;
+  padding-top: 10px;
 }
 
-.tittle{
-    font-size: 35px;
-    margin-top: 0px;
-    font-family: 'Ribeye', cursive;
-    margin-bottom: 5px;
+.tittle {
+  font-size: 35px;
+  margin-top: 0px;
+  font-family: "Ribeye", cursive;
+  margin-bottom: 5px;
 }
 
-.text{
-    font-size: 22px;
-    margin-top: 0px;
+.text {
+  font-size: 22px;
+  margin-top: 0px;
 }
 
-.secEmail, .secName{
-    padding-bottom: 10px;
+.secEmail,
+.secName {
+  padding-bottom: 10px;
 }
-.inputEmail, .inputName{
-    background-color: #ffffff;
-    border: none;
-    border-radius: 20px;
-    height: 40px;
-    width: 290px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    text-align: center;
-    *outline: none;
-}
-
-.secPassword{
-    padding-bottom: 10px;
-    margin-bottom: 0px;
+.inputEmail,
+.inputName {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  height: 40px;
+  width: 290px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  text-align: center;
+  *outline: none;
+  font-size: 16px;
 }
 
-.inputPassword{
-    background-color: #ffffff;
-    border: none;
-    border-radius: 20px;
-    height: 40px;
-    width: 290px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    text-align: center;
-    *outline: none;
+.secPassword {
+  padding-bottom: 5px;
+  margin-bottom: 0px;
 }
 
-/* .inputEmail:focus, .inputName:focus, .inputPassword:focus {
-    background: rgba(28, 224, 10, 0.2);
-  } */
-
-::placeholder{
-    font-size: 18px;
-    color: #727074;
-    text-align: center;
+.inputPassword {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  height: 40px;
+  width: 290px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  text-align: center;
+  *outline: none;
 }
 
-.inputSubmit{
-    padding-bottom: 10px;
-    color: #ffffff;
-    background: #55A603;
-    border-color: #55A603;
-    border-radius: 20px;
-    border: none;
-    width: 140px;
-    height: 40px;
-    cursor: pointer;
-    vertical-align: bottom;
-    padding-top: 7px;
-    margin-bottom: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    letter-spacing: 0.6px;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+::placeholder {
+  font-size: 16px;
+  color: #727074;
+  text-align: center;
 }
 
-.textOne{
-    font-size: 18px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    color: #000000;
-    font-weight: bold;
-    cursor: pointer;
+.inputSubmit {
+  padding-bottom: 10px;
+  color: #ffffff;
+  background: #55a603;
+  border-color: #55a603;
+  border-radius: 20px;
+  border: none;
+  width: 140px;
+  height: 40px;
+  cursor: pointer;
+  vertical-align: bottom;
+  padding-top: 7px;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.6px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-.textTwo{
-    font-size: 18px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration:none;
+.textOne {
+  font-size: 18px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #000000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.textTwo {
+  font-size: 18px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
 }
 .textTwo a:hover {
-    color: black;
+  color: black;
 }
 
-.secIcons{
-display: flex;
-flex-direction: row;
-justify-content: center;
-margin-top: 5px;
+.secIcons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 5px;
 }
 
-.icon{
-    width: 35px;
-    height: 35px;
-    padding: 5px;
+.icon {
+  width: 35px;
+  height: 35px;
+  padding: 5px;
 }
 
-/*View Error404*/
-.secError{
-    width: 100%;
-    height: 100vh;
-    display: grid;
-    text-align: center;
-    background-color: #834813;
-    grid-template-columns: auto;
-    justify-content: center;
-    align-content: center;
-
+/*** ERROR 404 ***/
+.secError {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  text-align: center;
+  background-color: #834813;
+  grid-template-columns: auto;
+  justify-content: center;
+  align-content: center;
 }
 
-.hError{
-    font-family: 'Ribeye', cursive;
-    font-size: 50px;
-    color: #ffffff;
-    padding-top: 20px;
+.hError {
+  font-family: "Ribeye", cursive;
+  font-size: 50px;
+  color: #ffffff;
+  padding-top: 20px;
 }
 
-
-.pError{
-    font-size: 25px;
-    padding-bottom: 5px;
-    margin-bottom: 0px;
-    margin-top: 0px;
-    font-weight: bold;
-    color: #ffffff;
-
+.pError {
+  font-size: 25px;
+  padding-bottom: 5px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-weight: bold;
+  color: #ffffff;
 }
 
-.secImgError{
-    padding: 20px;
+.secImgError {
+  padding: 20px;
 }
 
-.imgError{
-    width: 200px;
-    height: 200px;
+.imgError {
+  width: 200px;
+  height: 200px;
 }
 
-.secInputError{
-    padding-top: 20px;
+.secInputError {
+  padding-top: 20px;
 }
 
-.inputError{
-    padding-bottom: 10px;
-    color: #ffffff;
-    background: #55A603;
-    border-color: #55A603;
-    border-radius: 20px;
-    border: none;
-    width: 140px;
-    height: 40px;
-    cursor: pointer;
-    vertical-align: bottom;
-    padding-top: 7px;
-    margin-bottom: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    letter-spacing: 0.6px;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    justify-content: center;
+.inputError {
+  padding-bottom: 10px;
+  color: #ffffff;
+  background: #55a603;
+  border-color: #55a603;
+  border-radius: 20px;
+  border: none;
+  width: 140px;
+  height: 40px;
+  cursor: pointer;
+  vertical-align: bottom;
+  padding-top: 7px;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.6px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  justify-content: center;
 }
 
-/*Error en pantalla*/
-.textError{
-    font-size: 12px;
-    color: red;
-    font-weight: bold;
-    padding: 0px;
+/*** MENSAJES DE ERROR ***/
+
+/* .textError {
+  font-size: 12px;
+  color: red;
+  font-weight: bold;
+  padding: 0px;
+} */
+
+.msgErrorRegister {
+  font-size: 12px;
+  color: red;
+  font-weight: bold;
+  padding: 0px;
+  padding: 5px;
+  margin-top: 0px;
 }
 
-.msgErrorRegister{
-    font-size: 12px;
-    color: red;
-    font-weight: bold;
-    padding: 0px;
-    padding: 5px;
-    margin-top: 0px;
+.msgErrorLogin {
+  font-size: 12px;
+  color: red;
+  font-weight: bold;
+  padding: 0px;
+  padding: 5px;
+  margin-top: 0px;
 }
 
-.msgErrorLogin{
-    font-size: 12px;
-    color: red;
-    font-weight: bold;
-    padding: 0px;
-    padding: 5px;
-    margin-top: 0px;
+/*INFORMACION DE USUARIO*/
+
+.secUserInfo {
+  display: flex;
+  width: 90%;
+  margin: 0 5% 0.5rem;
+  padding: 1rem 0.5rem 0.1rem;
+  align-items: center;
 }
 
-/*HEADER -NAV*/
-.secHeader{
-    background-color: #1D8C6C;
+.secTextInfo {
+  font-size: 15px;
 }
-.logoText{
-    font-family: 'Ribeye', cursive;
+
+.nameUser,
+.nameUser1 {
+  padding-bottom: 0px;
+  margin-top: 0px;
+  font-weight: bold;
+}
+
+/*** VISTA CELULAR (iPhone6/7/8) ***/
+@media screen and (min-width: 260px) {
+  .logoText {
+    font-family: "Ribeye", cursive;
     text-decoration: none;
     color: #ffffff;
     font-size: 30px;
     padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar a {
+    float: left;
+    *padding: 2px;
+    color: white;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 2px;
+    text-decoration: none;
+    font-size: 12px;
+  }
+
+  .navbar a:hover {
+    background-color: #834813;
+  }
+  .imgProfile {
+    width: 130px;
+    height: 130px;
+    margin-right: 25px;
+    *border-radius: 50%;
+  }
+  .secPublishBox {
+    height: 180px;
+    width: 98%;
+    border-radius: 20px;
+    margin-left: 3px;
+    background-color: #ffffff;
+    border: #1d8c6c 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0px 10px 0px;
+  }
+
+  .boxText {
+    height: 140px;
+    width: 90%;
+    border-radius: 20px;
+    *margin-left: 7px;
+    resize: none;
+    overflow: auto;
+    box-sizing: border-box;
+    border: 2px solid #d1cad6;
+    outline-style: none;
+    padding-bottom: 10px;
+  }
+
+  .secBtnBoxText {
+    display: flex;
     padding-top: 10px;
+    margin: 0px;
+  }
+
+  .boxText::-webkit-input-placeholder {
+    color: #444444bb;
+    font-size: 16px;
+    font-weight: lighter;
+    letter-spacing: 0.5px;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .inputShare {
+    padding-bottom: 10px;
+    color: #ffffff;
+    background: #55a603;
+    border-color: #55a603;
+    border-radius: 20px;
+    border: none;
+    width: 90px;
+    height: 35px;
+    cursor: pointer;
+    vertical-align: bottom;
+    padding-top: 7px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    margin-left: 190px;
+    z-index: 3;
+  }
+
+  .imgFile {
+    padding: 0px;
+    margin: 0px;
+    *position: relative;
+  }
+  #fileImg {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 1;
+  }
+  #iconFile {
+    position: relative;
+    z-index: 0;
+  }
+
+  .newPost {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .secHeadPost {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
+/*** VISTA Ipad ***/
+@media screen and (min-width: 700px) {
+  .logoText {
+    font-family: "Ribeye", cursive;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 30px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+  }
 
-/*PUBLICACION*/
+  .navbar a {
+    float: left;
+    *padding: 2px;
+    color: white;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    font-size: 15px;
+  }
 
-/* .secHome{
+  .navbar a:hover {
+    background-color: #834813;
+  }
+  .imgProfile {
+    width: 130px;
+    height: 130px;
+    margin-right: 25px;
+    *border-radius: 50%;
+  }
+  .secPublishBox {
+    height: 180px;
+    width: 98%;
+    border-radius: 20px;
+    margin-left: 9px;
+    background-color: #ffffff;
+    border: #1d8c6c 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0px 10px 0px;
+  }
+
+  .boxText {
+    height: 140px;
+    width: 90%;
+    border-radius: 20px;
+    *margin-left: 7px;
+    resize: none;
+    overflow: auto;
+    box-sizing: border-box;
+    border: 2px solid #d1cad6;
+    outline-style: none;
+    padding-bottom: 10px;
+  }
+
+  .secBtnBoxText {
+    display: flex;
+    padding-top: 10px;
+    margin: 0px;
+  }
+
+  .boxText::-webkit-input-placeholder {
+    color: #444444bb;
+    font-size: 16px;
+    font-weight: lighter;
+    letter-spacing: 0.5px;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .inputShare {
+    padding-bottom: 10px;
+    color: #ffffff;
+    background: #55a603;
+    border-color: #55a603;
+    border-radius: 20px;
+    border: none;
+    width: 90px;
+    height: 35px;
+    cursor: pointer;
+    vertical-align: bottom;
+    padding-top: 7px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    margin-left: 190px;
+    z-index: 3;
+  }
+
+  .imgFile {
+    padding: 0px;
+    margin: 0px;
+    z-index: 1;
+  }
+  #file_input {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 0;
+  }
+}
+
+/*** VISTA Desktop ***/
+@media screen and (min-width: 1024px) {
+  .secViewDesktop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .secViewDesktop .secCover > img {
+    display: block;
+  }
+  .secHome {
     display: grid;
     grid-template-columns: 0.5fr 1.5fr;
     column-gap: 5%;
     padding: 3rem 2rem;
-} */
+  }
+  .logoText {
+    font-family: "Ribeye", cursive;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 30px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+  }
 
-.secUserInfo{
-    display:flex;
-    width: 90%;
-    margin: 0 5% 0.5rem;
-    padding: 1rem .5rem .1rem;
-    align-items: center;
-}
+  .navbar a {
+    float: left;
+    *padding: 2px;
+    color: white;
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+    font-size: 17px;
+  }
 
-.imgProfile{
-    *width: 2.5rem;
-    *height: 2.5rem;
+  .navbar a:hover {
+    background-color: #834813;
+  }
+  .imgProfile {
+    width: 200px;
+    height: 200px;
     margin-right: 25px;
     *border-radius: 50%;
-}
+    cursor: pointer;
+  }
+  .secPublishBox {
+    height: 180px;
+    width: 98%;
+    border-radius: 20px;
+    margin-left: 3px;
+    background-color: #ffffff;
+    border: #1d8c6c 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0px 10px 0px;
+  }
 
-.secTextInfo{
-    font-size: 15px;
-}
-
-.nameUser , .nameUser1 {
-    padding-bottom: 0px;
-    *margin-top: 0px;
-    font-weight: bold;
-}
-
-.secPublishBox{
+  .boxText {
+    height: 140px;
     width: 90%;
-    margin: 0 5%;
-    padding: 1rem .2rem .3rem;
-    border-radius: 0.8rem;
-    height: auto;
-    border: 1px dashed rgba(89, 86, 86, 0.842);
-}
+    border-radius: 20px;
+    *margin-left: 7px;
+    resize: none;
+    overflow: auto;
+    box-sizing: border-box;
+    border: 2px solid #d1cad6;
+    outline-style: none;
+    padding-bottom: 10px;
+  }
 
-.boxText {
-    margin: 0 0.8rem;
-    height: 3rem;
-    width: 94%;
-    padding: 0.5rem;
-}
+  .secBtnBoxText {
+    display: flex;
+    padding-top: 10px;
+    margin: 0px;
+  }
 
-.boxText::-webkit-input-placeholder {
-    color:#444444bb;
-    font-size: 14px;
+  .boxText::-webkit-input-placeholder {
+    color: #444444bb;
+    font-size: 16px;
     font-weight: lighter;
     letter-spacing: 0.5px;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .inputShare {
+    padding-bottom: 10px;
+    color: #ffffff;
+    background: #55a603;
+    border-color: #55a603;
+    border-radius: 20px;
+    border: none;
+    width: 90px;
+    height: 35px;
+    cursor: pointer;
+    vertical-align: bottom;
+    padding-top: 7px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    margin-left: 190px;
+    z-index: 3;
+  }
+
+  .imgFile {
+    padding: 0px;
+    margin: 0px;
+    position: absolute;
+    z-index: 1;
+  }
+  #file_input {
+    cursor: pointer;
+    opacity: 0;
+    z-index: 0;
+  }
 }
-
-@media screen and (min-width: 700px) {
-    .boxText {
-        height: 3rem;
-        width: 100%;
-    }
-}
-
-
-/* .secHome{
-    width: 100%;
-    *height: 100%;
-    display: grid;
-    text-align: center;
-    background-color: #FFFAB1;
-    grid-template-columns: auto auto;
-    justify-content: center;
-}
-
-.secImgProfile{
-    justify-content: left;
-}
-
-.imgProfile{
-   *width: 155px;
-    *height: 160px;
-    padding-top: 20px;
-} */
-
-
-
-@media screen and (min-width: 1024px) {
-    .secViewDesktop {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .secViewDesktop .secCover > img{
-      display: block;
-    }
-    .secHome {
-        display: grid;
-        grid-template-columns: 0.5fr 1.5fr;
-        column-gap: 5%;
-        padding: 3rem 2rem;
-    }
-}
-
-
-
-
-
