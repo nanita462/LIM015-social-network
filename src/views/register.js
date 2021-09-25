@@ -18,8 +18,8 @@ const verifyPass = ((pass) => {
 
 // Registro con Email y idPassword Register
 const registerWEP = (document) => {
-  const goRegister = mainContainer.querySelector('form');
-  goRegister.addEventListener('submit', (e) => {
+  const formRegister = mainContainer.querySelector('form');
+  formRegister.addEventListener('submit', (e) => {
     e.preventDefault();
     const idNameRegister = document.querySelector('#idNameRegister').value;
     const idEmailRegister = document.querySelector('#idEmailRegister').value;
@@ -27,7 +27,8 @@ const registerWEP = (document) => {
     const msgErrorRegister = document.querySelector('.msgErrorRegister');
 
     if (verifyPass(idPasswordRegister) === false) {
-      msgErrorRegister.innerHTML = `<p class="textError">Mínimo 8 caracteres, incluye un número y un carácter especial $#@!?</p>`;
+      // msgErrorRegister.innerHTML = `<p class="textError">Mínimo 8 caracteres (letra, número y carácter especial @$#!?)</p>`;
+      msgErrorRegister.textContent = 'Mínimo 8 caracteres (letras, números y carácter especial @$#!?)';
     } else {
       createUserWEP(idEmailRegister, idPasswordRegister)
         .then((credentials) => {
@@ -45,7 +46,7 @@ const registerWEP = (document) => {
               console.log(error);
             });
 
-          signOut();
+          signOut(); // desloguea para que primero valide correo y luego se loguee correctamente desde login.
           window.location.hash = '#/';
         }).catch((err) => {
           if (err.code === 'auth/email-already-in-use') {
@@ -54,9 +55,6 @@ const registerWEP = (document) => {
             msgErrorRegister.textContent = 'Ha ocurrido un error. Intenta otra vez.';
           }
         });
-      // .catch((err) => (err.code === 'auth/email-already-in-use' ?
-      //   msgErrorRegister.textContent = 'El correo ya esta registrado. Por favor intenta con otro correo.' :
-      //   msgErrorRegister.textContent = 'Ha ocurrido un error. Intenta otra vez.'));
     }
   });
 };
@@ -110,57 +108,58 @@ const registerWithGoogle = (document) => {
 // }
 
 export const registerView = () => {
-  const view = `
+  // eslint-disable-next-line spaced-comment
+  const view = /*html*/ `
   <section class= "secViewDesktop">
-  <section class= "secCover">
-  <img class="imgCoverRegister" src="img/mundoverde.png" alt="MundoVerde">
-  </section>
-    <section class= "secLogin">
-    <!--<form class="formLogin" id="idRegister">-->
 
-    <section class= "secImgLogin">
-      <img class="imgLogin" src="img/arbol_ecologico.png" alt="EcoPunto">
+    <section class= "secCover">
+      <img class="imgCoverRegister" src="img/mundoverde.png" alt="MundoVerde">
     </section>
+
+    <section class= "secLogin">
+
+      <section class= "secImgLogin">
+        <img class="imgLogin" src="img/arbol_ecologico.png" alt="EcoPunto">
+      </section>
+
       <h1 class="tittle">EcoPunto</h1>
       <h2 class="text">¡Vamos, crea tu cuenta green!</h2>
 
       <form class="formLogin" id="idRegister">
 
-      <section class="secName">
-      <i class="fa fa-user icon"></i>
-        <input class="inputName" type="text" id="idNameRegister" placeholder="Ingresa tu nombre de usuario" required>
-      </section>
+        <section class="secName">
+          <input class="inputName" type="text" id="idNameRegister" placeholder="Ingresa tu nombre de usuario" required>
+        </section>
 
-      <section class="secEmail">
-        <input class="inputEmail" type="email" id="idEmailRegister" placeholder="Ingresa tu Email" required>
-      </section>
+        <section class="secEmail">
+          <input class="inputEmail" type="email" id="idEmailRegister" placeholder="Ingresa tu Email" required>
+        </section>
 
-      <section class="secPassword">
-        <input class="inputPassword" type="password" id="idPasswordRegister" placeholder="Ingresa tu contraseña"
+        <section class="secPassword">
+          <input class="inputPassword" type="password" id="idPasswordRegister" placeholder="Ingresa tu contraseña"
           required>
-      </section>
+        </section>
+        <!-- Mensaje de error -->
+        <section class="msgErrorRegister"></section>
+        <!-- Botón submit - Registrar -->
+        <input class="inputSubmit" type="submit" id="idSubmitRegister" value="Registrar">
 
-      <!-- Mensaje de error -->
-      <section class="msgErrorRegister"></section>
-
-      <!-- Botón submit - Registrar -->
-      <input class="inputSubmit" type="submit" id="idSubmitRegister" value="Registrar">
       </form>
 
       <h2 class="textOne">O bien registra con...</h2>
 
       <section class="secIcons">
-      <section class="secIconGoogle" id= "idGoogle">
-      <a class="iconGoogle" alt="Google">
-      <img class= "icon" src="./img/google.png" alt="Google">
-      </a>
-      </section>
+        <section class="secIconGoogle" id= "idGoogle">
+          <a class="iconGoogle" alt="Google">
+            <img class= "icon" src="./img/google.png" alt="Google">
+          </a>
+        </section>
 
-      <section class="secIconFb">
-      <a class="iconFb" alt="Facebook">
-      <img class= "icon" id= "idFb" src="./img/facebook.png" alt="facebook">
-      </a>
-      </section>
+        <section class="secIconFb">
+          <a class="iconFb" alt="Facebook">
+            <img class= "icon" id= "idFb" src="./img/facebook.png" alt="facebook">
+          </a>
+        </section>
       </section>
 
       <section class="secLinkRegister">
@@ -168,11 +167,8 @@ export const registerView = () => {
         <h2 class="textTwo" id= "textLogInHere"><a href='#/'>Inicia sesión aquí</a></h2>
       </section>
 
-      <!--</form>-->
-  </section>
-
-  </section>
-  `;
+    </section>
+  </section>`;
 
   const mainRegister = document.getElementById('mainContainer');
   mainRegister.innerHTML = '';

@@ -1,24 +1,23 @@
 /* eslint-disable eol-last */
 /* eslint-disable indent */
 import {
-    loginView,
-    // eventLogin,
+  loginView,
 } from './login.js';
 
 import {
-    registerView,
-    // eventRegister,
+  registerView,
 } from './register.js';
 
 import {
-    homeView,
+  homeView,
 } from './home.js';
 
 import errorView from './error404.js';
 
+// Colocando vistas en objeto
 export default {
-    login: loginView,
-    register: registerView,
-    home: homeView,
-    error404: errorView,
+  login: loginView,
+  register: registerView,
+  home: homeView,
+  error404: errorView,
 };
