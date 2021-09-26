@@ -309,7 +309,8 @@ header {
   width: 90%;
   margin: 0 5% 0.5rem;
   padding: 1rem 0.5rem 0.1rem;
-  align-items: center;
+  justify-content: space-between;
+  
 }
 
 .secTextInfo {
@@ -347,7 +348,6 @@ header {
     text-decoration: none;
     font-size: 12px;
   }
-
   .navbar a:hover {
     background-color: #834813;
   }
@@ -357,44 +357,56 @@ header {
     margin-right: 25px;
     *border-radius: 50%;
   }
+  .secHomePublish{
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+
+  }
   .secPublishBox {
-    height: 180px;
-    width: 98%;
-    border-radius: 20px;
+    height: 100%;
+    width: 90%;
+    border-radius: 10px;
     margin-left: 3px;
     background-color: #ffffff;
     border: #1d8c6c 1px solid;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 0px 10px 0px;
+    padding: 10px 10px 10px 10px;
   }
 
   .boxText {
-    height: 140px;
-    width: 90%;
-    border-radius: 20px;
-    *margin-left: 7px;
+    height: 100px;
+    width: 100%;
+    border-radius: 10px;
+    *margin-left: 10px;
+    *margin-right: 10px;
     resize: none;
     overflow: auto;
     box-sizing: border-box;
     border: 2px solid #d1cad6;
     outline-style: none;
-    padding-bottom: 10px;
+    *padding-bottom: 10px;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    
   }
 
   .secBtnBoxText {
     display: flex;
     padding-top: 10px;
     margin: 0px;
+    
   }
 
-  .boxText::-webkit-input-placeholder {
+  .boxText::placeholder {
     color: #444444bb;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: lighter;
     letter-spacing: 0.5px;
     font-family: "Roboto", sans-serif;
+    padding-top: 15px;
   }
 
   .inputShare {
@@ -404,14 +416,14 @@ header {
     border-color: #55a603;
     border-radius: 20px;
     border: none;
-    width: 90px;
-    height: 35px;
+    width: 70px;
+    height: 25px;
     cursor: pointer;
     vertical-align: bottom;
-    padding-top: 7px;
+    padding-top: 4px;
     margin-bottom: 15px;
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 14px;
+    *font-weight: bold;
     letter-spacing: 0.6px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
@@ -436,14 +448,128 @@ header {
   }
 
   .newPost {
+    height: 95%;
+    width: 95%;
+    border-radius: 10px;
+    margin-left: 3px;
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
     display: flex;
     flex-direction: column;
+    border: none;
   }
 
   .secHeadPost {
     display: flex;
     flex-direction: column;
+    background: linear-gradient(#BFAF80, #ffffff);
+    border-radius: 10px;
   }
+  .secInfoUserPost{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    *justify-content: space-between;
+  }
+  .secDescriptionPost{
+    *padding-left: 20px;
+    align-content: center;
+  }
+  .secDescriptionPost p{
+    margin: 0px;
+    padding: 0px 30px 10px 30px;
+  }
+  .nameAndDatePost{
+    margin-left: 20px;
+  }
+  .imgUserPost{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    padding-left: 5px;
+  }
+  .imgUserPostComment{
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    padding-right: 5px;
+  }
+  .userNamePost{
+    font-size: 20px;
+    margin: 0px;
+
+  }
+  .datePost{
+    margin: 0px;
+    font-size: 12px;
+  }
+  .secMainPost{
+    background-color: white;
+    border-color:#BFAF80;
+  }
+  .createComment{
+    padding: 5px 10px 5px 20px;
+    background: linear-gradient(#ffffff, #BFAF80);
+    display: flex;
+    flex-direction: row;
+
+  }
+  .textComment{
+    width: 80%;
+    height: 85%;
+    border-radius: 10px;
+    padding-left: 5px;
+    border: #1d8c6c 0.8px solid;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    
+  }
+  .textComment::placeholder{
+    padding: 5px;
+    font-family: "Roboto", sans-serif; 
+    font-size: 14px;
+}
+.secInteractionPost{
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  background: linear-gradient( #ffffff, #ccc1a0);
+}
+
+.iconPost{
+  padding-left: 5px;
+  padding-top: 5px;
+  
+}
+.postImg{
+  width: 90%;
+  height: 90%;
+  margin-left: 10px;
+  margin-right: 10px;
+  *align-items:center ;
+}
+.fas fa-heart,.far fa-heart {
+ height: 10px;
+ width:10px;
+
+}
+.iconColor{
+  color: #55a603;
+}
+
+#iconLike{
+  display: flex;
+  flex-direction: row;
+}
+#iconLike p{
+ padding: 0px;
+ margin: 0px;
+ font-size:13px;
+}
+
 }
 
 /*** VISTA Ipad ***/
@@ -512,12 +638,16 @@ header {
     margin: 0px;
   }
 
-  .boxText::-webkit-input-placeholder {
+
+  .boxText::placeholder {
     color: #444444bb;
-    font-size: 16px;
     font-weight: lighter;
     letter-spacing: 0.5px;
+    *padding: 20px;
+    margin-top:20px ;
+    font-size: 14px;
     font-family: "Roboto", sans-serif;
+    
   }
 
   .inputShare {
@@ -565,9 +695,11 @@ header {
   }
   .secHome {
     display: grid;
-    grid-template-columns: 0.5fr 1.5fr;
+    grid-template-columns: 1fr 1fr;
     column-gap: 5%;
     padding: 3rem 2rem;
+    position: absolute;
+    justify-content: center;
   }
   .logoText {
     font-family: "Ribeye", cursive;
@@ -583,7 +715,6 @@ header {
 
   .navbar a {
     float: left;
-    *padding: 2px;
     color: white;
     padding-top: 15px;
     padding-left: 20px;
@@ -626,6 +757,7 @@ header {
     border: 2px solid #d1cad6;
     outline-style: none;
     padding-bottom: 10px;
+    font-family:  "Roboto", sans-serif;
   }
 
   .secBtnBoxText {
@@ -675,4 +807,5 @@ header {
     opacity: 0;
     z-index: 0;
   }
+ 
 }
