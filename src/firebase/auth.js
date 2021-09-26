@@ -1,28 +1,41 @@
 /* eslint-disable eol-last */
 /* eslint-disable indent */
-// Crear usuario /Registra usuarios nuevos
+
+// Registrar usuarios nuevos con correo y contraseña
 export const createUserWEP = (email, password) =>
-    // eslint-disable-next-line implicit-arrow-linebreak
-    firebase.auth().createUserWithEmailAndPassword(email, password);
+  // eslint-disable-next-line implicit-arrow-linebreak
+  firebase.auth().createUserWithEmailAndPassword(email, password);
+
+// Registrar cuenta con Google
+export const signInWithGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider(); // Proveedor de google
+  return firebase.auth().signInWithPopup(provider); // Popup abre modal para selec cuenta gmail
+};
 
 // Cerrar sesión
 export const signOut = () => firebase.auth().signOut();
 
-// Autentica mediante el Acceso con Google
-export const signInWithGoogle = () => {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  return firebase.auth().signInWithPopup(provider);
-};
-
-// Autentica mediante el Acceso con Facebook
-// export const signInWithFb = () => {
-//     const provider = new firebase.auth.FacebookAuthProvider();
-//     return firebase.auth().signInWithPopup(provider);
-// };
-
 // Logueo con Email y password
 // Acceso de usuarios existentes
 export const singInWEP = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
+
+// Obtener data del usuario que ingresa a la red social
+export const userInfo = () => {
+  const user = firebase.auth().currentUser;
+  let data = '';
+  if (user !== null) {
+    data = {
+      name: user.displayName,
+      id: user.uid,
+      photo: user.photoURL !== null ? user.photoURL : './img/avatar.png',
+    };
+  }
+  return data;
+};
+
+// Se llama cuando un usuario se loguea o desloguea
+// Extrae información de usuario luego de ingresar a home
+export const authStateChanged = (cb) => firebase.auth().onAuthStateChanged(cb);
 
 // ****Do new user, receives id and info
 // export const createUser = (id, info) => {
@@ -33,10 +46,8 @@ export const singInWEP = (email, password) => firebase.auth().signInWithEmailAnd
 //         });
 // };
 
-// Obtener el usuario que accedió
-// export const getUser = () => firebase.auth().currentUser;
-
-// Configuracion de un observador de estado de autenticación y obtención de  datos del usuario
-// Estado de autenticación cambiado
-// Se llama cuando un usuario se loguea o desloguea
-// export const authStateChanged = (cb) => firebase.auth().onAuthStateChanged(cb);
+// Registrar cuenta con Facebook
+// export const signInWithFb = () => {
+//     const provider = new firebase.auth.FacebookAuthProvider();
+//     return firebase.auth().signInWithPopup(provider);
+// };

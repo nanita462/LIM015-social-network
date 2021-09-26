@@ -28,19 +28,9 @@
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error",
     "max-len": [2, 120, 4, {"ignoreUrls": true}],
-<<<<<<< HEAD
-    "no-console": "off",
-    "consistent-return": "off",
-    "no-alert": "off",
-    "arrow-body-style": "off",
-    "no-param-reassign": "off",
-    "import/no-cycle": "off",
-    "dot-notation": "off"
-=======
     "arrow-body-style": "off",
     "consistent-return": "off",
     "no-console": "off",
     "no-alert": "off"
->>>>>>> 12d94095b70f8819c6ce2995970e66eda5d09014
   }
 }
