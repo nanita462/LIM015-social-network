@@ -59,7 +59,7 @@ export const updatePost = (idpost, valueEdited) => firebase.firestore().collecti
   content: valueEdited,
 });
 
-export const updatLike = (idpost, counterLikes) => firebase.firestore().collection('posts').doc(idpost).update({
+export const updateLike = (idpost, counterLikes) => firebase.firestore().collection('posts').doc(idpost).update({
   counterLikes,
 });
 
