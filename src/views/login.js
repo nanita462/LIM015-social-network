@@ -45,6 +45,7 @@ export const loginWithGoogle = (document) => {
 
     signInWithGoogle()
       .then(() => {
+        // console.log(a);
         // console.log('Iniciáste sesión');
         window.location.hash = '#/home';
       }).catch((error) => {

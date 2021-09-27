@@ -20,6 +20,7 @@ const logOut = (document) => {
   const idOut = document.querySelector('#idOut');
   idOut.addEventListener('click', () => {
     signOut();
+    console.log(signOut());
     alert('Cerrando sesión. :(');
   });
 };
