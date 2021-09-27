@@ -7,7 +7,7 @@ import {
 import {
   createNewPost,
   readAllPosts,
-  // deletePost,
+  updateLike,
   // updatePost,
 } from '../firebase/firestore.js';
 
@@ -20,6 +20,7 @@ const logOut = (document) => {
   const idOut = document.querySelector('#idOut');
   idOut.addEventListener('click', () => {
     signOut();
+    console.log(signOut());
     alert('Cerrando sesión. :(');
   });
 };
@@ -137,6 +138,22 @@ const createPost = (document) => {
 //     });
 //   });
 // };
+// Funcion contar likes
+const countLikesPost = (secElement, elem, user) => {
+  const startLike = secElement.querySelector('.fa-heart');
+  startLike.addEventListener('click', () => {
+    let counter = elem.counterLikes;
+    if (!counter.includes(user.id)) {
+      startLike.classList.replace('far', 'fas');
+      counter.push(user.id);
+      updateLike(elem.idPost, counter);
+    } else if (counter.includes(user.id)) {
+      startLike.classList.replace('fas', 'far');
+      counter = counter.filter((i) => i !== user.id);
+      updateLike(elem.idPost, counter);
+    }
+  });
+};
 
 // TEMPLATE DE POST PUBLICADO
 const postView = (elem, user) => {
@@ -145,16 +162,16 @@ const postView = (elem, user) => {
   <section class="secHeadPost">
     <section class="secInfoUserPost">
       <img class="imgUserPost" src=${elem.photo} alt="userImage">
-      <section>
+      <section class="nameAndDatePost">
         <h2 class="userNamePost">${elem.name}</h2>
-        <p>${elem.date}</p>
+        <p class="datePost">${elem.date}</p>
       </section>
     </section>
 
     <!--VERIFICAR ***-->
-    <section class="secUserSelect" >
+     <!--<section class="secUserSelect" >
         <button class="buttonMenu ${elem.id === user.id ? 'show' : 'hide'}"></button>
-    </section>
+    </section>-->
 
   </section>
 
@@ -162,18 +179,35 @@ const postView = (elem, user) => {
     <section class="secDescriptionPost">
       <section>
         <p id="${elem.idPost}" class="publishedText">${elem.content}</p>
-        <span idSaveIcon="${elem.idPost}" class="saveIcon hide"><i class="fas fa-check"></i></span>
+        <span idSaveIcon="${elem.idPost}" class="saveIcon hide"></span>
       </section>
       ${elem.postImgUrl ? `<img  class="postImg" src=${elem.postImgUrl} alt="postImg">` : ''}
     </section>
 
-    <!-- AQUI COLOCAR SECCION LIKES ***-->
+    <!-- SECCION LIKES ***-->
+    
+  <section class="secInteractionPost">
+  <section id= "iconLike" class="iconPost">
+  <span class = "iconColor">
+  <i class="${elem.counterLikes.includes(user.id) ? 'fas' : 'far'} fa-heart"></i></span>
+  <p>${elem.counterLikes.length ? elem.counterLikes.length : ''} </p>
+  </section>
+    <section class="iconPost">
+    <span class="iconify" data-icon="emojione-v1:lower-left-pencil" data-width="18" data-height="18"></span>
+    </section>
+    <section class="iconPost">
+    <span class="iconify" data-icon="noto:wastebasket"></span>
+    </section>
+    <section class="iconPost">
+     <span class="iconify" data-icon="ci:share" data-width="18" data-height="18">
+    </section>
+  </section>
 
     <form class="createComment hide" id="idFormCreateComment"
         idCommentPost1="${elem.idPost}" userId="${user.id}" userName="${user.name}" >
-        <img class="image-circle image-circleComment" alt="userimage1" src="${user.photo}">
-        <textarea id="descriptionComment" class="input-comment" placeholder="Leave a comment..."></textarea>
-        <i idCommentPost="${elem.idPost}" class="sendCommentForm far fa-paper-plane"></i>
+        <img class="imgUserPostComment" alt="userimage1" src="${user.photo}">
+        <textarea id="descriptionComment" class="textComment" placeholder="Dejame un comentario..."></textarea>
+        <i idCommentPost="${elem.idPost}"></i>
     </form>
 
     <div class="errorComment error"></div>
@@ -224,7 +258,7 @@ export const homeView = (user) => {
 
       <form class="secPublishBox" id="idPublishBox">
 
-        <textarea class="boxText" name="" id="idPublishBoxText" cols="30" rows="10"
+        <textarea class="boxText" name="" id="idPublishBoxText" 
         placeholder="¿Qué quieres compartir?"></textarea>
         <!-- Mensaje de error -->
         <section class="errorPublish"></section>
@@ -232,7 +266,7 @@ export const homeView = (user) => {
         <section class="secBtnBoxText" id="idBoxText">
           <figure class="imgFile">
             <span id= "iconFile" class="iconify" data-icon="noto-v1:framed-picture"
-            data-width="40" data-height="40"></span>
+            data-width="25" data-height="25"></span>
             <input type="file" id="fileImg" accept="image/png, image/jpg, image/jpeg"/>
 
             <!--verificar***-->
@@ -273,7 +307,7 @@ export const homeView = (user) => {
       // if (post.id === user.id) {
       //   postFunctions(secElem, post);
       // }
-      // postLikes(divElem, elem, user); // falta
+      countLikesPost(secElem, post, user);
       // createPostComments(divElem);
       // readComments(divElem, user);
       secHomePost.appendChild(secElem);
@@ -308,17 +342,3 @@ export const homeView = (user) => {
 
       </section>
     </section> */
-
-//   <!-- <section class="secInteractionPost">
-//   <section>
-//     <i class="${elem.counterLikes.includes(user.id) ? 'fas' : 'far'} fa-star"></i>
-//     <p>${elem.counterLikes.length ? elem.counterLikes.length : ''} </p>
-//   </section>
-
-//   <section>
-//     <i class="commentIcon far fa-comments"></i>
-//     <p></p>
-//   </section>
-
-//   <i class="fas fa-share-square"></i>
-// </section>
