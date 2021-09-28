@@ -29,6 +29,19 @@ const changeMenu = (route) => {
         }
       });
       break;
+      case '#/profile':
+        authStateChanged((user) => {
+          if (user !== null) {
+            const userObject = {
+              name: user.displayName,
+              id: user.uid,
+              photo: user.photoURL !== null ? user.photoURL : './img/avatar.png',
+            };
+            root.appendChild(components.profile(userObject));
+          }
+        });
+
+        break;
     default:
       return components.error404();
   }

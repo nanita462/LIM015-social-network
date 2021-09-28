@@ -8,7 +8,7 @@ const datePublishPost = () => {
   };
 
   const timePost = {
-    hour12: 'false', // para formato 24 horas
+    hour12: 'true', // para formato 12 horas
     hour: 'numeric',
     minute: 'numeric',
   };
@@ -52,37 +52,37 @@ export const readAllPosts = (cb) => firebase.firestore().collection('posts')
     cb(post);
   });
 
-export const deletePost = (idPost) => firebase.firestore().collection('posts').doc(idPost).delete();
+export const updateLike = (idpost, counterLikes) => firebase.firestore().collection('posts').doc(idpost).update({
+  counterLikes,
+});
 
 // Subir post y crea coleccion "post"
 export const updatePost = (idpost, valueEdited) => firebase.firestore().collection('posts').doc(idpost).update({
   content: valueEdited,
 });
 
-export const updateLike = (idpost, counterLikes) => firebase.firestore().collection('posts').doc(idpost).update({
-  counterLikes,
-});
+export const deletePost = (id) => firebase.firestore().collection('posts').doc(id).delete();
 
-export const createComments = (idpost, photoComment, nameComment, idCommentUser, comment) => firebase.firestore().collection('comments').add({
-  idpost,
-  photoComment,
-  nameComment,
-  idCommentUser,
-  comment,
-  date: datePublishPost(),
-  orderDate: orderDate(),
-});
+// export const createComments = (idpost, photoComment, nameComment, idCommentUser, comment) => firebase.firestore().collection('comments').add({
+//   idpost,
+//   photoComment,
+//   nameComment,
+//   idCommentUser,
+//   comment,
+//   date: datePublishPost(),
+//   orderDate: orderDate(),
+// });
 
-// Leer comentarios
-export const readAllComments = (cb) => firebase.firestore().collection('comments')
-  .orderBy('orderDate', 'desc')
-  .onSnapshot((querySnapshot) => {
-    const comment = querySnapshot.docs.map((doc) => ({
-      idComment: doc.id,
-      ...doc.data(),
-    }));
-    // console.log(comment);// array de TODOS los coments ingresados
-    cb(comment);
-  });
+// // Leer comentarios
+// export const readAllComments = (cb) => firebase.firestore().collection('comments')
+//   .orderBy('orderDate', 'desc')
+//   .onSnapshot((querySnapshot) => {
+//     const comment = querySnapshot.docs.map((doc) => ({
+//       idComment: doc.id,
+//       ...doc.data(),
+//     }));
+//     // console.log(comment);// array de TODOS los coments ingresados
+//     cb(comment);
+//   });
 
-export const deleteComments = (idcomment) => firebase.firestore().collection('comments').doc(idcomment).delete();
+// export const deleteComments = (idcomment) => firebase.firestore().collection('comments').doc(idcomment).delete();

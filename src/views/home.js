@@ -8,6 +8,7 @@ import {
   createNewPost,
   readAllPosts,
   updateLike,
+  deletePost,
   // updatePost,
 } from '../firebase/firestore.js';
 
@@ -20,6 +21,7 @@ const logOut = (document) => {
   const idOut = document.querySelector('#idOut');
   idOut.addEventListener('click', () => {
     signOut();
+    // console.log(signOut());
     alert('Cerrando sesión. :(');
   });
 };
@@ -55,7 +57,7 @@ const createPost = (document) => {
             uploadImg.snapshot.ref.getDownloadURL().then((postImgUrl) => {
               createNewPost(user.photo, user.name, user.id, postContent, [], postImgUrl)
                 .then(() => {
-                  msgErrorPublish.classList.add('hide');
+                  // msgErrorPublish.classList.add('hide');
                   idPublishBox.reset();
                 }).catch((error) => console.log(error));
             });
@@ -137,6 +139,18 @@ const createPost = (document) => {
 //     });
 //   });
 // };
+
+// PRUEBA************
+// Borrar post
+const deleteMyPost = (post, user) => {
+  const secUserSelect = post.querySelector('.secUserSelect'); // verificar
+  secUserSelect.addEventListener('click', () => {
+    // e.preventDefault();
+    deletePost(user.idPost)
+      .then((resp) => resp)
+      .catch((err) => console.error(err));
+  });
+};
 // Funcion contar likes
 const countLikesPost = (secElement, elem, user) => {
   const startLike = secElement.querySelector('.fa-heart');
@@ -168,9 +182,10 @@ const postView = (elem, user) => {
     </section>
 
     <!--VERIFICAR ***-->
-     <!--<section class="secUserSelect" >
+    <!-- <section class="secUserSelect" >
         <button class="buttonMenu ${elem.id === user.id ? 'show' : 'hide'}"></button>
-    </section>-->
+        <i class="fas fa-ellipsis-h"></i>
+    </section> -->
 
   </section>
 
@@ -194,11 +209,19 @@ const postView = (elem, user) => {
     <section class="iconPost">
     <span class="iconify" data-icon="emojione-v1:lower-left-pencil" data-width="18" data-height="18"></span>
     </section>
-    <section class="iconPost">
-    <span class="iconify" data-icon="noto:wastebasket"></span>
+
+    <!-- ICONO ELIMINAR -->
+    
+    <section class="iconPost secUserSelect" >
+        <span class="iconify" data-icon="noto:wastebasket"></span>
     </section>
+
+    <!--<section class="iconPost">
+    <span class="iconify" data-icon="noto:wastebasket"></span>
+    </section>-->
+
     <section class="iconPost">
-     <span class="iconify" data-icon="ci:share" data-width="18" data-height="18">
+      <span class="iconify" data-icon="ci:share" data-width="18" data-height="18"></span>
     </section>
   </section>
 
@@ -237,6 +260,7 @@ export const homeView = (user) => {
   </header>
 
   <section class="secHome">
+    
 
     <section class="secUserInfo">
 
@@ -303,9 +327,9 @@ export const homeView = (user) => {
       secElem.classList.add('newPost');
       secElem.innerHTML = postView(post, user);
 
-      // if (post.id === user.id) {
-      //   postFunctions(secElem, post);
-      // }
+      if (post.id === user.id) {
+        deleteMyPost(secElem, post);
+      }
       countLikesPost(secElem, post, user);
       // createPostComments(divElem);
       // readComments(divElem, user);
