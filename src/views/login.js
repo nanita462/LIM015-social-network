@@ -62,6 +62,8 @@ export const loginView = () => {
 
     <section class= "secCover">
     <img class="imgCover" src="img/mundoverde4.png" alt="MundoVerde">
+    <h1 class="textCover"> Ayudando a </h1>
+    <h1 class="textCover"> Reducir, Reciclar y Reutilizar</h1>  
     </section>
 
     <section class= "secLogin">

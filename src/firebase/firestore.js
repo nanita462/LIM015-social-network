@@ -57,11 +57,11 @@ export const updateLike = (idpost, counterLikes) => firebase.firestore().collect
 });
 
 // Subir post y crea coleccion "post"
-// export const updatePost = (idpost, valueEdited) => firebase.firestore().collection('posts').doc(idpost).update({
-//   content: valueEdited,
-// });
+export const updatePost = (idpost, valueEdited) => firebase.firestore().collection('posts').doc(idpost).update({
+  content: valueEdited,
+});
 
-// export const deletePost = (idPost) => firebase.firestore().collection('posts').doc(idPost).delete();
+export const deletePost = (id) => firebase.firestore().collection('posts').doc(id).delete();
 
 // export const createComments = (idpost, photoComment, nameComment, idCommentUser, comment) => firebase.firestore().collection('comments').add({
 //   idpost,
