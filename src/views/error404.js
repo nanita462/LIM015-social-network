@@ -7,14 +7,14 @@ export default () => {
     <h1 class="hError"> Error 404 </h1>
     <p class= "pError">Upsss...</p>
     <p class= "pError">La página</p>
-    <p class= "pError">no ha sido Encontrada</p>
+    <p class= "pError">no ha sido encontrada</p>
 
     <section class= "secImgError">
       <img class= "imgError"src="./img/mundoverde2.png" alt="error404">
     </section>
 
     <section class="secInputError">
-      <input class="inputError" type="submit" id="idError404" value="Regresar">
+    <a href= "#/"><input class="inputError" type="submit" id="idError404" value="Regresar"></a>
     </section>
 
   </section>`;
