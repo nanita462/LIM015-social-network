@@ -113,7 +113,9 @@ export const registerView = () => {
   <section class= "secViewDesktop">
 
     <section class= "secCover">
-      <img class="imgCoverRegister" src="img/mundoverde.png" alt="MundoVerde">
+    <img class="imgCoverRegister" src="img/mundoverde6.png" alt="MundoVerde">
+    <h1 class="textCover2"> Únete al cambio,</h1>
+    <h1 class="textCover2"> seamos parte de un mundo mejor...</h1>
     </section>
 
     <section class= "secLogin">
