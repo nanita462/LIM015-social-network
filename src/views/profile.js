@@ -2,7 +2,7 @@
 /* eslint-disable max-len */
 export const profileView = (user) => {
   // eslint-disable-next-line spaced-comment
-  const view = /*html*/`
+  const view = /*html*/ `
   <header class="secHeader" id="idHeader">
 
 <section class="secLogoText" id="idNavList">
@@ -19,46 +19,45 @@ export const profileView = (user) => {
 </section>
 </header>
 
+<section class="secProfileImg">
+
+      <img class="profileImg" src="${user.photo}" alt="ImgProfile";>
 
 
-      <section class="secProfileImg">
-      <section class="secUserProfile">
-        <img class="profileImg" src="${user.photo}" alt="ImgProfile";>
-      </section>
+    <section class="secTextProfile">
+      <h2 class="nameUser">${user.name}</h2>
+      <p class="nameUser2">999 876 543</p>
+      <p class="nameUser2">Botellas de plástico, papel reciclado.</p>
+      <p class="nameUser2">Lima</p>
+    </section>
+</section>
 
-      <section class="secTextProfile">
-        <h2 class="nameUser">${user.name}</h2>
-        <p class="nameUser2">999 876 543</p>
-        <p class="nameUser2">Botellas de plástico, papel reciclado.</p>
-        <p class="nameUser2">Lima</p>
-      </section>
-      </section>
-      <section class="secProfile">
-  
-      <section class="formProfile">
+    <section class="formProfile">
+        <h2>Edita tu información:</h2>
 
         <section class="secName">
           <input class="inputName" type="text"  placeholder="Ingresa tu nombre de usuario" required>
         </section>
 
         <section class="secName">
-          <input class="inputName" type="number"  placeholder="Ingresa tu Celular" required>
+          <input class="inputName" type="tel"  placeholder="Ingresa tu Celular" required>
         </section>
 
         <section class="secName">
           <input class="inputName" type="text"  placeholder="Ingresa tus Productos"
           required>
         </section>
+
         <section class="secName">
           <input class="inputName" type="text"  placeholder="Ingresa tu Dirección" required>
         </section>
 
-        </section>
-        <section class="buttonSave">
-        <!-- Botón - guardar -->
-        <a href= "#/home"><input class="inputSubmit" id="inputSave" type="button" value="Guardar"></a>
-        </section>
-      </section>`;
+    </section>
+<!-- Botón - guardar -->
+    <section class="buttonSave">
+        <a href= "#/home"><input id="inputSave" type="button" value="Guardar"></a>
+    </section>`;
+
   const mainProfile = document.getElementById('mainContainer');
   mainProfile.innerHTML = '';
   mainProfile.innerHTML = view;
