@@ -12,6 +12,10 @@ import {
   homeView,
 } from './home.js';
 
+import {
+  profileView,
+} from './profile.js';
+
 import errorView from './error404.js';
 
 // Colocando vistas en objeto
@@ -19,5 +23,6 @@ export default {
   login: loginView,
   register: registerView,
   home: homeView,
+  profile: profileView,
   error404: errorView,
 };

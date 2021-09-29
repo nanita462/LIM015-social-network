@@ -5,7 +5,6 @@ body {
   padding: 0px;
 }
 
-/*** HEADER - NAV ***/
 header {
   background-color: #04aa6d;
   display: flex;
@@ -23,13 +22,6 @@ header {
 
 .navbar a {
   float: left;
-  padding: 2px;
-  color: white;
-  padding-top: 15px;
-  padding-left: 30px;
-  padding-right: 30px;
-  text-decoration: none;
-  font-size: 17px;
   display: flex;
   justify-content: space-between;
 }
@@ -39,18 +31,13 @@ header {
 }
 
 .logoText {
+  display: flex;
+  justify-content: center;
   font-family: "Ribeye", cursive;
   text-decoration: none;
   color: #ffffff;
-  font-size: 30px;
-  padding-left: 20px;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  display: flex;
-  justify-content: center;
 }
 
-/****VISTA DESKTOP LOGIN/REGISTER***/
 .secViewDesktop {
   display: grid;
   grid-template-columns: 0px 2fr;
@@ -61,6 +48,7 @@ header {
 
 .secViewDesktop.hidden {
   display: none;
+  /*oculta img*/
 }
 
 .secViewDesktop .secCover {
@@ -74,22 +62,32 @@ header {
 .secViewDesktop .secCover > img {
   display: none;
 }
-
+.secCover h1 {
+  font-family: "Ribeye", cursive;
+  color: #834813;
+  font-size: 28px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 .imgCover {
   width: 100%;
-  height: 600px;
+  height: 80vh;
   position: relative;
-  *padding-top: 100px;
-  *padding-left: 100px;
 }
 
 .imgCoverRegister {
   width: 100%;
-  height: 400px;
+  height: 80vh;
   position: relative;
 }
+.textCover2 {
+  font-family: "Ribeye", cursive;
+  color: #834813;
+  font-size: 28px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 
-/*** LOGIN / REGISTER ***/
 .secLogin {
   width: 100%;
   *height: 100%;
@@ -126,6 +124,7 @@ header {
 .secName {
   padding-bottom: 10px;
 }
+
 .inputEmail,
 .inputName {
   background-color: #ffffff;
@@ -194,7 +193,6 @@ header {
   margin-top: 0px;
   margin-bottom: 0px;
   font-weight: bold;
-  cursor: pointer;
   text-decoration: none;
 }
 .textTwo a:hover {
@@ -207,14 +205,13 @@ header {
   justify-content: center;
   margin-top: 5px;
 }
-
 .icon {
   width: 35px;
   height: 35px;
   padding: 5px;
+  cursor: pointer;
 }
 
-/*** ERROR 404 ***/
 .secError {
   width: 100%;
   height: 100vh;
@@ -231,6 +228,7 @@ header {
   font-size: 50px;
   color: #ffffff;
   padding-top: 20px;
+  margin-bottom: 5px;
 }
 
 .pError {
@@ -238,8 +236,8 @@ header {
   padding-bottom: 5px;
   margin-bottom: 0px;
   margin-top: 0px;
-  font-weight: bold;
   color: #ffffff;
+  font-family: "Ribeye", cursive;
 }
 
 .secImgError {
@@ -275,15 +273,6 @@ header {
   justify-content: center;
 }
 
-/*** MENSAJES DE ERROR ***/
-
-/* .textError {
-  font-size: 12px;
-  color: red;
-  font-weight: bold;
-  padding: 0px;
-} */
-
 .msgErrorRegister {
   font-size: 12px;
   color: red;
@@ -301,67 +290,86 @@ header {
   padding: 5px;
   margin-top: 0px;
 }
+/***************************************NUEVO*/
+.hide {
+  display: none;
+}
 
-/*INFORMACION DE USUARIO*/
-
-.secUserInfo {
+.modalMenu {
+  list-style-type: none;
   display: flex;
-  width: 90%;
-  margin: 0 5% 0.5rem;
-  padding: 1rem 0.5rem 0.1rem;
   justify-content: space-between;
-  
 }
 
-.secTextInfo {
-  font-size: 15px;
+.modalMenu li {
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
 }
 
-.nameUser,
-.nameUser1 {
-  padding-bottom: 0px;
-  margin-top: 0px;
-  font-weight: bold;
+.saveIcon {
+  display: none;
+  font-family: "Roboto", sans-serif;
+}
+
+.deleteMenu {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+.deleteMenu li {
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
 }
 
 /*** VISTA CELULAR (iPhone6/7/8) ***/
 @media screen and (min-width: 260px) {
   .logoText {
-    font-family: "Ribeye", cursive;
-    text-decoration: none;
-    color: #ffffff;
     font-size: 30px;
-    padding-left: 20px;
-    padding-top: 5px;
-    padding-bottom: 10px;
-    display: flex;
-    justify-content: center;
+    padding: 5px 20px 10px 15px;
   }
 
   .navbar a {
     float: left;
-    *padding: 2px;
     color: white;
     padding-top: 15px;
-    padding-left: 10px;
-    padding-right: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
     text-decoration: none;
     font-size: 12px;
   }
-  .navbar a:hover {
-    background-color: #834813;
+
+  .secUserInfo {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-left: 9px;
+    padding: 10px;
+  }
+
+  .secTextInfo {
+    font-size: 15px;
+  }
+
+  .nameUser,
+  .nameUser1 {
+    padding-bottom: 0px;
+    margin-top: 0px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-right: 10px;
   }
   .imgProfile {
     width: 130px;
     height: 130px;
-    margin-right: 25px;
-    *border-radius: 50%;
+    margin-right: 15px;
+    border-radius: 50%;
+    cursor: pointer;
   }
-  .secHomePublish{
+  .secHomePublish {
     display: flex;
     flex-direction: column;
-    padding-left: 15px;
-
+    padding-left: 5px;
+    padding-right: 2px;
   }
   .secPublishBox {
     height: 100%;
@@ -390,14 +398,20 @@ header {
     *padding-bottom: 10px;
     font-family: "Roboto", sans-serif;
     font-size: 14px;
-    
   }
 
+  .errorPublish {
+    font-size: 12px;
+    color: red;
+    font-weight: bold;
+    padding: 0px;
+    padding: 5px;
+    margin-top: 0px;
+  }
   .secBtnBoxText {
     display: flex;
     padding-top: 10px;
     margin: 0px;
-    
   }
 
   .boxText::placeholder {
@@ -435,6 +449,7 @@ header {
     padding: 0px;
     margin: 0px;
     *position: relative;
+    cursor: pointer;
   }
   #fileImg {
     position: absolute;
@@ -447,6 +462,12 @@ header {
     z-index: 0;
   }
 
+  .secHomePost {
+    display: flex;
+    flex-direction: column;
+    padding-left: 7px;
+    justify-content: center;
+  }
   .newPost {
     height: 95%;
     width: 95%;
@@ -463,173 +484,283 @@ header {
   .secHeadPost {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(#BFAF80, #ffffff);
+    background: linear-gradient(#bfaf80, #ffffff);
     border-radius: 10px;
   }
-  .secInfoUserPost{
+  .secInfoUserPost {
     padding: 10px;
     display: flex;
     flex-direction: row;
     margin: 0px;
     *justify-content: space-between;
   }
-  .secDescriptionPost{
-    *padding-left: 20px;
-    align-content: center;
+  .secDescriptionPost {
+    *align-content: center;
+    text-align: center;
   }
-  .secDescriptionPost p{
+  .secDescriptionPost p {
     margin: 0px;
     padding: 0px 30px 10px 30px;
+    text-align: left;
   }
-  .nameAndDatePost{
+  .nameAndDatePost {
     margin-left: 20px;
   }
-  .imgUserPost{
+  .imgUserPost {
     width: 50px;
     height: 50px;
     border-radius: 50px;
     padding-left: 5px;
   }
-  .imgUserPostComment{
-    width: 30px;
-    height: 30px;
-    border-radius: 20px;
-    padding-right: 5px;
-  }
-  .userNamePost{
+  .userNamePost {
     font-size: 20px;
     margin: 0px;
-
   }
-  .datePost{
+  .datePost {
     margin: 0px;
     font-size: 12px;
   }
-  .secMainPost{
-    background-color: white;
-    border-color:#BFAF80;
+  .imgUserPostComment {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    padding-right: 5px;
   }
-  .createComment{
+  .secMainPost {
+    background-color: white;
+    border-color: #bfaf80;
+  }
+  .createComment {
     padding: 5px 10px 5px 20px;
-    background: linear-gradient(#ffffff, #BFAF80);
+    background: linear-gradient(#ffffff, #bfaf80);
     display: flex;
     flex-direction: row;
-
   }
-  .textComment{
-    width: 80%;
-    height: 85%;
+  .textComment {
+    width: 75%;
+    height: 25px;
     border-radius: 10px;
+    padding-top: 5px;
     padding-left: 5px;
     border: #1d8c6c 0.8px solid;
     font-family: "Roboto", sans-serif;
     font-size: 14px;
-    
   }
-  .textComment::placeholder{
-    padding: 5px;
-    font-family: "Roboto", sans-serif; 
+  .textComment::placeholder {
+    padding: 2px;
+    font-family: "Roboto", sans-serif;
     font-size: 14px;
-}
-.secInteractionPost{
-  display: flex;
-  flex-direction: row;
-  padding-bottom: 10px;
-  padding-left: 20px;
-  background: linear-gradient( #ffffff, #ccc1a0);
-}
+  }
+  .secInteractionPost {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    background: linear-gradient(#ffffff, #ccc1a0);
+  }
 
-.iconPost{
-  padding-left: 5px;
-  padding-top: 5px;
-  
-}
-.postImg{
-  width: 90%;
-  height: 90%;
-  margin-left: 10px;
-  margin-right: 10px;
-  *align-items:center ;
-}
-.fas fa-heart,.far fa-heart {
- height: 10px;
- width:10px;
+  .iconPost {
+    padding-left: 5px;
+    padding-top: 5px;
+  }
+  .postImg {
+    width: 90%;
+    height: 90%;
+  }
+  .fas fa-heart,
+  .far fa-heart {
+    height: 10px;
+    width: 10px;
+  }
+  .iconColor {
+    color: #55a603;
+  }
 
-}
-.iconColor{
-  color: #55a603;
-}
+  #iconLike {
+    display: flex;
+    flex-direction: row;
+  }
+  #iconLike p {
+    padding: 0px;
+    margin: 0px;
+    font-size: 13px;
+    color: #000000;
+  }
 
-#iconLike{
-  display: flex;
-  flex-direction: row;
-}
-#iconLike p{
- padding: 0px;
- margin: 0px;
- font-size:13px;
-}
+  .secProfileImg {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+    padding: 15px;
+  }
+  .profileImg {
+    width: 130px;
+    height: 130px;
+    margin-right: 15px;
+    border-radius: 50%;
+  }
+  .nameUser2 {
+    padding-bottom: 0px;
+    margin-top: 0px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-right: 10px;
+  }
 
+  .formProfile {
+    text-align: center;
+    padding-top: 10px;
+  }
+  .formProfile h2 {
+    font-size: 18px;
+  }
+  .buttonSave {
+    padding: 10px;
+    text-align: center;
+  }
+  #inputSave {
+    padding-bottom: 10px;
+    color: #ffffff;
+    background: #55a603;
+    border-color: #55a603;
+    border-radius: 20px;
+    border: none;
+    width: 140px;
+    height: 40px;
+    cursor: pointer;
+    vertical-align: bottom;
+    padding-top: 7px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
+  /************************/
+  .modalMenu {
+    margin: 0px;
+    padding: 0px 5px 0px 5px;
+  }
+  .modalMenu li {
+    padding: 0px 10px 0px 10px;
+  }
+  .secUserSelec {
+    margin: 0px;
+  }
+  .saveIcon {
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+  .publishedText:focus {
+    padding-top: 6px;
+    margin: 0px 15px 0px 15px;
+    outline-color: #55a603;
+    border-radius: 10px;
+  }
+  .pDeleteMenu {
+    margin: 0px;
+    padding-bottom: 3px;
+  }
+  .deleteMenu {
+    margin: 0px;
+    padding: 0px 0px 0px 0px;
+  }
+  .deleteMenu li {
+    padding: 0px 15px 0px 15px;
+  }
+  #idYes i,
+  #idNo i {
+    padding: 0px 3px 0px 3px;
+  }
 }
 
 /*** VISTA Ipad ***/
 @media screen and (min-width: 700px) {
   .logoText {
-    font-family: "Ribeye", cursive;
-    text-decoration: none;
-    color: #ffffff;
     font-size: 30px;
-    padding-left: 20px;
-    padding-top: 5px;
-    padding-bottom: 10px;
-    display: flex;
-    justify-content: center;
+    padding: 5px 0px 10px 20px;
   }
 
   .navbar a {
-    float: left;
-    *padding: 2px;
     color: white;
     padding-top: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     text-decoration: none;
     font-size: 15px;
   }
 
-  .navbar a:hover {
-    background-color: #834813;
+  .secUserInfo {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    margin-left: 0px;
+    padding: 10px 10px 10px 30px;
+  }
+
+  .secTextInfo {
+    font-size: 15px;
+  }
+
+  .nameUser {
+    padding-top: 15px;
+  }
+  .nameUser,
+  .nameUser1 {
+    padding-bottom: 0px;
+    margin-top: 5px;
+    *font-weight: bold;
+    margin-bottom: 0px;
+    margin-right: 10px;
   }
   .imgProfile {
-    width: 130px;
-    height: 130px;
+    width: 140px;
+    height: 140px;
     margin-right: 25px;
-    *border-radius: 50%;
+    border-radius: 50%;
+    cursor: pointer;
   }
+  /* .secHomePublish {
+    *display: flex;
+    *flex-direction: column;
+    *padding-left: 0px;
+    *padding-right: 8px;
+    *padding: 0px;
+  } */
+
   .secPublishBox {
-    height: 180px;
+    height: 98%;
     width: 98%;
     border-radius: 20px;
-    margin-left: 9px;
+    margin-left: 0px;
     background-color: #ffffff;
     border: #1d8c6c 1px solid;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 0px 10px 0px;
+    padding: 25px 0px 0px 0px;
   }
 
   .boxText {
-    height: 140px;
+    height: 110px;
     width: 90%;
     border-radius: 20px;
-    *margin-left: 7px;
     resize: none;
     overflow: auto;
     box-sizing: border-box;
-    border: 2px solid #d1cad6;
+    border: 1.5px solid #d1cad6;
     outline-style: none;
-    padding-bottom: 10px;
+    padding: 15px;
+    font-family: "Roboto", sans-serif;
+  }
+  .errorPublish {
+    font-size: 14px;
+    color: red;
+    font-weight: bold;
+    padding: 0px;
+    padding: 5px;
+    margin-top: 0px;
   }
 
   .secBtnBoxText {
@@ -638,16 +769,13 @@ header {
     margin: 0px;
   }
 
-
   .boxText::placeholder {
     color: #444444bb;
+    font-size: 15px;
     font-weight: lighter;
-    letter-spacing: 0.5px;
-    *padding: 20px;
-    margin-top:20px ;
-    font-size: 14px;
+    *letter-spacing: 0.5px;
     font-family: "Roboto", sans-serif;
-    
+    padding-top: 5px;
   }
 
   .inputShare {
@@ -676,12 +804,223 @@ header {
     padding: 0px;
     margin: 0px;
     z-index: 1;
+    cursor: pointer;
   }
-  #file_input {
+
+  #fileImg {
     position: absolute;
     cursor: pointer;
     opacity: 0;
+    z-index: 1;
+  }
+  #iconFile {
+    position: relative;
     z-index: 0;
+  }
+  .secHomePost {
+    display: flex;
+    flex-direction: column;
+    padding-left: 7px;
+    justify-content: center;
+  }
+  .newPost {
+    height: 98%;
+    width: 98%;
+    border-radius: 10px;
+    margin-left: 3px;
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    display: flex;
+    flex-direction: column;
+    border: none;
+  }
+  .secHeadPost {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(#bfaf80, #ffffff);
+    border-radius: 10px;
+  }
+  .secInfoUserPost {
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+  }
+  .secDescriptionPost {
+    *align-content: center;
+    text-align: center;
+  }
+  .secDescriptionPost p {
+    margin: 0px;
+    padding: 0px 30px 10px 30px;
+    text-align: left;
+  }
+  .nameAndDatePost {
+    margin-left: 20px;
+  }
+  .imgUserPost {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    padding-left: 5px;
+  }
+  .userNamePost {
+    font-size: 20px;
+    margin: 0px;
+  }
+  .datePost {
+    margin: 0px;
+    font-size: 12px;
+    padding-top: 2px;
+  }
+  .imgUserPostComment {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    padding-top: 3px;
+    padding-right: 10px;
+  }
+  .secMainPost {
+    background-color: white;
+    border-color: #bfaf80;
+  }
+  .createComment {
+    padding: 5px 10px 5px 20px;
+    background: linear-gradient(#ffffff, #bfaf80);
+    display: flex;
+    flex-direction: row;
+  }
+  .textComment {
+    width: 85%;
+    height: 25px;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    border: #1d8c6c 0.8px solid;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+  }
+  .textComment::placeholder {
+    padding: 0px;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+  }
+  .secInteractionPost {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    background: linear-gradient(#ffffff, #ccc1a0);
+  }
+  .iconPost {
+    padding-left: 10px;
+    padding-top: 10px;
+    cursor: pointer;
+  }
+  .postImg {
+    width: 80%;
+    height: 80%;
+  }
+  .fas fa-heart,
+  .far fa-heart {
+    height: 10px;
+    width: 10px;
+  }
+  .iconColor {
+    color: #55a603;
+  }
+  #iconLike {
+    display: flex;
+    flex-direction: row;
+  }
+  #iconLike p {
+    font-size: 13px;
+    color: #000000;
+  }
+
+  .secProfileImg {
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    padding: 30px 30px 20px 30px;
+  }
+  .profileImg {
+    width: 140px;
+    height: 140px;
+    margin-right: 35px;
+    border-radius: 50%;
+  }
+  .nameUser2 {
+    padding-top: 8px;
+    margin: 0px;
+    font-weight: bold;
+  }
+  .formProfile {
+    text-align: center;
+    *padding-top: 10px;
+  }
+  .formProfile h2 {
+    font-size: 18px;
+  }
+  .buttonSave {
+    padding: 15px;
+    text-align: center;
+  }
+  #inputSave {
+    padding-bottom: 10px;
+    color: #ffffff;
+    background: #55a603;
+    border-color: #55a603;
+    border-radius: 20px;
+    border: none;
+    width: 140px;
+    height: 40px;
+    cursor: pointer;
+    vertical-align: bottom;
+    padding-top: 7px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
+  /***********************/
+  .modalMenu {
+    margin: 0px;
+    padding: 0px 5px 0px 5px;
+  }
+  .modalMenu li {
+    padding: 0px 10px 0px 10px;
+  }
+  .secUserSelec {
+    margin: 0px;
+  }
+  .saveIcon {
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+  .publishedText:focus {
+    padding-top: 6px;
+    margin: 0px 15px 0px 15px;
+    outline-color: #55a603;
+    border-radius: 10px;
+  }
+  .pDeleteMenu {
+    margin: 0px;
+    padding-bottom: 3px;
+  }
+  .deleteMenu {
+    margin: 0px;
+    padding: 0px 0px 0px 0px;
+  }
+  .deleteMenu li {
+    padding: 0px 15px 0px 15px;
+  }
+  #idYes i,
+  #idNo i {
+    padding: 0px 3px 0px 3px;
   }
 }
 
@@ -692,40 +1031,56 @@ header {
   }
   .secViewDesktop .secCover > img {
     display: block;
+    /*muestra img*/
   }
-  .secHome {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 5%;
-    padding: 3rem 2rem;
-    position: absolute;
-    justify-content: center;
-  }
+
   .logoText {
-    font-family: "Ribeye", cursive;
-    text-decoration: none;
-    color: #ffffff;
     font-size: 30px;
     padding-left: 20px;
     padding-top: 5px;
     padding-bottom: 10px;
-    display: flex;
-    justify-content: center;
   }
 
   .navbar a {
-    float: left;
     color: white;
     padding-top: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
     text-decoration: none;
     font-size: 17px;
   }
 
-  .navbar a:hover {
-    background-color: #834813;
+  .secHome {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3%;
+    padding: 15px 50px 15px 30px;
   }
+
+  .secUserInfo {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    *margin-left: 9px;
+    *padding: 10px;
+  }
+
+  .secTextInfo {
+    font-size: 18px;
+  }
+  .nameUser {
+    padding-top: 20px;
+  }
+
+  .nameUser,
+  .nameUser1 {
+    padding-bottom: 0px;
+    margin-top: 7px;
+    *font-weight: bold;
+    margin-bottom: 0px;
+    margin-right: 10px;
+  }
+
   .imgProfile {
     width: 200px;
     height: 200px;
@@ -733,11 +1088,18 @@ header {
     *border-radius: 50%;
     cursor: pointer;
   }
+  .secHomePublish {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+    padding-right: 2px;
+  }
+
   .secPublishBox {
     height: 180px;
-    width: 98%;
+    width: 100%;
     border-radius: 20px;
-    margin-left: 3px;
+    *margin-left: 3px;
     background-color: #ffffff;
     border: #1d8c6c 1px solid;
     display: flex;
@@ -750,14 +1112,22 @@ header {
     height: 140px;
     width: 90%;
     border-radius: 20px;
-    *margin-left: 7px;
     resize: none;
     overflow: auto;
     box-sizing: border-box;
     border: 2px solid #d1cad6;
     outline-style: none;
-    padding-bottom: 10px;
-    font-family:  "Roboto", sans-serif;
+    padding: 15px;
+    font-family: "Roboto", sans-serif;
+    font-size: 17px;
+  }
+  .errorPublish {
+    font-size: 13px;
+    color: red;
+    font-weight: bold;
+    padding: 0px;
+    padding: 5px;
+    margin-top: 0px;
   }
 
   .secBtnBoxText {
@@ -766,12 +1136,13 @@ header {
     margin: 0px;
   }
 
-  .boxText::-webkit-input-placeholder {
+  .boxText::placeholder {
     color: #444444bb;
     font-size: 16px;
     font-weight: lighter;
     letter-spacing: 0.5px;
     font-family: "Roboto", sans-serif;
+    padding-top: 5px;
   }
 
   .inputShare {
@@ -801,11 +1172,222 @@ header {
     margin: 0px;
     position: absolute;
     z-index: 1;
+    cursor: pointer;
   }
-  #file_input {
+  #fileImg {
+    position: absolute;
     cursor: pointer;
     opacity: 0;
+    z-index: 1;
+  }
+  #iconFile {
+    position: relative;
     z-index: 0;
   }
- 
+  .secHomePost {
+    display: flex;
+    flex-flow: row wrap;
+    /*alinear por filas*/
+    justify-content: center;
+  }
+  .newPost {
+    height: 45%;
+    width: 45%;
+    border-radius: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    display: flex;
+    flex-direction: column;
+    border: none;
+  }
+  .secHeadPost {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(#bfaf80, #ffffff);
+    border-radius: 10px;
+  }
+  .secInfoUserPost {
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+  }
+  .secDescriptionPost {
+    *align-content: center;
+    text-align: center;
+  }
+  .secDescriptionPost p {
+    margin: 0px;
+    padding: 0px 30px 10px 30px;
+    text-align: left;
+  }
+  .nameAndDatePost {
+    margin-left: 20px;
+  }
+  .imgUserPost {
+    width: 55px;
+    height: 55px;
+    border-radius: 55px;
+    padding-left: 5px;
+  }
+  .userNamePost {
+    font-size: 20px;
+    margin: 0px;
+  }
+  .datePost {
+    margin: 0px;
+    font-size: 14px;
+    padding-top: 2px;
+  }
+  .imgUserPostComment {
+    width: 33px;
+    height: 33px;
+    border-radius: 33px;
+    padding-top: 3px;
+    padding-right: 10px;
+  }
+  .secMainPost {
+    background-color: white;
+    border-color: #bfaf80;
+  }
+  .createComment {
+    padding: 5px 10px 5px 20px;
+    background: linear-gradient(#ffffff, #bfaf80);
+    display: flex;
+    flex-direction: row;
+  }
+  .textComment {
+    width: 75%;
+    height: 22px;
+    border-radius: 10px;
+    padding-top: 6px;
+    padding-left: 15px;
+    border: #1d8c6c 0.8px solid;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+  }
+  .textComment::placeholder {
+    padding: 0px;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+  }
+  .secInteractionPost {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    background: linear-gradient(#ffffff, #ccc1a0);
+  }
+  .iconPost {
+    padding-left: 10px;
+    padding-top: 10px;
+    cursor: pointer;
+  }
+  .postImg {
+    width: 80%;
+    height: 80%;
+  }
+  .fas fa-heart,
+  .far fa-heart {
+    height: 13px;
+    width: 13px;
+  }
+  .iconColor {
+    color: #55a603;
+  }
+  #iconLike {
+    display: flex;
+    flex-direction: row;
+  }
+  #iconLike p {
+    font-size: 14px;
+    color: #000000;
+  }
+
+  .secProfileImg {
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    padding: 30px 30px 20px 30px;
+  }
+  .profileImg {
+    width: 140px;
+    height: 140px;
+    margin-right: 35px;
+    border-radius: 50%;
+  }
+  .nameUser2 {
+    padding-top: 8px;
+    margin: 0px;
+    font-weight: bold;
+  }
+  .formProfile {
+    text-align: center;
+    *padding-top: 10px;
+  }
+  .formProfile h2 {
+    font-size: 18px;
+  }
+  .buttonSave {
+    padding: 15px;
+    text-align: center;
+  }
+  #inputSave {
+    padding-bottom: 10px;
+    color: #ffffff;
+    background: #55a603;
+    border-color: #55a603;
+    border-radius: 20px;
+    border: none;
+    width: 140px;
+    height: 40px;
+    cursor: pointer;
+    vertical-align: bottom;
+    padding-top: 7px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
+  /***************************/
+  .modalMenu {
+    margin: 0px;
+    padding: 0px 5px 0px 5px;
+  }
+  .modalMenu li {
+    padding: 0px 10px 0px 10px;
+  }
+  .secUserSelec {
+    margin: 0px;
+  }
+  .saveIcon {
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+  .publishedText:focus {
+    padding-top: 6px;
+    margin: 0px 15px 0px 15px;
+    outline-color: #55a603;
+    border-radius: 10px;
+  }
+  .pDeleteMenu {
+    margin: 0px;
+    padding-bottom: 3px;
+  }
+  .deleteMenu {
+    margin: 0px;
+    padding: 0px 0px 0px 0px;
+  }
+  .deleteMenu li {
+    padding: 0px 15px 0px 15px;
+  }
+  #idYes i,
+  #idNo i {
+    padding: 0px 3px 0px 3px;
+  }
 }

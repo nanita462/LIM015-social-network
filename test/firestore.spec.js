@@ -66,8 +66,8 @@ describe('Function updateLike', () => {
   test('It should update likes', () => updateLike('post002', 1)
     .then(() => readAllPosts(
       (data) => {
-        const result = data.find((post) => post.countLikes === 1);
-        expect(result.countLikes).toBe(1);
+        const result = data.find((post) => post.counterLikes === 1);
+        expect(result.counterLikes).toBe(1);
         // done();
       },
     )));
