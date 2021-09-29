@@ -63,26 +63,26 @@ export const updatePost = (idpost, valueEdited) => firebase.firestore().collecti
 
 export const deletePost = (id) => firebase.firestore().collection('posts').doc(id).delete();
 
-// export const createComments = (idpost, photoComment, nameComment, idCommentUser, comment) => firebase.firestore().collection('comments').add({
-//   idpost,
-//   photoComment,
-//   nameComment,
-//   idCommentUser,
-//   comment,
-//   date: datePublishPost(),
-//   orderDate: orderDate(),
-// });
+export const createComments = (idpost, photoComment, nameComment, idCommentUser, comment) => firebase.firestore().collection('comments').add({
+  idpost,
+  photoComment,
+  nameComment,
+  idCommentUser,
+  comment,
+  date: datePublishPost(),
+  orderDate: orderDate(),
+});
 
 // // Leer comentarios
-// export const readAllComments = (cb) => firebase.firestore().collection('comments')
-//   .orderBy('orderDate', 'desc')
-//   .onSnapshot((querySnapshot) => {
-//     const comment = querySnapshot.docs.map((doc) => ({
-//       idComment: doc.id,
-//       ...doc.data(),
-//     }));
-//     // console.log(comment);// array de TODOS los coments ingresados
-//     cb(comment);
-//   });
+export const readAllComments = (cb) => firebase.firestore().collection('comments')
+  .orderBy('orderDate', 'desc')
+  .onSnapshot((querySnapshot) => {
+    const comment = querySnapshot.docs.map((doc) => ({
+      idComment: doc.id,
+      ...doc.data(),
+    }));
+    // console.log(comment);// array de TODOS los coments ingresados
+    cb(comment);
+  });
 
-// export const deleteComments = (idcomment) => firebase.firestore().collection('comments').doc(idcomment).delete();
+export const deleteComments = (idcomment) => firebase.firestore().collection('comments').doc(idcomment).delete();
