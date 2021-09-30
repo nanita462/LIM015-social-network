@@ -29,25 +29,10 @@ export const userInfo = () => {
       id: user.uid,
       photo: user.photoURL !== null ? user.photoURL : './img/avatar.png',
     };
-  }
-  return data;
-};
+   }
+   return data;
+   };
 
 // Se llama cuando un usuario se loguea o desloguea
 // Extrae información de usuario luego de ingresar a home
 export const authStateChanged = (cb) => firebase.auth().onAuthStateChanged(cb);
-
-// ****Do new user, receives id and info
-// export const createUser = (id, info) => {
-//     return firebase.firestore()
-//         .collection('users').doc(id).set({
-//             id,
-//             info,
-//         });
-// };
-
-// Registrar cuenta con Facebook
-// export const signInWithFb = () => {
-//     const provider = new firebase.auth.FacebookAuthProvider();
-//     return firebase.auth().signInWithPopup(provider);
-// };

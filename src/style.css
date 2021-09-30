@@ -499,7 +499,6 @@ header {
     text-align: center;
   }
   .secDescriptionPost p {
-    margin: 0px;
     padding: 0px 30px 10px 30px;
     text-align: left;
   }
@@ -530,11 +529,64 @@ header {
     background-color: white;
     border-color: #bfaf80;
   }
+  /*Aqui ultimos cambios*/
   .createComment {
     padding: 5px 10px 5px 20px;
     background: linear-gradient(#ffffff, #bfaf80);
     display: flex;
     flex-direction: row;
+
+  }
+  .sendCommentForm{
+    padding-top: 8px;
+    padding-left: 10px;
+    cursor: pointer;
+  }
+  .newComment{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(#c7cac9, #ffffff);
+    margin-top: 5px;
+  }
+  /*modificado 12:36*/
+  .userReadComment{
+    padding: 10px  10px 0px 10px;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    
+  }
+  /*modificado 15:36*/
+  .userName{
+    margin: 0px;
+    padding: 0px 10px 0px 10px;
+    font-size: 16px;
+    
+  }
+  /*modificado 15:36*/
+  .userReadComment >span{
+    font-size: 12px;
+    margin: 0px;
+    padding-left: 60px;
+    
+    }
+  .readCommentp{
+    margin: 5px 0px 0px 0px;
+    padding: 2px 15px 3px 15px;
+    font-family: "Roboto", sans-serif;
+    font-size:15px;
+  }
+  .deleteComment{
+    display: flex;
+    justify-content: right;
+    padding: 0px 15px 10px 0px;
+    font-size: 12px;
+    cursor: pointer;
+
+  }
+  .fa-trash-alt{
+    padding: 0px 2px 0px 0px;
+    cursor: pointer;
   }
   .textComment {
     width: 75%;
@@ -651,6 +703,7 @@ header {
   .saveIcon {
     padding-bottom: 5px;
     padding-top: 5px;
+    cursor: pointer;
   }
   .publishedText:focus {
     padding-top: 6px;
@@ -673,6 +726,14 @@ header {
   #idNo i {
     padding: 0px 3px 0px 3px;
   }
+  /*cambios 12:38*/
+  .imageCircle{
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    
+  }
+ 
 }
 
 /*** VISTA Ipad ***/
@@ -885,12 +946,7 @@ header {
     background-color: white;
     border-color: #bfaf80;
   }
-  .createComment {
-    padding: 5px 10px 5px 20px;
-    background: linear-gradient(#ffffff, #bfaf80);
-    display: flex;
-    flex-direction: row;
-  }
+ 
   .textComment {
     width: 85%;
     height: 25px;
@@ -1000,6 +1056,7 @@ header {
   .saveIcon {
     padding-bottom: 5px;
     padding-top: 5px;
+    cursor: pointer;
   }
   .publishedText:focus {
     padding-top: 6px;
@@ -1021,6 +1078,70 @@ header {
   #idYes i,
   #idNo i {
     padding: 0px 3px 0px 3px;
+  }
+  /*--------Aqui estilo comentarios---------*/
+  .createComment {
+    padding: 5px 10px 5px 20px;
+    background: linear-gradient(#ffffff, #bfaf80);
+    display: flex;
+    flex-direction: row;
+  }
+  .sendCommentForm{
+    padding-top: 8px;
+    padding-left: 10px;
+    cursor: pointer;
+  }
+  .newComment{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(#c7cac9, #ffffff);
+    margin-top: 5px;
+  }
+  /*modificado 12:36*/
+  .userReadComment{
+    padding: 10px  10px 0px 10px;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    
+  }
+  /*modificado 15:36*/
+  .userName{
+    margin: 0px;
+    padding: 0px 10px 0px 10px;
+    font-size: 16px;
+    
+  }
+  /*modificado 15:36*/
+  .userReadComment >span{
+    font-size: 12px;
+    margin: 0px;
+    padding-left: 390px;
+    
+    }
+  .readCommentp{
+    margin: 10px 0px 0px 0px;
+    padding: 2px 15px 3px 15px;
+    font-family: "Roboto", sans-serif;
+    font-size:15px;
+  }
+  .deleteComment{
+    display: flex;
+    justify-content: right;
+    padding: 0px 15px 10px 0px;
+    font-size: 12px;
+    cursor: pointer;
+
+  }
+  .fa-trash-alt{
+    padding: 0px 2px 0px 0px;
+    cursor: pointer;
+  }
+  .imageCircle{
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    
   }
 }
 
@@ -1260,7 +1381,7 @@ header {
     flex-direction: row;
   }
   .textComment {
-    width: 75%;
+    width: 84%;
     height: 22px;
     border-radius: 10px;
     padding-top: 6px;
@@ -1368,6 +1489,7 @@ header {
   .saveIcon {
     padding-bottom: 5px;
     padding-top: 5px;
+    cursor: pointer;
   }
   .publishedText:focus {
     padding-top: 6px;
@@ -1389,5 +1511,64 @@ header {
   #idYes i,
   #idNo i {
     padding: 0px 3px 0px 3px;
+  }
+  /*------------Estilos Comentarios-------*/
+
+  .sendCommentForm{
+    padding-top: 8px;
+    padding-left: 10px;
+    cursor: pointer;
+  }
+  .newComment{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(#c7cac9, #ffffff);
+    margin-top: 5px;
+  }
+  /*modificado 12:36*/
+  .userReadComment{
+    padding: 10px  10px 0px 10px;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    
+  }
+  /*modificado 15:36*/
+  .userName{
+    margin: 0px;
+    padding: 0px 10px 0px 10px;
+    font-size: 16px;
+    
+  }
+  /*modificado 15:36*/
+  .userReadComment >span{
+    font-size: 12px;
+    margin: 0px;
+    padding-left: 385px;
+    
+    }
+  .readCommentp{
+    margin: 10px 0px 0px 0px;
+    padding: 2px 15px 3px 15px;
+    font-family: "Roboto", sans-serif;
+    font-size:15px;
+  }
+  .deleteComment{
+    display: flex;
+    justify-content: right;
+    padding: 0px 15px 10px 0px;
+    font-size: 12px;
+    cursor: pointer;
+
+  }
+  .fa-trash-alt{
+    padding: 0px 2px 0px 0px;
+    cursor: pointer;
+  }
+  .imageCircle{
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    
   }
 }
