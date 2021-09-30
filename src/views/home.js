@@ -9,7 +9,10 @@ import {
   readAllPosts,
   updateLike,
   deletePost,
-  // updatePost,
+  updatePost,
+  createComments,
+  readAllComments,
+  deleteComments,
 } from '../firebase/firestore.js';
 
 import {
@@ -26,6 +29,7 @@ const logOut = (document) => {
   });
 };
 
+// Crear post
 const createPost = (document) => {
   const idButtonPublish = document.querySelector('#idButtonPublish');
   const idPublishBox = document.querySelector('#idPublishBox');
@@ -75,82 +79,136 @@ const createPost = (document) => {
   });
 };
 
-// EDITAR Y BORRAR POST
-// const postFunctions = (post, user) => {
-//   const menuPost = post.querySelector('.show'); // verificar
-//   const secUserSelect = post.querySelector('.secUserSelect'); // verificar
-//   const section = document.createElement('section');
-//   section.classList.add('hide');
-//   menuPost.addEventListener('click', (e) => {
-//     e.preventDefault();
+// EDITAR Y ELIMINAR
+const editAndDeletePost = (secElem, user) => {
+  const menuPost = secElem.querySelector('.show');
+  const secUserSelect = secElem.querySelector('.secUserSelect');
+  const section = document.createElement('section');
+  section.classList.add('hide');
+  menuPost.addEventListener('click', (e) => {
+    e.preventDefault();
 
-//     // Modal para editar/ elim post
-//     const modal = `<ul class="modalMenu">
-//           <li idpost="${user.idPost}" class="editPost">editar</li>
-//           <strong>|</strong>
-//           <li class="liDeletePost" >borrar</li>
-//           </ul>`;
-//     section.innerHTML = modal;
-//     secUserSelect.appendChild(section);
-//     section.classList.toggle('hide');
+    // Modal para editar/ elim post
+    const modal = `<ul class="modalMenu">
+          <li idpost="${user.idPost}" class="editPost">
+          <span class="iconify" data-icon="emojione-v1:lower-left-pencil"></span>Editar</li>
+          <strong>|</strong>
+          <li class="liDeletePost"><span class="iconify" data-icon="noto:wastebasket"></span>Borrar</li>
+          </ul>`;
+    section.innerHTML = modal;
+    secUserSelect.appendChild(section);
+    section.classList.toggle('hide');
 
-//     // eliminar post
-//     const deleteBtn = post.querySelector('.liDeletePost');
-//     deleteBtn.addEventListener('click', () => {
-//       const modalMenu = post.querySelector('.modalMenu');
-//       modalMenu.classList.add('hide');
-//       const newModal = `
-//             <ul class="deleteMenu">
-//             <p>Borrar post?</p>
-//             <section>
-//               <li id="idYes">Si</li>
-//               <strong>|</strong>
-//               <li id="idNo">No</li>
-//             </section>`;
-//       section.innerHTML = '';
-//       section.innerHTML = newModal;
-//       const idYes = post.querySelector('#idYes');
-//       const idNo = post.querySelector('#idNo');
-//       idYes.addEventListener('click', () => deletePost(user.idPost)
-//         .then((resp) => resp)
-//         .catch((err) => console.error(err)));
-//       idNo.addEventListener('click', () => section.classList.add('hide'));
-//     });
+    // eliminar post
+    const deleteBtn = secElem.querySelector('.liDeletePost');
+    deleteBtn.addEventListener('click', () => {
+      const modalMenu = secElem.querySelector('.modalMenu');
+      modalMenu.classList.add('hide');
+      const newModal = `
+              <p class="pDeleteMenu">¿Desea borrar el post?</p>
+              <ul class="deleteMenu">
+                <li id="idYes"><i class="fas fa-check"></i>Si</li>
+                <li id="idNo"><i class="fas fa-times"></i>No</li>
+              </ul>`;
+      section.innerHTML = '';
+      section.innerHTML = newModal;
+      const idYes = secElem.querySelector('#idYes');
+      const idNo = secElem.querySelector('#idNo');
+      idYes.addEventListener('click', () => deletePost(user.idPost)
+        .then((resp) => resp)
+        .catch((err) => console.error(err)));
+      idNo.addEventListener('click', () => {
+        section.classList.add('hide');
+      });
+    });
 
-//     // editar post
-//     const editPost = post.querySelector('.editPost');
-//     const saveIcon = post.querySelector('.saveIcon');
-//     editPost.addEventListener('click', () => {
-//       const publishedText = post.querySelector('.publishedText');
-//       publishedText.contentEditable = 'true'; // mét. para editar
-//       publishedText.focus();
-//       saveIcon.classList.remove('hide');
-//     });
-//     saveIcon.addEventListener('click', () => {
-//       const publishedText = post.querySelector('.publishedText');
-//       const idPosts = editPost.getAttribute('idpost');
-//       const textPostEdited = publishedText.innerText.trim();
-//       if (textPostEdited !== '') {
-//         publishedText.contentEditable = 'false';
-//         saveIcon.classList.add('hide');
-//         section.classList.toggle('hide');
-//         updatePost(idPosts, textPostEdited);
-//       }
-//     });
-//   });
-// };
-
-// PRUEBA************
-// Borrar post
-const deleteMyPost = (post, user) => {
-  const secUserSelect = post.querySelector('.secUserSelect'); // verificar
-  secUserSelect.addEventListener('click', () => {
-    // e.preventDefault();
-    deletePost(user.idPost)
-      .then((resp) => resp)
-      .catch((err) => console.error(err));
+    // editar post
+    const editPost = secElem.querySelector('.editPost');
+    const saveIcon = secElem.querySelector('.saveIcon');
+    editPost.addEventListener('click', () => {
+      saveIcon.style.display = 'block';
+      const publishedText = secElem.querySelector('.publishedText');
+      publishedText.contentEditable = 'true'; // mét. para editar
+      publishedText.focus();
+      saveIcon.classList.remove('hide');
+    });
+    saveIcon.addEventListener('click', () => {
+      const publishedText = secElem.querySelector('.publishedText');
+      const idPosts = editPost.getAttribute('idpost');
+      const textPostEdited = publishedText.innerText.trim();
+      if (textPostEdited !== '') {
+        publishedText.contentEditable = 'false';
+        saveIcon.classList.add('hide');
+        section.classList.toggle('hide');
+        updatePost(idPosts, textPostEdited);
+      }
+    });
   });
 };
+
+// CREANDO COMENTARIOS ************************
+const postComments = (post) => {
+  const errorComment = post.querySelector('.errorComment');
+  const sendCommentForm = post.querySelector('.sendCommentForm');
+  const idCommentPost = sendCommentForm.getAttribute('idCommentPost');
+  const imgUserPostComment = post.querySelector('.imgUserPostComment');
+  const photoCommentUser = imgUserPostComment.getAttribute('src');
+  const createComment = post.querySelector('.createComment');
+  const userNameAt = createComment.getAttribute('userName');
+  const userIdAt = createComment.getAttribute('userId');
+  sendCommentForm.addEventListener('click', (e) => {
+    e.preventDefault();
+    const descriptionComment = post.querySelector('#descriptionComment').value;
+    if (descriptionComment.charAt(0) === ' ' || descriptionComment === '') {
+      errorComment.textContent = 'Por favor escribir un comentario';
+    } else {
+      createComments(idCommentPost, photoCommentUser, userNameAt, userIdAt, descriptionComment);
+      createComment.reset();
+    }
+  });
+};
+
+// Publicar y editar/eliminar comentario
+const readPostComments = (post) => {
+  readAllComments((comments) => {
+    const newComment = post.querySelector('.newComment');
+    // const errorComment = post.querySelector('.errorComment');
+    newComment.innerHTML = '';
+    comments.forEach((element) => {
+      const sectionElemComment = document.createElement('section');
+      const sendCommentForm = post.querySelector('.sendCommentForm');
+      const idCommentPost = sendCommentForm.getAttribute('idCommentPost');
+      if (element.idpost === idCommentPost) {
+        sectionElemComment.classList.add('newComment');
+        sectionElemComment.innerHTML = `
+          <section class="readComment">
+            <section class="userReadComment">
+              <img class="imageCircle" alt="userimage" src="${element.photoComment}">
+              <h2 class="userName">${element.nameComment}</h2>
+              <span class="dateComment">${element.date}</span>
+           </section>
+           <p class="readCommentp">${element.comment}</p>
+          </section>
+            <section class="userSelectComment">
+                <span class="deleteComment"><i class="fas fa-trash-alt"></i> Borrar</span>
+            </section>
+          </section> `;
+        // const buttonMenuComment = sectionElemComment.querySelector('#buttonMenuComment');
+        const deleteComment = sectionElemComment.querySelector('.deleteComment');
+        deleteComment.addEventListener('click', () => {
+          // deleteComment.classList.toggle('show');
+          // deleteComment.addEventListener('click', () => {
+          //   console.log('holi');
+          deleteComments(element.idComment);
+          // });
+          // errorComment.classList.add('hidex');
+        });
+      }
+      newComment.appendChild(sectionElemComment);
+    });
+  });
+};
+
 // Funcion contar likes
 const countLikesPost = (secElement, elem, user) => {
   const startLike = secElement.querySelector('.fa-heart');
@@ -180,62 +238,51 @@ const postView = (elem, user) => {
         <p class="datePost">${elem.date}</p>
       </section>
     </section>
-
-    <!--VERIFICAR ***-->
-    <!-- <section class="secUserSelect" >
-        <button class="buttonMenu ${elem.id === user.id ? 'show' : 'hide'}"></button>
-        <i class="fas fa-ellipsis-h"></i>
-    </section> -->
-
   </section>
 
   <section class="secMainPost">
-    <section class="secDescriptionPost">
-      <section>
-        <p id="${elem.idPost}" class="publishedText">${elem.content}</p>
-        <span idSaveIcon="${elem.idPost}" class="saveIcon hide"></span>
+      <section class="secDescriptionPost">
+          <section>
+            <p id="${elem.idPost}" class="publishedText">${elem.content}</p>
+            <!-- ICONO GUARDAR POST EDIT ***-->
+            <span idSaveIcon="${elem.idPost}" class="saveIcon hide"><i class="fas fa-save"></i> Guardar</span>
+          </section>
+          ${elem.postImgUrl ? `<img  class="postImg" src=${elem.postImgUrl} alt="postImg">` : ''}
       </section>
-      ${elem.postImgUrl ? `<img  class="postImg" src=${elem.postImgUrl} alt="postImg">` : ''}
-    </section>
 
-    <!-- SECCION LIKES ***-->
-    
-  <section class="secInteractionPost">
-  <section id= "iconLike" class="iconPost">
-  <span class = "iconColor">
-  <i class="${elem.counterLikes.includes(user.id) ? 'fas' : 'far'} fa-heart"></i></span>
-  <p>${elem.counterLikes.length ? elem.counterLikes.length : ''} </p>
-  </section>
-    <section class="iconPost">
-    <span class="iconify" data-icon="emojione-v1:lower-left-pencil" data-width="18" data-height="18"></span>
-    </section>
+      <section class="secInteractionPost">
+          <!-- SECCION LIKES ***-->
+          <section id= "iconLike" class="iconPost">
+              <span class = "iconColor">
+              <i class="${elem.counterLikes.includes(user.id) ? 'fas' : 'far'} fa-heart"></i></span>
+              <p>${elem.counterLikes.length ? elem.counterLikes.length : ''} </p>
+          </section>
 
-    <!-- ICONO ELIMINAR -->
-    
-    <section class="iconPost secUserSelect" >
-        <span class="iconify" data-icon="noto:wastebasket"></span>
-    </section>
+          <section class="iconPost">
+              <span class="iconify" data-icon="ci:share" data-width="18" data-height="18"></span>
+          </section>
 
-    <!--<section class="iconPost">
-    <span class="iconify" data-icon="noto:wastebasket"></span>
-    </section>-->
+          <!--***SECCION EDIT/DELETE POST***-->
+          <section class="iconPost secUserSelect" >
+              <span class="iconMenuPost ${elem.id === user.id ? 'show' : 'hide'}">
+                  <i class="fas fa-ellipsis-v"></i>
+              </span>
+          </section>
 
-    <section class="iconPost">
-      <span class="iconify" data-icon="ci:share" data-width="18" data-height="18"></span>
-    </section>
-  </section>
+      </section>
 
     <form class="createComment hide" id="idFormCreateComment"
         idCommentPost1="${elem.idPost}" userId="${user.id}" userName="${user.name}" >
         <img class="imgUserPostComment" alt="userimage1" src="${user.photo}">
-        <textarea id="descriptionComment" class="textComment" placeholder="Dejame un comentario..."></textarea>
-        <i idCommentPost="${elem.idPost}"></i>
+        <textarea id="descriptionComment" class="textComment" cols="35"
+          placeholder="Dejame un comentario..."></textarea>
+        <i idCommentPost="${elem.idPost}" class="sendCommentForm fas fa-paper-plane"></i>
     </form>
 
-    <div class="errorComment error"></div>
-    <div class="comments-container hide "></div>
-  </section>
-      `;
+    <section class="errorComment error"></section>
+    <section class="newComment hidex "></section>
+
+  </section>`;
   return view;
 };
 
@@ -260,7 +307,6 @@ export const homeView = (user) => {
   </header>
 
   <section class="secHome">
-    
 
     <section class="secUserInfo">
 
@@ -270,9 +316,9 @@ export const homeView = (user) => {
 
       <section class="secTextInfo">
         <h2 class="nameUser">${user.name}</h2>
-        <p class="nameUser1">999 876 543</p>
-        <p class="nameUser1">Botellas de plástico, papel reciclado.</p>
-        <p class="nameUser1">Lima</p>
+        <p class="nameUser1">Celular: 999 876 543</p>
+        <p class="nameUser1">Producto: Botellas de plástico</p>
+        <p class="nameUser1">Ubicación: Lima</p>
       </section>
 
     </section>
@@ -281,7 +327,7 @@ export const homeView = (user) => {
 
       <form class="secPublishBox" id="idPublishBox">
 
-        <textarea class="boxText" name="" id="idPublishBoxText" 
+        <textarea class="boxText" name="" id="idPublishBoxText"
         placeholder="¿Qué quieres compartir?"></textarea>
         <!-- Mensaje de error -->
         <section class="errorPublish"></section>
@@ -303,8 +349,10 @@ export const homeView = (user) => {
 
       </form>
 
-      <section class="secHomePost"></section>
+    </section>
   </section>
+
+  <section class="secHomePost"></section>
 
   <!--<footer class="secFooter" id="idSecFooter">
   ©2021 Developed by <a href="https://github.com/nanita462" target="_blank">Ana Aguilera </a>
@@ -328,40 +376,14 @@ export const homeView = (user) => {
       secElem.innerHTML = postView(post, user);
 
       if (post.id === user.id) {
-        deleteMyPost(secElem, post);
+        editAndDeletePost(secElem, post);
       }
       countLikesPost(secElem, post, user);
-      // createPostComments(divElem);
-      // readComments(divElem, user);
+      postComments(secElem);
+      readPostComments(secElem);
       secHomePost.appendChild(secElem);
     });
   });
 
   return mainHome;
 };
-
-// POST
-/* <section class="secPost">
-      <section class="secPostName">
-        Aqui va nombre de quien publica
-      </section>
-      <section class="secPostDate">
-        Aqui va fecha de publicación
-      </section>
-
-      <section class="secPostImg">
-        Aqui va imagen posteada
-      </section>
-
-      <section class="secPostText">
-        Aqui va el texto de post
-      </section>
-
-      <section class="secBtnPost">
-        <button class="buttonShare" id="idButtonShare" type="button">Compartir</button>
-        <button class="buttonLike" id="idButtonImg" type="button">Me gusta</button>
-        <button class="buttonDelete" id="idButtonShare" type="button">Eliminar</button>
-        <!--<button class="buttonEdit" id="idButtonEdit" type="button">Editar</button>-->
-
-      </section>
-    </section> */

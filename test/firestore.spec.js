@@ -4,6 +4,11 @@ import {
   createNewPost,
   readAllPosts,
   updateLike,
+  updatePost,
+  deletePost,
+  createComments,
+  readAllComments,
+  deleteComments,
 } from '../src/firebase/firestore.js';
 
 const testData = {
@@ -32,19 +37,19 @@ const testData = {
         },
       },
     },
-    // comments: {
-    //   __doc__: {
-    //     comment001: {
-    //       comment: 'Qué bonita foto',
-    //       date: '17 may 2021 9:57 a. m',
-    //       idCommentUser: '002',
-    //       idpost: 'post002',
-    //       nameComment: 'Thais',
-    //       orderDate: '20210412192948',
-    //       photoComment: '../img/icon.jpg',
-    //     },
-    //   },
-    // },
+    comments: {
+      __doc__: {
+        comment001: {
+          idpost: 'post002',
+          photoComment: '../src/img/avatar.png',
+          nameComment: 'Fulanita2',
+          idCommentUser: '002',
+          comment: 'Yo estoy interesada, info por favor',
+          date: '30 sept 2021 5:21 p. m',
+          orderDate: '20210830172150',
+        },
+      },
+    },
   },
 };
 
@@ -69,6 +74,50 @@ describe('Function updateLike', () => {
         const result = data.find((post) => post.counterLikes === 1);
         expect(result.counterLikes).toBe(1);
         // done();
+      },
+    )));
+});
+describe('Function updatePost', () => {
+  // eslint-disable-next-line max-len
+  test('It should edit a post', () => updatePost('post001', 'tengo botellas para reciclar Editado')
+    .then(() => readAllPosts(
+      (data) => {
+        const result = data.find((post) => post.content === 'tengo botellas para reciclar Editado');
+        expect(result.content).toBe('tengo botellas para reciclar Editado');
+        // done();
+      },
+    )));
+});
+
+describe('Function deletePost', () => {
+  // eslint-disable-next-line max-len
+  test('It should delete a post', () => deletePost('001')
+    .then(() => readAllPosts(
+      (data) => {
+        const result = data.find((post) => post === '001');
+        expect(result).toBe(undefined);
+      },
+    )));
+});
+
+describe('Function createComments', () => {
+  // eslint-disable-next-line max-len
+  test('It should created a comment in a post', () => createComments('post002', '../src/img/avatar.png', 'Fulanita2', '002', 'Yo estoy interesada, info por favor')
+    .then(() => readAllComments(
+      (data) => {
+        const result = data.find((com) => com.comment === 'Yo estoy interesada, info por favor');
+        expect(result.comment).toBe('Yo estoy interesada, info por favor');
+      },
+    )));
+});
+
+describe('Function deleteComments', () => {
+  // eslint-disable-next-line max-len
+  test('It should delete a comment ', () => deleteComments('comment001')
+    .then(() => readAllComments(
+      (data) => {
+        const result = data.find((comment) => comment === 'comment001');
+        expect(result).toBe(undefined);
       },
     )));
 });

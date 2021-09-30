@@ -77,7 +77,36 @@ describe('Function userInfo', () => {
     userInfo(isId);
   });
 
-  it('Should not give user data if user logs out', () => {
-    expect(userInfo.id).toBe(undefined);
+  it('Should give user data without a photo if user logs in', () => {
+    const userMock = {
+      userInfo: {
+        id: '001',
+        displayName: 'fulanita',
+        photo: null,
+      },
+    };
+    userMock.currentUser = authStateChanged();
+    const isId = () => {
+      expect(userInfo.photo).toEqual('../src/img/avatar.png');
+    };
+    userInfo(isId);
   });
+  it('Should dont give user data', () => {
+    const userMock = {
+      userInfo: {
+        id: null,
+        displayName: null,
+        photo: null,
+      },
+    };
+    userMock.currentUser = authStateChanged();
+    const isId = () => {
+      expect(userInfo.photo).toEqual(null);
+    };
+    userInfo(isId);
+  });
+
+  // it('Should not give user data if user logs out', () => {
+  //   expect(userInfo.id).toBe(undefined);
+  // });
 });
