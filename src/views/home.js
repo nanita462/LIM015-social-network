@@ -1,8 +1,6 @@
 /* eslint-disable eol-last */
-import {
-  signOut,
-  userInfo,
-} from '../firebase/auth.js';
+import signOut from '../firebase/auth.js';
+import userInfo from '../firebase/authh.js';
 
 import {
   createNewPost,
@@ -34,6 +32,7 @@ const createPost = (document) => {
   const idButtonPublish = document.querySelector('#idButtonPublish');
   const idPublishBox = document.querySelector('#idPublishBox');
   const user = userInfo();
+  console.log(userInfo, 'function home');
 
   idButtonPublish.addEventListener('click', (e) => {
     e.preventDefault();
@@ -169,10 +168,10 @@ const postComments = (post) => {
 };
 
 // Publicar y editar/eliminar comentario
-const readPostComments = (post, user) => {
+const readPostComments = (post) => {
   readAllComments((comments) => {
     const newComment = post.querySelector('.newComment');
-    const errorComment = post.querySelector('.errorComment');
+    // const errorComment = post.querySelector('.errorComment');
     newComment.innerHTML = '';
     comments.forEach((element) => {
       const sectionElemComment = document.createElement('section');
@@ -182,29 +181,26 @@ const readPostComments = (post, user) => {
         sectionElemComment.classList.add('newComment');
         sectionElemComment.innerHTML = `
           <section class="readComment">
-            <section class="readComment">
-               <section>
-                <h2 class="userName">${element.nameComment}</h2>
-                <span>${element.date}</span>
-                <p class="readCommentp">${element.comment}</p>
-              </section>
-            </section>
+            <section class="userReadComment">
+              <img class="imageCircle" alt="userimage" src="${element.photoComment}">
+              <h2 class="userName">${element.nameComment}</h2>
+              <span class="dateComment">${element.date}</span>
+           </section>
+           <p class="readCommentp">${element.comment}</p>
+          </section>
             <section class="userSelectComment">
-              <button id="buttonMenuComment" class="buttonMenu ${element.idCommentUser === user.id ? 'show' : 'hidex'}">
-                <i class="fas fa-ellipsis-h"></i>
-              </button>
-              <span class="deleteComment hidex">Delete</span>
+                <span class="deleteComment"><i class="fas fa-trash-alt"></i> Borrar</span>
             </section>
           </section> `;
-        const buttonMenuComment = sectionElemComment.querySelector('#buttonMenuComment');
+        // const buttonMenuComment = sectionElemComment.querySelector('#buttonMenuComment');
         const deleteComment = sectionElemComment.querySelector('.deleteComment');
-        buttonMenuComment.addEventListener('click', () => {
-          deleteComment.classList.toggle('show');
-          deleteComment.addEventListener('click', () => {
-            console.log('holi');
-            deleteComments(element.idComment);
-          });
-          errorComment.classList.add('hidex');
+        deleteComment.addEventListener('click', () => {
+          // deleteComment.classList.toggle('show');
+          // deleteComment.addEventListener('click', () => {
+          //   console.log('holi');
+          deleteComments(element.idComment);
+          // });
+          // errorComment.classList.add('hidex');
         });
       }
       newComment.appendChild(sectionElemComment);
@@ -279,7 +275,7 @@ const postView = (elem, user) => {
         <img class="imgUserPostComment" alt="userimage1" src="${user.photo}">
         <textarea id="descriptionComment" class="textComment" cols="35"
           placeholder="Dejame un comentario..."></textarea>
-        <i idCommentPost="${elem.idPost}" class="sendCommentForm far fa-paper-plane"></i>
+        <i idCommentPost="${elem.idPost}" class="sendCommentForm fas fa-paper-plane"></i>
     </form>
 
     <section class="errorComment error"></section>
@@ -383,7 +379,7 @@ export const homeView = (user) => {
       }
       countLikesPost(secElem, post, user);
       postComments(secElem);
-      readPostComments(secElem, user);
+      readPostComments(secElem);
       secHomePost.appendChild(secElem);
     });
   });

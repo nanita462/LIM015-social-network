@@ -18,36 +18,3 @@ export const signOut = () => firebase.auth().signOut();
 // Logueo con Email y password
 // Acceso de usuarios existentes
 export const singInWEP = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
-
-// Obtener data del usuario que ingresa a la red social
-export const userInfo = () => {
-  const user = firebase.auth().currentUser;
-  let data = '';
-  if (user !== null) {
-    data = {
-      name: user.displayName,
-      id: user.uid,
-      photo: user.photoURL !== null ? user.photoURL : './img/avatar.png',
-    };
-  }
-  return data;
-};
-
-// Se llama cuando un usuario se loguea o desloguea
-// Extrae información de usuario luego de ingresar a home
-export const authStateChanged = (cb) => firebase.auth().onAuthStateChanged(cb);
-
-// ****Do new user, receives id and info
-// export const createUser = (id, info) => {
-//     return firebase.firestore()
-//         .collection('users').doc(id).set({
-//             id,
-//             info,
-//         });
-// };
-
-// Registrar cuenta con Facebook
-// export const signInWithFb = () => {
-//     const provider = new firebase.auth.FacebookAuthProvider();
-//     return firebase.auth().signInWithPopup(provider);
-// };
